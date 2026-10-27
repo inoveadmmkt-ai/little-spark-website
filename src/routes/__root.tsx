@@ -78,13 +78,38 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
 const schema = {
   "@context": "https://schema.org",
   "@type": ["ProfessionalService", "LocalBusiness"],
-  name: "Eleva Matriz Engenharia",
-  description: "Engenharia elétrica para empresas: projetos, laudos NR-10, SPDA, energia solar e manutenção.",
+  name: "Eleva Matriz Engenharia Elétrica",
+  legalName: "Eleva Matriz Engenharia",
+  description: "Engenharia elétrica B2B para empresas em todo o Paraná: projetos elétricos comerciais e industriais, laudos NR-10, SPDA, energia solar e manutenção preventiva.",
   url: SITE_URL,
   telephone: "+55-43-99819-8004",
   email: EMAIL,
-  areaServed: { "@type": "State", name: REGION },
-  sameAs: Object.values(SOCIAL),
+  priceRange: "$$",
+  currenciesAccepted: "BRL",
+  paymentAccepted: "Boleto, Pix, Transferência Bancária",
+  address: {
+    "@type": "PostalAddress",
+    addressRegion: "PR",
+    addressCountry: "BR",
+  },
+  areaServed: [
+    { "@type": "AdministrativeArea", name: "Paraná" },
+    { "@type": "City", name: "Londrina" },
+    { "@type": "City", name: "Maringá" },
+    { "@type": "City", name: "Curitiba" },
+  ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Serviços de Engenharia Elétrica B2B",
+    itemListElement: [
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Projetos Elétricos Comerciais e Industriais" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Laudo das Instalações Elétricas & NR-10" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "SPDA e Laudo de Para-Raios (AVCB)" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Energia Solar Fotovoltaica para Empresas" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Manutenção Preventiva & Eficiência Energética" } },
+    ],
+  },
+  sameAs: Object.values(SOCIAL).filter(Boolean),
 };
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
