@@ -20,7 +20,7 @@ function useSubmit(fn: (data: Record<string, unknown>) => Promise<unknown>) {
     e.preventDefault();
     const form = e.currentTarget;
     const fd = Object.fromEntries(new FormData(form)) as Record<string, unknown>;
-    fd.consent = fd.consent === "on";
+    fd["consent"] = fd["consent"] === "on";
     setState("sending");
     try {
       await fn(fd);
