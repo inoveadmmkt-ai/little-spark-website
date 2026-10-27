@@ -4,8 +4,9 @@ export const WHATSAPP_DISPLAY = "(43) 99819-8004";
 export const EMAIL = "contato@elevamatriz.com.br"; // [ajustar se houver e-mail diferente]
 export const REGION = "Paraná";
 export const CITY_BASE = "Londrina e região metropolitana"; // [ajustar cidade sede]
+export const INSTAGRAM_HANDLE = "@eleva.matriz";
 export const SOCIAL = {
-  instagram: "https://instagram.com/[usuario]",
+  instagram: "https://www.instagram.com/eleva.matriz/",
   facebook: "https://facebook.com/[pagina]",
   linkedin: "https://linkedin.com/company/[empresa]",
 };

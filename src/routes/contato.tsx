@@ -97,7 +97,7 @@ function Contato() {
                   rel="noopener"
                   className="btn btn-outline text-primary text-xs py-2 px-3.5"
                 >
-                  <Instagram className="h-4 w-4" aria-hidden /> Instagram
+                  <Instagram className="h-4 w-4 text-highlight" aria-hidden /> @eleva.matriz
                 </a>
                 <a
                   href={SOCIAL.linkedin}

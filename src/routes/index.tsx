@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Check, Handshake, MessageCircle, ShieldCheck, Zap, Award, FileDown, CheckCircle2, ChevronRight, HelpCircle } from "lucide-react";
+import { ArrowRight, Check, Handshake, MessageCircle, ShieldCheck, Zap, Award, FileDown, CheckCircle2, ChevronRight, HelpCircle, Instagram } from "lucide-react";
 import hero from "@/assets/hero.jpg";
 import { PROJECTS, SERVICES, FAQS, pageHead, waLink, REGION } from "@/lib/site";
 import { FinalCTA } from "@/components/site/Layout";
@@ -294,6 +294,33 @@ function Index() {
               </a>
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* SEÇÃO INSTAGRAM */}
+      <section className="container-site pt-16">
+        <div className="reveal flex flex-wrap items-center justify-between gap-6 rounded-3xl border border-border bg-gradient-to-r from-card via-background to-accent/30 p-8 shadow-sm md:p-10">
+          <div className="flex items-center gap-5">
+            <div className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-highlight/15 text-highlight">
+              <Instagram className="h-7 w-7" aria-hidden />
+            </div>
+            <div>
+              <span className="eyebrow text-xs">Bastidores & Engenharia</span>
+              <h3 className="text-xl font-bold text-foreground">Siga a Eleva Matriz no Instagram</h3>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Acompanhe vistorias técnicas, rotina de laudos e orientações práticas de segurança para empresas no perfil{" "}
+                <strong className="text-foreground">@eleva.matriz</strong>
+              </p>
+            </div>
+          </div>
+          <a
+            href="https://www.instagram.com/eleva.matriz/"
+            target="_blank"
+            rel="noopener"
+            className="btn btn-highlight text-sm"
+          >
+            <Instagram className="h-4 w-4" aria-hidden /> Seguir @eleva.matriz
+          </a>
         </div>
       </section>
 
