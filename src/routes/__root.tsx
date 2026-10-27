@@ -12,6 +12,8 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { Header, Footer, WhatsAppFloat, CookieBanner } from "@/components/site/Layout";
+import { EMAIL, REGION, SITE_URL, SOCIAL } from "@/lib/site";
 
 function NotFoundComponent() {
   return (
@@ -73,27 +75,34 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
   );
 }
 
+const schema = {
+  "@context": "https://schema.org",
+  "@type": ["ProfessionalService", "LocalBusiness"],
+  name: "Eleva Matriz Engenharia",
+  description: "Engenharia elétrica para empresas: projetos, laudos NR-10, SPDA, energia solar e manutenção.",
+  url: SITE_URL,
+  telephone: "+55-43-99819-8004",
+  email: EMAIL,
+  areaServed: { "@type": "State", name: REGION },
+  sameAs: Object.values(SOCIAL),
+};
+
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "author", content: "Eleva Matriz Engenharia" },
+      { name: "theme-color", content: "#1a1d6b" },
     ],
     links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" },
+      { rel: "stylesheet", href: appCss },
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
     ],
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(schema) }],
   }),
   shellComponent: RootShell,
   component: RootComponent,
@@ -103,7 +112,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <head>
         <HeadContent />
       </head>
@@ -120,8 +129,14 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <a href="#conteudo" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-card focus:p-3">Pular para o conteúdo</a>
+      <Header />
+      <main id="conteudo">
+        <Outlet />
+      </main>
+      <Footer />
+      <WhatsAppFloat />
+      <CookieBanner />
     </QueryClientProvider>
   );
 }
