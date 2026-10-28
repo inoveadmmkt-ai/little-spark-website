@@ -131,6 +131,77 @@ export const FAQS = [
     q: "Como funciona para pedir um orçamento?",
     a: "É muito simples: você nos chama no WhatsApp ou preenche o formulário informando a necessidade da sua empresa. Conversamos de forma rápida e transparente, sem complicação técnica.",
   },
+  {
+    q: "Os instrumentos de medição têm laudo de calibração?",
+    a: "Sim. Nossos terrômetros e câmeras termográficas possuem certificados de calibração vigentes e rastreáveis pela RBC/Inmetro, assegurando que o laudo tenha validade plena perante peritos e seguradoras.",
+  },
+  {
+    q: "O que é o Prontuário das Instalações Elétricas (PIE)?",
+    a: "É o conjunto obrigatório de documentos e laudos exigido pela NR-10 para empresas com potência instalada superior a 75 kW. Ajudamos a organizar ou atualizar todo o prontuário da sua empresa.",
+  },
+];
+
+export const PERSONAS = [
+  {
+    id: "industria",
+    title: "Indústrias & Metalmecânica",
+    target: "Diretores de Produção e Gerentes de Manutenção",
+    pain: "Desarmes no horário de pico, aquecimento em barramentos e medo de paradas de linha ou multas de NR-10.",
+    solution: "Laudos com termografia infravermelha, readequação de quadros de força e aumento de carga aprovado na Copel.",
+    benefit: "Operação contínua sem paradas de maquinário e 100% de conformidade com fiscalizações do trabalho.",
+  },
+  {
+    id: "comercio",
+    title: "Comércio, Varejo & Supermercados",
+    target: "Proprietários e Gestores Comerciais",
+    pain: "Contas de luz pesadas (ar condicionado e refrigeração) e exigências burocráticas para emissão de alvará.",
+    solution: "Projetos de energia solar fotovoltaica comercial, correção de energia reativa e laudos rápidos de conformidade.",
+    benefit: "Redução de até 90% na conta de luz e alvará municipal regularizado sem dor de cabeça.",
+  },
+  {
+    id: "logistica",
+    title: "Galpões, Silos & Logística",
+    target: "Gestores de Armazéns e Cooperativas",
+    pain: "Estruturas metálicas de grande porte expostas a raios, exigência do Corpo de Bombeiros (AVCB) e risco de bloqueio de seguro.",
+    solution: "Projeto, medição de aterramento e laudo de SPDA (para-raios) conforme NBR 5419 com instrumentos calibrados.",
+    benefit: "Liberação do AVCB dos Bombeiros e garantia de cobertura integral pelas seguradoras.",
+  },
+  {
+    id: "condominios",
+    title: "Condomínios & Edifícios Empresariais",
+    target: "Síndicos Profissionais e Administradores Prediais",
+    pain: "Responsabilidade civil por acidentes em áreas comuns, elevadores que queimam em temporais e descompasso elétrico.",
+    solution: "Vistorias periódicas de conformidade, aterramento e laudos técnicos com ART para tranquilidade do síndico.",
+    benefit: "Segurança jurídica documentada, proteção contra surtos e prestação de contas transparente aos condôminos.",
+  },
+];
+
+export const COMPARISON = [
+  {
+    criterion: "Linguagem e Comunicação",
+    traditional: "Termos técnicos inacessíveis que causam mais dúvidas do que soluções.",
+    eleva: "Linguagem clara, objetiva e próxima: qualquer gestor entende o que precisa ser feito.",
+  },
+  {
+    criterion: "Formato do Relatório / Laudo",
+    traditional: "Documentos de 80 páginas genéricos, sem priorização de riscos reais.",
+    eleva: "Parecer executivo direto: aponta com clareza o que é urgente para segurança e o que é melhoria.",
+  },
+  {
+    criterion: "Agilidade e Prazos",
+    traditional: "Semanas de espera para agendamento de vistoria e entrega morosa de relatórios.",
+    eleva: "Agilidade paranaense: visitas rápidas e laudos conclusivos com ART entregues em dias úteis.",
+  },
+  {
+    criterion: "Atendimento e Acesso",
+    traditional: "Intermediários, chamados lentos e dificuldade para falar com o engenheiro.",
+    eleva: "Contato direto com o engenheiro responsável pelo WhatsApp a qualquer momento.",
+  },
+  {
+    criterion: "Garantia Técnica & Legal",
+    traditional: "Nem sempre especificam calibração de instrumentos ou responsabilidade técnica.",
+    eleva: "Instrumentos com calibração RBC/Inmetro e ART registrada no CREA-PR em 100% dos trabalhos.",
+  },
 ];
 
 export function pageHead(path: string, title: string, description: string) {

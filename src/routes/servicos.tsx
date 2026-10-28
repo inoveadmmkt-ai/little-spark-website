@@ -40,6 +40,33 @@ function Servicos() {
             </a>
           ))}
         </div>
+
+        {/* GARANTIA TÉCNICA E VALIDADE JURÍDICA */}
+        <div className="mt-10 rounded-2xl border border-highlight/30 bg-accent/20 p-6">
+          <div className="grid gap-4 md:grid-cols-3">
+            <div className="flex items-start gap-3">
+              <ShieldCheck className="h-5 w-5 text-highlight shrink-0 mt-0.5" />
+              <div>
+                <p className="text-xs font-bold text-foreground">ART Obrigatória (CREA-PR)</p>
+                <p className="text-xs text-muted-foreground mt-0.5">Assinatura de Engenheiro Eletricista habilitado com valor legal.</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <CheckCircle2 className="h-5 w-5 text-highlight shrink-0 mt-0.5" />
+              <div>
+                <p className="text-xs font-bold text-foreground">Instrumentos Calibrados (RBC)</p>
+                <p className="text-xs text-muted-foreground mt-0.5">Terrômetro e Câmera Termográfica com calibração rastreável.</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <CheckCircle2 className="h-5 w-5 text-highlight shrink-0 mt-0.5" />
+              <div>
+                <p className="text-xs font-bold text-foreground">Aprovação Copel & Bombeiros</p>
+                <p className="text-xs text-muted-foreground mt-0.5">Laudos prontos para auditorias, AVCB e seguradoras.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* BLOCOS DETALHADOS DE SERVIÇOS */}

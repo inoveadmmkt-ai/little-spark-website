@@ -1,9 +1,29 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Check, Handshake, MessageCircle, ShieldCheck, Zap, Award, FileDown, CheckCircle2, ChevronRight, HelpCircle, Instagram } from "lucide-react";
+import {
+  ArrowRight,
+  Check,
+  Handshake,
+  MessageCircle,
+  ShieldCheck,
+  Zap,
+  Award,
+  FileDown,
+  CheckCircle2,
+  ChevronRight,
+  HelpCircle,
+  Instagram,
+  Factory,
+  Store,
+  Warehouse,
+  Building2,
+  XCircle,
+  Sparkles,
+} from "lucide-react";
 import hero from "@/assets/hero.jpg";
-import { PROJECTS, SERVICES, FAQS, pageHead, waLink, REGION } from "@/lib/site";
+import { PROJECTS, SERVICES, FAQS, PERSONAS, COMPARISON, pageHead, waLink, REGION } from "@/lib/site";
 import { FinalCTA } from "@/components/site/Layout";
 import { LeadForm } from "@/components/site/Forms";
+import { DiagnosticWidget } from "@/components/site/DiagnosticWidget";
 
 export const Route = createFileRoute("/")({
   head: () =>
@@ -110,6 +130,56 @@ function Index() {
         </div>
       </section>
 
+      {/* SOLUÇÕES POR SEGMENTO (PERSONAS) */}
+      <section className="py-20 bg-background" aria-labelledby="personas-titulo">
+        <div className="container-site">
+          <div className="text-center max-w-2xl mx-auto">
+            <p className="eyebrow">Para Quem é a Eleva Matriz</p>
+            <h2 id="personas-titulo" className="mt-3 text-3xl font-extrabold md:text-4xl text-foreground">
+              Soluções pensadas exatamente para o perfil da sua empresa
+            </h2>
+            <p className="mt-4 text-muted-foreground text-lg">
+              Entendemos a realidade de cada setor: desde o chão de fábrica até o comércio de rua, galpões e condomínios empresariais.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {PERSONAS.map((p, idx) => {
+              const Icon = idx === 0 ? Factory : idx === 1 ? Store : idx === 2 ? Warehouse : Building2;
+              return (
+                <div
+                  key={p.id}
+                  className="reveal flex flex-col justify-between rounded-3xl border border-border bg-card p-6 shadow-sm transition-all hover:border-highlight/40 hover:shadow-md"
+                >
+                  <div>
+                    <div className="grid h-12 w-12 place-items-center rounded-2xl bg-highlight/10 text-highlight mb-5">
+                      <Icon className="h-6 w-6" aria-hidden />
+                    </div>
+                    <span className="text-xs font-bold uppercase tracking-wider text-highlight">{p.target}</span>
+                    <h3 className="mt-2 text-xl font-bold text-foreground">{p.title}</h3>
+
+                    <div className="mt-4 space-y-3 text-xs leading-relaxed">
+                      <div className="rounded-xl bg-background border border-border p-3">
+                        <span className="font-bold text-muted-foreground block mb-0.5">Maior desafio:</span>
+                        <span className="text-foreground">{p.pain}</span>
+                      </div>
+                      <div className="rounded-xl bg-accent/30 border border-primary/10 p-3">
+                        <span className="font-bold text-primary block mb-0.5">Como resolvemos:</span>
+                        <span className="text-foreground">{p.solution}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-6 border-t border-border pt-4">
+                    <p className="text-xs font-semibold text-primary">✓ {p.benefit}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* SERVIÇOS EM DESTAQUE */}
       <section className="py-20" aria-labelledby="servicos-titulo">
         <div className="container-site">
@@ -184,6 +254,61 @@ function Index() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* COMPARATIVO: ENGENHARIA TRADICIONAL VS ELEVA MATRIZ */}
+      <section className="py-20 bg-background" aria-labelledby="comparativo-titulo">
+        <div className="container-site">
+          <div className="text-center max-w-2xl mx-auto">
+            <p className="eyebrow">Transparência & Método</p>
+            <h2 id="comparativo-titulo" className="mt-3 text-3xl font-extrabold md:text-4xl text-foreground">
+              Como a Eleva Matriz se diferencia do mercado tradicional
+            </h2>
+            <p className="mt-4 text-muted-foreground text-lg">
+              Eliminamos a burocracia e a complicação para você tomar decisões elétricas com total segurança.
+            </p>
+          </div>
+
+          <div className="mt-12 overflow-hidden rounded-3xl border border-border bg-card shadow-sm">
+            <div className="grid grid-cols-1 md:grid-cols-3 border-b border-border bg-muted/40 p-4 font-bold text-sm text-foreground">
+              <div>Critério de Avaliação</div>
+              <div className="hidden md:flex items-center gap-1.5 text-muted-foreground">
+                <XCircle className="h-4 w-4 text-destructive/70" /> Mercado Tradicional
+              </div>
+              <div className="hidden md:flex items-center gap-1.5 text-primary">
+                <CheckCircle2 className="h-4 w-4 text-highlight" /> Padrão Eleva Matriz
+              </div>
+            </div>
+
+            <div className="divide-y divide-border">
+              {COMPARISON.map((c) => (
+                <div key={c.criterion} className="grid grid-cols-1 md:grid-cols-3 p-5 md:p-6 gap-4 items-center">
+                  <div className="font-bold text-foreground text-sm md:text-base">
+                    {c.criterion}
+                  </div>
+                  <div className="rounded-xl bg-background border border-border p-3 text-xs md:text-sm text-muted-foreground md:border-0 md:bg-transparent md:p-0">
+                    <span className="md:hidden font-bold text-destructive block mb-1">Mercado Tradicional:</span>
+                    {c.traditional}
+                  </div>
+                  <div className="rounded-xl bg-accent/30 border border-primary/10 p-3 text-xs md:text-sm font-medium text-foreground md:border-0 md:bg-transparent md:p-0">
+                    <span className="md:hidden font-bold text-primary block mb-1">Eleva Matriz:</span>
+                    <span className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-highlight shrink-0 mt-0.5" />
+                      <span>{c.eleva}</span>
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AUTOAVALIAÇÃO INTERATIVA (DIAGNÓSTICO) */}
+      <section className="py-16 bg-card border-y border-border" aria-labelledby="diagnostico-titulo">
+        <div className="container-site max-w-4xl">
+          <DiagnosticWidget />
         </div>
       </section>
 
