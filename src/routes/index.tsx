@@ -20,7 +20,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import hero from "@/assets/hero.jpg";
-import { PROJECTS, SERVICES, FAQS, PERSONAS, COMPARISON, pageHead, waLink, REGION } from "@/lib/site";
+import { PROJECTS, SERVICES, FAQS, PERSONAS, COMPARISON, TEAM, pageHead, waLink, REGION } from "@/lib/site";
 import { FinalCTA } from "@/components/site/Layout";
 import { LeadForm } from "@/components/site/Forms";
 import { DiagnosticWidget } from "@/components/site/DiagnosticWidget";
@@ -93,7 +93,30 @@ function Index() {
             </Link>
           </div>
 
-          <div className="mt-10 grid grid-cols-2 gap-4 border-t border-border pt-6 sm:grid-cols-2">
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <Link to="/sobre" className="group flex items-center gap-3 rounded-full border border-border bg-card/60 p-1.5 pr-4 shadow-sm hover:border-highlight transition-all">
+              <div className="flex -space-x-2.5 overflow-hidden">
+                {TEAM.map((m) => (
+                  <img
+                    key={m.name}
+                    className="inline-block h-9 w-9 rounded-full ring-2 ring-background object-cover object-top"
+                    src={m.photo}
+                    alt={m.name}
+                  />
+                ))}
+              </div>
+              <div className="text-left text-xs">
+                <span className="font-bold text-foreground block group-hover:text-primary transition-colors">
+                  Equipe Técnica Própria
+                </span>
+                <span className="text-muted-foreground text-[11px]">
+                  Beatriz, Dani, David e Thiago
+                </span>
+              </div>
+            </Link>
+          </div>
+
+          <div className="mt-8 grid grid-cols-2 gap-4 border-t border-border pt-6 sm:grid-cols-2">
             <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
               <CheckCircle2 className="h-5 w-5 text-highlight shrink-0" />
               <span>Laudos válidos com ART</span>

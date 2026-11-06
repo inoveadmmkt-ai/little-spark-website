@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ShieldCheck, Users, Sparkles, Target, Award, ArrowRight } from "lucide-react";
-import { pageHead, REGION, waLink } from "@/lib/site";
+import { pageHead, REGION, waLink, TEAM } from "@/lib/site";
 import { FinalCTA } from "@/components/site/Layout";
 
 export const Route = createFileRoute("/sobre")({
@@ -36,24 +36,6 @@ const VALUES = [
   },
 ];
 
-const TEAM = [
-  {
-    role: "Direção Técnica & Engenharia",
-    name: "[Nome do Engenheiro(a) Responsável]",
-    bio: "Engenheiro(a) Eletricista com especialização em instalações industriais e conformidade NR-10. [CREA-PR: 000000/D].",
-  },
-  {
-    role: "Projetos & Eficiência Energética",
-    name: "[Nome do Projetista Técnico]",
-    bio: "Especialista em dimensionamento de cargas, diagramas unifilares e projetos de energia solar fotovoltaica para empresas.",
-  },
-  {
-    role: "Atendimento & Operações B2B",
-    name: "[Nome do Coordenador de Atendimento]",
-    bio: "Focado em assegurar agilidade nas visitas técnicas, cumprimento de cronogramas e comunicação transparente com o cliente.",
-  },
-];
-
 function Sobre() {
   return (
     <>
@@ -70,19 +52,29 @@ function Sobre() {
         <div className="mt-12 grid items-center gap-10 md:grid-cols-2">
           <div className="space-y-4 text-base text-muted-foreground leading-relaxed">
             <p>
-              A <strong>Eleva Matriz</strong> foi fundada [ano de fundação - 1 a 3 anos de mercado] após identificarmos uma dor recorrente em donos e gestores de empresas: a dificuldade em encontrar um parceiro de engenharia que explicasse laudos, projetos e normas elétricas sem complicações.
+              A <strong>Eleva Matriz</strong> foi fundada após identificarmos uma dor recorrente em donos e gestores de empresas: a dificuldade em encontrar um parceiro de engenharia que explicasse laudos, projetos e normas elétricas sem complicações.
             </p>
             <p>
               Muitas vezes, uma notificação de fiscalização da NR-10 ou a exigência de laudo do Corpo de Bombeiros (SPDA) chegavam como uma surpresa cheia de termos técnicos incompreensíveis. Decidimos transformar essa relação.
             </p>
             <p>
-              Com uma equipe ágil e dedicada de profissionais técnicos, atendemos empresas em todo o estado do <strong>{REGION}</strong>, combinando responsabilidade de quem assina ART com o acolhimento de quem cuida do patrimônio do cliente.
+              Com uma equipe ágil e dedicada formada por <strong>Beatriz, Dani, David e Thiago</strong>, atendemos empresas em todo o estado do <strong>{REGION}</strong>, combinando responsabilidade de quem assina ART com o acolhimento de quem cuida do patrimônio do cliente.
             </p>
           </div>
 
-          <div className="img-slot flex aspect-[4/3] flex-col items-center justify-center rounded-3xl border border-border p-6 text-center text-sm font-semibold text-muted-foreground shadow-md">
-            <span>[Foto da Equipe ou da Fundadora da Eleva Matriz]</span>
-            <span className="mt-2 text-xs font-normal text-muted-foreground/80">Espaço preparado para imagem institucional em ambiente de trabalho</span>
+          <div className="relative overflow-hidden rounded-3xl border border-border bg-card shadow-xl group">
+            <img
+              src="/team/beatriz.jpg"
+              alt="Equipe da Eleva Matriz Engenharia Elétrica no Paraná"
+              className="aspect-[4/3] w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+            />
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary/95 via-primary/50 to-transparent p-6 text-primary-foreground">
+              <span className="inline-block rounded-full bg-highlight/30 px-3 py-0.5 text-xs font-bold text-white backdrop-blur mb-1">
+                Equipe Eleva Matriz
+              </span>
+              <p className="text-lg font-bold">Atendimento humanizado e rigor técnico</p>
+              <p className="text-xs text-primary-foreground/80 mt-0.5">Beatriz, Dani, David e Thiago prontos para apoiar sua empresa</p>
+            </div>
           </div>
         </div>
       </section>
@@ -139,26 +131,31 @@ function Sobre() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {TEAM.map((member) => (
-            <article key={member.name} className="reveal rounded-2xl border border-border bg-card p-6 shadow-sm flex flex-col justify-between">
+            <article key={member.name} className="reveal group rounded-3xl border border-border bg-card p-5 shadow-sm hover:border-highlight/40 hover:shadow-lg transition-all flex flex-col justify-between">
               <div>
-                <div className="img-slot grid aspect-square place-items-center rounded-xl text-xs font-semibold text-muted-foreground mb-5 border border-border">
-                  <span>[Foto Profissional · {member.role}]</span>
+                <div className="overflow-hidden rounded-2xl border border-border mb-4 aspect-[4/5] bg-muted">
+                  <img
+                    src={member.photo}
+                    alt={`${member.name} - ${member.role} na Eleva Matriz`}
+                    className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
                 </div>
                 <span className="text-xs font-bold uppercase tracking-wider text-highlight">{member.role}</span>
-                <h3 className="mt-2 text-xl font-bold text-foreground">{member.name}</h3>
-                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{member.bio}</p>
+                <h3 className="mt-1.5 text-xl font-bold text-foreground">{member.name}</h3>
+                <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{member.bio}</p>
               </div>
 
-              <div className="mt-6 border-t border-border pt-4">
+              <div className="mt-5 border-t border-border pt-4">
                 <a
-                  href={waLink(`Olá! Gostaria de falar com a equipe técnica da Eleva Matriz.`)}
+                  href={waLink(`Olá! Gostaria de conversar com ${member.name} da equipe da Eleva Matriz.`)}
                   target="_blank"
                   rel="noopener"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:text-highlight"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:text-highlight transition-colors"
                 >
-                  Falar com especialista <ArrowRight className="h-3.5 w-3.5" />
+                  Falar com {member.name} <ArrowRight className="h-3.5 w-3.5" />
                 </a>
               </div>
             </article>
