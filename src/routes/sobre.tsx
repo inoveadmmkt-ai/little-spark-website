@@ -62,19 +62,23 @@ function Sobre() {
             </p>
           </div>
 
-          <div className="relative overflow-hidden rounded-3xl border border-border bg-card shadow-xl group">
-            <img
-              src="/team/equipe_eleva_matriz.jpg"
-              alt="Equipe da Eleva Matriz Engenharia Elétrica no Paraná: David, Beatriz, Dani e Thiago"
-              className="aspect-[4/3] w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-            />
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary/95 via-primary/50 to-transparent p-6 text-primary-foreground">
-              <span className="inline-block rounded-full bg-highlight/30 px-3 py-0.5 text-xs font-bold text-white backdrop-blur mb-1">
-                Equipe Eleva Matriz
-              </span>
-              <p className="text-lg font-bold">Atendimento humanizado e rigor técnico</p>
-              <p className="text-xs text-primary-foreground/80 mt-0.5">Beatriz, Dani, David e Thiago prontos para apoiar sua empresa</p>
-            </div>
+          <div className="grid grid-cols-2 gap-3.5 p-3.5 rounded-3xl border border-border bg-card/60 backdrop-blur shadow-xl">
+            {TEAM.map((m) => (
+              <div key={m.name} className="group relative overflow-hidden rounded-2xl border border-border/70 bg-background flex flex-col shadow-sm">
+                <div className="aspect-[4/5] w-full overflow-hidden bg-muted">
+                  <img
+                    src={m.photo}
+                    alt={`${m.name} - ${m.role} na Eleva Matriz`}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-2.5 text-center border-t border-border/60 bg-card">
+                  <p className="text-sm font-bold text-foreground">{m.name}</p>
+                  <p className="text-[11px] font-medium text-highlight mt-0.5 line-clamp-1">{m.role.split('&')[0].trim()}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -135,11 +139,11 @@ function Sobre() {
           {TEAM.map((member) => (
             <article key={member.name} className="reveal group rounded-3xl border border-border bg-card p-5 shadow-sm hover:border-highlight/40 hover:shadow-lg transition-all flex flex-col justify-between">
               <div>
-                <div className="overflow-hidden rounded-2xl border border-border/70 mb-4 aspect-[4/5] bg-gradient-to-b from-slate-50 via-slate-100 to-slate-200/80 dark:from-slate-800 dark:via-slate-850 dark:to-slate-900 flex items-end justify-center pt-2">
+                <div className="overflow-hidden rounded-2xl border border-border/70 mb-4 aspect-[4/5] bg-muted shadow-sm">
                   <img
                     src={member.photo}
                     alt={`${member.name} - ${member.role} na Eleva Matriz`}
-                    className="h-full w-full object-contain object-bottom transition-transform duration-500 group-hover:scale-105 select-none"
+                    className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
                 </div>
