@@ -77,6 +77,7 @@ export function Footer() {
           <ul className="mt-3 space-y-2 text-primary-foreground/75">
             {NAV.map((n) => <li key={n.to}><Link to={n.to} className="hover:text-highlight">{n.label}</Link></li>)}
             <li><Link to="/privacidade" className="hover:text-highlight">Política de privacidade</Link></li>
+            <li className="pt-2"><Link to="/admin" className="hover:text-highlight text-xs opacity-75 inline-flex items-center gap-1.5 border-t border-primary-foreground/10 pt-2"><span className="text-[10px]">🔒</span> Acesso da Equipe (ADM)</Link></li>
           </ul>
         </div>
         <div>

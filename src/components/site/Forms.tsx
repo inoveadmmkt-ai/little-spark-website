@@ -14,7 +14,25 @@ function Consent() {
   );
 }
 
-function useSubmit(fn: (data: Record<string, unknown>) => Promise<unknown>) {
+function backupSubmissionLocally(type: "lead" | "contact", data: Record<string, unknown>) {
+  if (typeof window === "undefined") return;
+  try {
+    const key = "eleva_submissions_backup";
+    const existing = JSON.parse(localStorage.getItem(key) || "[]");
+    const item = {
+      ...data,
+      id: `local_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`,
+      type,
+      created_at: new Date().toISOString(),
+    };
+    existing.unshift(item);
+    localStorage.setItem(key, JSON.stringify(existing.slice(0, 200)));
+  } catch (err) {
+    console.warn("Could not save local submission backup:", err);
+  }
+}
+
+function useSubmit(type: "lead" | "contact", fn: (data: Record<string, unknown>) => Promise<unknown>) {
   const [state, setState] = useState<"idle" | "sending" | "ok" | "error">("idle");
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -23,6 +41,7 @@ function useSubmit(fn: (data: Record<string, unknown>) => Promise<unknown>) {
     fd["consent"] = fd["consent"] === "on";
     setState("sending");
     try {
+      backupSubmissionLocally(type, fd);
       await fn(fd);
       form.reset();
       setState("ok");
@@ -38,9 +57,9 @@ const Label = ({ children, htmlFor }: { children: string; htmlFor: string }) => 
 );
 
 export function LeadForm() {
-  const { state, onSubmit } = useSubmit((data) => submitLead({ data }));
+  const { state, onSubmit } = useSubmit("lead", (data) => submitLead({ data }));
   if (state === "ok")
-    return <p role="status" className="rounded-xl bg-card p-6 font-semibold">Pronto! Enviaremos o material para o seu e-mail e WhatsApp em breve. [ajustar quando o material estiver disponível]</p>;
+    return <p role="status" className="rounded-xl bg-card p-6 font-semibold">Pronto! Enviaremos o material para o seu e-mail e WhatsApp em breve.</p>;
   return (
     <form onSubmit={onSubmit} className="grid gap-4">
       <div><Label htmlFor="l-name">Nome</Label><input id="l-name" name="name" required maxLength={100} className="field" autoComplete="name" /></div>
@@ -54,7 +73,7 @@ export function LeadForm() {
 }
 
 export function ContactForm() {
-  const { state, onSubmit } = useSubmit((data) => submitContact({ data }));
+  const { state, onSubmit } = useSubmit("contact", (data) => submitContact({ data }));
   if (state === "ok")
     return <p role="status" className="rounded-xl border bg-card p-6 font-semibold">Mensagem recebida! Vamos responder o quanto antes.</p>;
   return (
