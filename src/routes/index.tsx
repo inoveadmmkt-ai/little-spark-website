@@ -24,13 +24,19 @@ import { PROJECTS, SERVICES, FAQS, PERSONAS, COMPARISON, TEAM, pageHead, waLink,
 import { FinalCTA } from "@/components/site/Layout";
 import { LeadForm } from "@/components/site/Forms";
 import { DiagnosticWidget } from "@/components/site/DiagnosticWidget";
+import {
+  RoiInfrastructureSimulator,
+  TopologyExplorer,
+  ParanaCoverageMap,
+  ProcessFlow,
+} from "@/components/site/InteractiveFeatures";
 
 export const Route = createFileRoute("/")({
   head: () =>
     pageHead(
       "/",
-      "Engenharia Elétrica B2B no Paraná | Eleva Matriz",
-      "Projetos elétricos, laudos NR-10, SPDA e energia solar para empresas em todo o Paraná. Atendimento próximo, sem jargões e com engenheiro responsável."
+      "Eleva Matriz Engenharia | Infraestrutura de Redes e Engenharia Elétrica B2B",
+      "Cabeamento estruturado Cat6/6A, anéis de fibra óptica de até 50 Gb/s, Wi-Fi corporativo de alta densidade e engenharia elétrica com ART no CREA-PR."
     ),
   component: Index,
 });
@@ -38,23 +44,23 @@ export const Route = createFileRoute("/")({
 const WHY = [
   {
     Icon: ShieldCheck,
-    title: "Confiança",
-    text: "Engenheiro responsável em cada projeto, com documentação completa, responsabilidade técnica e emissão de ART registrada no CREA-PR.",
+    title: "Confiança & ART CREA-PR",
+    text: "Responsabilidade técnica registrada no CREA-PR em 100% dos projetos executados, assegurando conformidade jurídica perante bombeiros e seguradoras.",
   },
   {
     Icon: Handshake,
-    title: "Proximidade",
-    text: "Você fala diretamente com quem faz. Sem intermediários, sem robôs e com atendimento humanizado que entende a rotina da sua empresa.",
+    title: "Proximidade & Sem Jargão",
+    text: "Você fala diretamente com quem planeja e executa. Comunicação direta, sem rodeios ou termos técnicos incompreensíveis.",
   },
   {
     Icon: Award,
-    title: "Tradição",
-    text: "Compromisso ético com as normas técnicas da ABNT e concessionárias (Copel), garantindo instalações seguras e sem retrabalho.",
+    title: "Acervo de Alta Complexidade",
+    text: "Experiência comprovada em hospitais, redes bancárias com 40 agências, universidades federais e grandes indústrias metalmecânicas.",
   },
   {
     Icon: Zap,
-    title: "Energia",
-    text: "Agilidade no atendimento e cumprimento rigoroso de prazos para que as operações da sua empresa nunca fiquem paradas.",
+    title: "Instrumentação Calibrada",
+    text: "Certificação com analisadores de rede e terrômetros calibrados pela RBC/Inmetro, comprovando velocidade máxima nominal em cada ponto.",
   },
 ];
 
@@ -73,7 +79,7 @@ function Index() {
         <div className="reveal">
           <div className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-accent/40 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-accent-foreground">
             <span className="h-2 w-2 rounded-full bg-highlight animate-pulse" />
-            Engenharia Elétrica B2B · {REGION}
+            Engenharia & Redes B2B · {REGION}
           </div>
 
           <h1 className="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-foreground md:text-5xl lg:text-6xl">
@@ -110,7 +116,7 @@ function Index() {
                   Equipe Técnica Própria
                 </span>
                 <span className="text-muted-foreground text-[11px]">
-                  Beatriz, Dani, David e Thiago
+                  Beatriz, Danielli, David e Eng. Thiago
                 </span>
               </div>
             </Link>
@@ -119,11 +125,11 @@ function Index() {
           <div className="mt-8 grid grid-cols-2 gap-4 border-t border-border pt-6 sm:grid-cols-2">
             <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
               <CheckCircle2 className="h-5 w-5 text-highlight shrink-0" />
-              <span>Laudos válidos com ART</span>
+              <span>Projetos Válidos com ART</span>
             </div>
             <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
               <CheckCircle2 className="h-5 w-5 text-highlight shrink-0" />
-              <span>Aprovação na Copel</span>
+              <span>Certificação com Analisador</span>
             </div>
           </div>
         </div>
@@ -132,7 +138,7 @@ function Index() {
           <div className="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-primary/10 via-highlight/10 to-transparent blur-xl" />
           <img
             src={hero}
-            alt="Engenheiro eletricista da Eleva Matriz analisando projeto técnico em campo no Paraná"
+            alt="Equipe técnica da Eleva Matriz analisando infraestrutura de engenharia e cabeamento óptico no Paraná"
             width={1280}
             height={960}
             className="relative aspect-[4/3] w-full rounded-3xl object-cover shadow-2xl border border-border"
@@ -153,16 +159,21 @@ function Index() {
         </div>
       </section>
 
+      {/* NOVO: SIMULADOR INTERATIVO DE ROI & INFRAESTRUTURA */}
+      <section className="container-site py-16" aria-labelledby="simulador-titulo">
+        <RoiInfrastructureSimulator />
+      </section>
+
       {/* SOLUÇÕES POR SEGMENTO (PERSONAS) */}
       <section className="py-20 bg-background" aria-labelledby="personas-titulo">
         <div className="container-site">
           <div className="text-center max-w-2xl mx-auto">
             <p className="eyebrow">Para Quem é a Eleva Matriz</p>
             <h2 id="personas-titulo" className="mt-3 text-3xl font-extrabold md:text-4xl text-foreground">
-              Soluções pensadas exatamente para o perfil da sua empresa
+              Soluções integradas sob medida para o seu setor
             </h2>
             <p className="mt-4 text-muted-foreground text-lg">
-              Entendemos a realidade de cada setor: desde o chão de fábrica até o comércio de rua, galpões e condomínios empresariais.
+              Desde plantas industriais e cooperativas até hospitais e centros corporativos de alta demanda.
             </p>
           </div>
 
@@ -203,54 +214,79 @@ function Index() {
         </div>
       </section>
 
-      {/* SERVIÇOS EM DESTAQUE */}
+      {/* NOVO: TOPOLOGIA VISUAL & RAIO-X INTERATIVO */}
+      <section className="container-site py-10" aria-labelledby="topologia-titulo">
+        <TopologyExplorer />
+      </section>
+
+      {/* SERVIÇOS EM DESTAQUE COM VISUAL COMPACTO */}
       <section className="py-20" aria-labelledby="servicos-titulo">
         <div className="container-site">
-          <div className="max-w-2xl">
-            <p className="eyebrow">Soluções para sua empresa</p>
-            <h2 id="servicos-titulo" className="mt-3 text-3xl font-extrabold md:text-4xl text-foreground">
-              Serviços pensados para a segurança e economia do seu negócio
-            </h2>
-            <p className="mt-3 text-muted-foreground text-lg">
-              Sem enrolação nem termos complicados. Cada serviço é planejado para evitar riscos de fiscalização e perdas financeiras.
-            </p>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div className="max-w-2xl">
+              <p className="eyebrow">Especialidades Técnicas</p>
+              <h2 id="servicos-titulo" className="mt-3 text-3xl font-extrabold md:text-4xl text-foreground">
+                Serviços com precisão de engenharia e certificação
+              </h2>
+              <p className="mt-3 text-muted-foreground text-lg">
+                Conectividade ininterrupta, proteção patrimonial e conformidade legal em cada entrega.
+              </p>
+            </div>
+            <Link to="/servicos" className="btn btn-outline text-primary shrink-0">
+              Ver todos os serviços <ArrowRight className="h-4 w-4" aria-hidden />
+            </Link>
           </div>
 
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {SERVICES.map((s) => (
+            {SERVICES.slice(0, 6).map((s) => (
               <article
                 key={s.slug}
-                className="reveal group flex flex-col justify-between rounded-2xl border border-border bg-card p-8 transition-all hover:border-highlight/50 hover:shadow-xl hover:shadow-primary/5"
+                className="reveal group flex flex-col justify-between rounded-3xl border border-border bg-card p-7 transition-all hover:border-highlight/50 hover:shadow-xl hover:shadow-primary/5"
               >
                 <div>
-                  <span className="inline-block rounded-md bg-accent px-2.5 py-1 text-xs font-bold text-accent-foreground">
-                    {s.badge}
-                  </span>
-                  <h3 className="mt-4 text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                  <div className="flex items-center justify-between gap-2 mb-3">
+                    <span className="inline-block rounded-md bg-accent px-2.5 py-0.5 text-xs font-bold text-accent-foreground">
+                      {s.badge}
+                    </span>
+                    <span className="text-[11px] font-bold text-highlight">ART CREA-PR</span>
+                  </div>
+                  <h3 className="mt-2 text-xl font-bold text-foreground group-hover:text-primary transition-colors leading-snug">
                     {s.title}
                   </h3>
-                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{s.short}</p>
+                  <p className="mt-3 text-xs text-muted-foreground leading-relaxed">{s.short}</p>
                 </div>
 
-                <div className="mt-6 border-t border-border pt-4">
+                <div className="mt-6 border-t border-border pt-4 flex items-center justify-between">
                   <Link
                     to="/servicos"
                     hash={s.slug}
-                    className="inline-flex items-center gap-1.5 font-bold text-sm text-highlight group-hover:text-primary transition-colors"
+                    className="inline-flex items-center gap-1.5 font-bold text-xs text-highlight group-hover:text-primary transition-colors"
                   >
-                    Ver detalhes do serviço <ChevronRight className="h-4 w-4" aria-hidden />
+                    Ver detalhes <ChevronRight className="h-3.5 w-3.5" aria-hidden />
                   </Link>
+                  <a
+                    href={waLink(`Olá! Gostaria de um orçamento para ${s.title} para a minha empresa.`)}
+                    target="_blank"
+                    rel="noopener"
+                    className="text-xs font-bold text-muted-foreground hover:text-foreground inline-flex items-center gap-1"
+                  >
+                    <MessageCircle className="h-3.5 w-3.5" /> Orçar
+                  </a>
                 </div>
               </article>
             ))}
           </div>
-
-          <div className="mt-10 text-center">
-            <Link to="/servicos" className="btn btn-outline text-primary">
-              Ver todos os serviços e detalhes <ArrowRight className="h-4 w-4" aria-hidden />
-            </Link>
-          </div>
         </div>
+      </section>
+
+      {/* NOVO: O MÉTODO ELEVA MATRIZ (INFOGRÁFICO INTERATIVO) */}
+      <section className="container-site py-10" aria-labelledby="metodo-titulo">
+        <ProcessFlow />
+      </section>
+
+      {/* NOVO: PRESENÇA TÉCNICA E CASOS REAIS NO PARANÁ */}
+      <section className="container-site py-10" aria-labelledby="mapa-titulo">
+        <ParanaCoverageMap />
       </section>
 
       {/* POR QUE ESCOLHER A ELEVA MATRIZ */}
@@ -340,9 +376,9 @@ function Index() {
         <div className="container-site">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
-              <p className="eyebrow">Resultados Comprovados</p>
+              <p className="eyebrow">Cases Reais & Complexos</p>
               <h2 id="port-titulo" className="mt-3 text-3xl font-extrabold md:text-4xl">
-                Projetos que deixaram empresas mais seguras
+                Infraestruturas que transformaram empresas no Paraná
               </h2>
             </div>
             <Link to="/portfolio" className="inline-flex items-center gap-1.5 font-bold text-primary hover:text-highlight">
@@ -386,19 +422,19 @@ function Index() {
             </div>
 
             <h2 id="material-titulo" className="mt-5 text-3xl font-extrabold md:text-4xl leading-tight">
-              Checklist de Segurança Elétrica & Redução de Custos
+              Checklist de Infraestrutura, Redes & Redução de Custos
             </h2>
 
             <p className="mt-4 text-primary-foreground/80 leading-relaxed">
-              Um guia prático em PDF preparado pelos engenheiros da Eleva Matriz para empresários e gestores verificarem os pontos críticos da instalação da sua empresa.
+              Um guia prático em PDF preparado pelos engenheiros da Eleva Matriz para empresários e gestores identificarem riscos de rede e desperdícios de energia.
             </p>
 
             <ul className="mt-6 space-y-3 text-sm text-primary-foreground/90">
               {[
-                "Como saber se sua empresa está regularizada na NR-10 e Bombeiros",
-                "Principais sinais de sobrecarga em quadros e cabos elétricos",
-                "Onde estão os desperdícios ocultos na fatura de energia",
-                "Checklist passo a passo pronto para aplicar na sua estrutura",
+                "Como testar se sua rede de dados opera com velocidade nominal",
+                "Riscos ocultos em quadros elétricos e proteção SPDA contra raios",
+                "Onde estão os desperdícios na fatura de energia e o potencial solar",
+                "Checklist passo a passo pronto para aplicar na sua empresa",
               ].map((t) => (
                 <li key={t} className="flex gap-2.5 items-start">
                   <Check className="h-5 w-5 shrink-0 text-highlight mt-0.5" aria-hidden />
@@ -442,7 +478,7 @@ function Index() {
 
           <div className="mt-8 text-center">
             <p className="text-sm text-muted-foreground">
-              Ficou com alguma outra dúvida sobre a instalação da sua empresa?{" "}
+              Ficou com alguma outra dúvida sobre a infraestrutura da sua empresa?{" "}
               <a href={waLink("Olá! Tenho uma dúvida sobre os serviços da Eleva Matriz.")} target="_blank" rel="noopener" className="font-bold text-primary underline">
                 Converse com a nossa equipe no WhatsApp
               </a>
@@ -462,7 +498,7 @@ function Index() {
               <span className="eyebrow text-xs">Bastidores & Engenharia</span>
               <h3 className="text-xl font-bold text-foreground">Siga a Eleva Matriz no Instagram</h3>
               <p className="mt-1 text-sm text-muted-foreground">
-                Acompanhe vistorias técnicas, rotina de laudos e orientações práticas de segurança para empresas no perfil{" "}
+                Acompanhe vistorias técnicas, rotina de projetos e orientações práticas de infraestrutura no perfil{" "}
                 <strong className="text-foreground">@eleva.matriz</strong>
               </p>
             </div>

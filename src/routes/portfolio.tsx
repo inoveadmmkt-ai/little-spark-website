@@ -3,6 +3,7 @@ import { useState } from "react";
 import { MessageCircle, CheckCircle2, Filter, ShieldCheck, Sparkles } from "lucide-react";
 import { PROJECTS, pageHead, waLink, REGION } from "@/lib/site";
 import { FinalCTA } from "@/components/site/Layout";
+import { ParanaCoverageMap } from "@/components/site/InteractiveFeatures";
 
 export const Route = createFileRoute("/portfolio")({
   head: () =>
@@ -75,9 +76,16 @@ function Portfolio() {
             <p className="mt-1 text-xs font-semibold text-muted-foreground">Com conformidade e ART</p>
           </div>
         </div>
+      </section>
 
-        {/* FILTROS POR SEGMENTO */}
-        <div className="mt-12 flex flex-wrap items-center gap-2">
+      {/* MAPA VISUAL INTERATIVO DE POLOS */}
+      <section className="container-site pb-12">
+        <ParanaCoverageMap />
+      </section>
+
+      {/* FILTROS E GRADE DE PROJETOS */}
+      <section className="container-site pb-16">
+        <div className="flex flex-wrap items-center gap-2 mb-8">
           <span className="flex items-center gap-1.5 text-xs font-bold text-muted-foreground mr-2">
             <Filter className="h-4 w-4" /> Filtrar por segmento:
           </span>
@@ -95,56 +103,55 @@ function Portfolio() {
             </button>
           ))}
         </div>
-      </section>
 
-      {/* GRADE DE PROJETOS REAIS */}
-      <div className="container-site grid gap-8 pb-16 md:grid-cols-2 lg:grid-cols-3">
-        {filtered.map((p) => (
-          <article
-            key={p.client}
-            className="reveal flex flex-col justify-between overflow-hidden rounded-3xl border border-border bg-card shadow-sm transition-all hover:border-highlight/40 hover:shadow-lg"
-          >
-            <div className="p-6 md:p-8">
-              <div className="flex items-center justify-between gap-2 mb-3">
-                <span className="inline-block rounded-md bg-accent px-2.5 py-0.5 text-xs font-bold text-accent-foreground">
-                  {p.sector}
-                </span>
-                <span className="text-xs font-semibold text-highlight line-clamp-1">{p.tag}</span>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {filtered.map((p) => (
+            <article
+              key={p.client}
+              className="reveal flex flex-col justify-between overflow-hidden rounded-3xl border border-border bg-card shadow-sm transition-all hover:border-highlight/40 hover:shadow-lg"
+            >
+              <div className="p-6 md:p-8">
+                <div className="flex items-center justify-between gap-2 mb-3">
+                  <span className="inline-block rounded-md bg-accent px-2.5 py-0.5 text-xs font-bold text-accent-foreground">
+                    {p.sector}
+                  </span>
+                  <span className="text-xs font-semibold text-highlight line-clamp-1">{p.tag}</span>
+                </div>
+
+                <h2 className="text-xl font-bold text-foreground leading-snug">{p.client}</h2>
+
+                <dl className="mt-5 space-y-3.5 text-sm leading-relaxed">
+                  <div className="rounded-xl bg-background border border-border p-3.5">
+                    <dt className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground">O Desafio</dt>
+                    <dd className="mt-1 text-xs text-foreground leading-relaxed">{p.challenge}</dd>
+                  </div>
+
+                  <div className="rounded-xl bg-background border border-border p-3.5">
+                    <dt className="text-[11px] font-bold uppercase tracking-wider text-highlight">A Solução Executada</dt>
+                    <dd className="mt-1 text-xs text-foreground leading-relaxed">{p.solution}</dd>
+                  </div>
+
+                  <div className="rounded-xl bg-accent/40 border border-primary/10 p-3.5">
+                    <dt className="text-[11px] font-bold uppercase tracking-wider text-primary">Resultado Alcançado</dt>
+                    <dd className="mt-1 text-xs font-semibold text-foreground leading-relaxed">{p.result}</dd>
+                  </div>
+                </dl>
               </div>
 
-              <h2 className="text-xl font-bold text-foreground leading-snug">{p.client}</h2>
-
-              <dl className="mt-5 space-y-3.5 text-sm leading-relaxed">
-                <div className="rounded-xl bg-background border border-border p-3.5">
-                  <dt className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground">O Desafio</dt>
-                  <dd className="mt-1 text-xs text-foreground leading-relaxed">{p.challenge}</dd>
-                </div>
-
-                <div className="rounded-xl bg-background border border-border p-3.5">
-                  <dt className="text-[11px] font-bold uppercase tracking-wider text-highlight">A Solução Executada</dt>
-                  <dd className="mt-1 text-xs text-foreground leading-relaxed">{p.solution}</dd>
-                </div>
-
-                <div className="rounded-xl bg-accent/40 border border-primary/10 p-3.5">
-                  <dt className="text-[11px] font-bold uppercase tracking-wider text-primary">Resultado Alcançado</dt>
-                  <dd className="mt-1 text-xs font-semibold text-foreground leading-relaxed">{p.result}</dd>
-                </div>
-              </dl>
-            </div>
-
-            <div className="border-t border-border bg-card/60 p-5">
-              <a
-                href={waLink(`Olá! Vi o projeto da Eleva Matriz em "${p.client}" e gostaria de solicitar uma proposta técnica similar para minha empresa.`)}
-                target="_blank"
-                rel="noopener"
-                className="btn btn-outline w-full text-xs font-bold justify-center"
-              >
-                <MessageCircle className="h-4 w-4" /> Solicitar Proposta Similar
-              </a>
-            </div>
-          </article>
-        ))}
-      </div>
+              <div className="border-t border-border bg-card/60 p-5">
+                <a
+                  href={waLink(`Olá! Vi o projeto da Eleva Matriz em "${p.client}" e gostaria de solicitar uma proposta técnica similar para minha empresa.`)}
+                  target="_blank"
+                  rel="noopener"
+                  className="btn btn-outline w-full text-xs font-bold justify-center"
+                >
+                  <MessageCircle className="h-4 w-4" /> Solicitar Proposta Similar
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
 
       {/* CHAMADA FINAL */}
       <FinalCTA

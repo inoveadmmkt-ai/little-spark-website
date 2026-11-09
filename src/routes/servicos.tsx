@@ -2,13 +2,14 @@ import { createFileRoute } from "@tanstack/react-router";
 import { MessageCircle, CheckCircle2, ShieldCheck, ArrowRight } from "lucide-react";
 import { SERVICES, pageHead, waLink, REGION } from "@/lib/site";
 import { FinalCTA } from "@/components/site/Layout";
+import { TopologyExplorer } from "@/components/site/InteractiveFeatures";
 
 export const Route = createFileRoute("/servicos")({
   head: () =>
     pageHead(
       "/servicos",
-      "Serviços de Engenharia Elétrica B2B no Paraná | Eleva Matriz",
-      "Projetos elétricos industriais e comerciais, laudo NR-10, SPDA (para-raios) e energia solar no Paraná. Sem jargão técnico, com ART e orçamento ágil no WhatsApp."
+      "Serviços e Especialidades Técnicas | Eleva Matriz Engenharia",
+      "Infraestrutura de cabeamento estruturado Cat6/6A, redes ópticas de até 50 Gb/s, Wi-Fi corporativo, CFTV IP, energia solar e engenharia elétrica com ART no CREA-PR."
     ),
   component: Servicos,
 });
@@ -19,12 +20,12 @@ function Servicos() {
       {/* HEADER DA PÁGINA */}
       <section className="container-site py-16 md:py-24">
         <div className="max-w-3xl">
-          <p className="eyebrow">Soluções Corporativas · {REGION}</p>
+          <p className="eyebrow">Soluções Corporativas Integradas · {REGION}</p>
           <h1 className="mt-4 text-4xl font-extrabold leading-tight text-foreground md:text-5xl">
-            Serviços de engenharia elétrica explicados de forma simples
+            Infraestrutura de redes e engenharia elétrica com rigor técnico
           </h1>
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            Nunca contratou esse tipo de serviço ou tem dúvidas sobre exigências de fiscalização? Sem problema. Abaixo explicamos em detalhes o que é cada serviço, quem precisa dele e quais benefícios reais sua empresa ganha.
+            Do lançamento de fibra óptica de até 50 Gb/s ao projeto elétrico com ART no CREA-PR: cada especialidade é planejada para que as operações da sua empresa nunca fiquem paradas.
           </p>
         </div>
 
@@ -48,25 +49,30 @@ function Servicos() {
               <ShieldCheck className="h-5 w-5 text-highlight shrink-0 mt-0.5" />
               <div>
                 <p className="text-xs font-bold text-foreground">ART Obrigatória (CREA-PR)</p>
-                <p className="text-xs text-muted-foreground mt-0.5">Assinatura de Engenheiro Eletricista habilitado com valor legal.</p>
+                <p className="text-xs text-muted-foreground mt-0.5">Assinatura de Engenheiro habilitado com valor legal.</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
               <CheckCircle2 className="h-5 w-5 text-highlight shrink-0 mt-0.5" />
               <div>
-                <p className="text-xs font-bold text-foreground">Instrumentos Calibrados (RBC)</p>
-                <p className="text-xs text-muted-foreground mt-0.5">Terrômetro e Câmera Termográfica com calibração rastreável.</p>
+                <p className="text-xs font-bold text-foreground">Analisadores Calibrados (RBC)</p>
+                <p className="text-xs text-muted-foreground mt-0.5">Certificação com equipamento analisador e terrômetro rastreáveis.</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
               <CheckCircle2 className="h-5 w-5 text-highlight shrink-0 mt-0.5" />
               <div>
                 <p className="text-xs font-bold text-foreground">Aprovação Copel & Bombeiros</p>
-                <p className="text-xs text-muted-foreground mt-0.5">Laudos prontos para auditorias, AVCB e seguradoras.</p>
+                <p className="text-xs text-muted-foreground mt-0.5">Laudos prontos para auditorias, seguradoras e AVCB.</p>
               </div>
             </div>
           </div>
         </div>
+      </section>
+
+      {/* RAIO-X INTERATIVO DA TOPOLOGIA */}
+      <section className="container-site pb-12">
+        <TopologyExplorer />
       </section>
 
       {/* BLOCOS DETALHADOS DE SERVIÇOS */}
