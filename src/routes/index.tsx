@@ -59,10 +59,10 @@ const WHY = [
 ];
 
 const TRUST_METRICS = [
+  { value: "+7.500", label: "Pontos de rede estruturada instalados e certificados" },
+  { value: "+15.000m", label: "Cabos ópticos lançados em anéis de até 50 Gb/s" },
+  { value: "40+", label: "Agências bancárias e cooperativas atendidas" },
   { value: "100%", label: "Projetos com ART e conformidade técnica no CREA-PR" },
-  { value: "Todo o PR", label: "Atendimento presencial em cidades de todo o Paraná" },
-  { value: "Rápido", label: "Laudos técnicos e vistorias sem burocracia" },
-  { value: "Sem Jargão", label: "Linguagem simples e transparente em cada etapa" },
 ];
 
 function Index() {
@@ -77,11 +77,11 @@ function Index() {
           </div>
 
           <h1 className="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-foreground md:text-5xl lg:text-6xl">
-            Sua empresa com energia <span className="text-highlight">segura</span>, regularizada e sem dor de cabeça.
+            Infraestrutura de redes e engenharia elétrica para <span className="text-highlight">elevar</span> sua empresa.
           </h1>
 
           <p className="mt-6 max-w-xl text-lg text-muted-foreground leading-relaxed">
-            Projetos elétricos, laudos NR-10, SPDA e energia solar explicados de um jeito simples, direto ao ponto e conduzidos por engenheiro responsável.
+            Cabeamento estruturado Cat6/6A, anéis ópticos de 10 e 50 Gb/s, Wi-Fi corporativo de alta densidade e projetos elétricos certificados com ART no CREA-PR.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
@@ -352,18 +352,24 @@ function Index() {
 
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {PROJECTS.slice(0, 3).map((p) => (
-              <article key={p.client} className="reveal flex flex-col justify-between overflow-hidden rounded-2xl border border-border bg-card">
-                <div className="img-slot grid aspect-[16/10] place-items-center text-xs font-semibold text-muted-foreground border-b border-border">
-                  <span>[Foto do Projeto · {p.sector}]</span>
+              <article key={p.client} className="reveal flex flex-col justify-between overflow-hidden rounded-3xl border border-border bg-card shadow-sm hover:border-highlight/40 hover:shadow-lg transition-all">
+                <div className="p-5 border-b border-border bg-gradient-to-br from-primary/5 via-accent/20 to-background flex items-center justify-between gap-2">
+                  <span className="eyebrow text-xs">{p.sector}</span>
+                  <span className="inline-block rounded-md bg-highlight/15 text-highlight font-bold px-2.5 py-0.5 text-xs line-clamp-1">
+                    {p.tag.split('&')[0].trim()}
+                  </span>
                 </div>
-                <div className="p-6">
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="eyebrow text-xs">{p.sector}</span>
-                    <span className="text-xs font-semibold text-muted-foreground">{p.tag}</span>
+                <div className="p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-lg font-bold text-foreground leading-snug">{p.client}</h3>
+                    <p className="mt-3 text-xs text-muted-foreground leading-relaxed line-clamp-3"><strong>Solução:</strong> {p.solution}</p>
+                    <p className="mt-2 text-xs font-semibold text-primary leading-relaxed"><strong>Resultado:</strong> {p.result}</p>
                   </div>
-                  <h3 className="mt-2 text-lg font-bold text-foreground">{p.client}</h3>
-                  <p className="mt-3 text-xs text-muted-foreground"><strong>Desafio:</strong> {p.challenge}</p>
-                  <p className="mt-2 text-xs font-medium text-primary"><strong>Resultado:</strong> {p.result}</p>
+                  <div className="mt-5 pt-3 border-t border-border/60">
+                    <Link to="/portfolio" className="inline-flex items-center gap-1 text-xs font-bold text-primary hover:text-highlight">
+                      Ver detalhes no portfólio <ChevronRight className="h-3.5 w-3.5" />
+                    </Link>
+                  </div>
                 </div>
               </article>
             ))}

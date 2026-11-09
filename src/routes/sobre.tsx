@@ -1,39 +1,28 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ShieldCheck, Users, Sparkles, Target, Award, ArrowRight } from "lucide-react";
-import { pageHead, REGION, waLink, TEAM } from "@/lib/site";
+import { ShieldCheck, HeartHandshake, CheckCircle2, Clock, Award, Lightbulb, Scale, Network, Handshake, Users2, ArrowRight } from "lucide-react";
+import { pageHead, REGION, waLink, TEAM, MISSION, VISION, CORE_VALUES } from "@/lib/site";
 import { FinalCTA } from "@/components/site/Layout";
 
 export const Route = createFileRoute("/sobre")({
   head: () =>
     pageHead(
       "/sobre",
-      "Sobre a Eleva Matriz | Engenharia Elétrica B2B no Paraná",
-      "Conheça a história, o propósito e a equipe técnica da Eleva Matriz Engenharia. Proximidade, transparência e segurança técnica para empresas em todo o Paraná."
+      "Sobre a Eleva Matriz | Infraestrutura de Redes e Engenharia Elétrica",
+      "Conheça a história, a missão, a visão e a equipe técnica da Eleva Matriz. Alta performance em cabeamento estruturado e engenharia elétrica no Paraná e Sul do Brasil."
     ),
   component: Sobre,
 });
 
-const VALUES = [
-  {
-    icon: ShieldCheck,
-    title: "Segurança e Responsabilidade",
-    desc: "Nenhum atalho que coloque vidas, patrimônio ou a conformidade jurídica da sua empresa em risco.",
-  },
-  {
-    icon: Users,
-    title: "Proximidade e Atendimento Humano",
-    desc: "Você conversa direto com quem entende e faz. Sem burocracia corporativa ou atendimento robotizado.",
-  },
-  {
-    icon: Sparkles,
-    title: "Transparência Total",
-    desc: "Explicamos claramente o que precisa ser feito, o porquê de cada norma e apresentamos custos sem surpresas.",
-  },
-  {
-    icon: Award,
-    title: "Compromisso com Normas Técnicas",
-    desc: "Projetos e laudos executados estritamente sob as normas da ABNT, NR-10 e exigências da Copel.",
-  },
+const VALUE_ICONS = [
+  HeartHandshake, // Respeito
+  CheckCircle2,   // Compromisso com Resultado
+  Clock,          // Pontualidade
+  Award,          // Excelência Técnica
+  Lightbulb,      // Inovação
+  Scale,          // Ética
+  Network,        // Visão do Todo
+  Handshake,      // Confiança
+  Users2,         // Valorização das Pessoas
 ];
 
 function Sobre() {
@@ -43,22 +32,22 @@ function Sobre() {
       <section className="container-site py-16 md:py-24">
         <p className="eyebrow">Quem Somos</p>
         <h1 className="mt-4 max-w-3xl text-4xl font-extrabold leading-tight text-foreground md:text-5xl">
-          Engenharia feita de perto, com rigor técnico e linguagem simples.
+          Elevando o nível de performance em redes e engenharia elétrica.
         </h1>
         <p className="mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed">
-          Nascemos no Paraná com um propósito claro: acabar com a distância entre as exigências técnicas da engenharia elétrica e a realidade do dia a dia dos empresários.
+          Nascemos no Paraná para conectar empresas a soluções definitivas: unindo alta tecnologia em cabeamento estruturado e redes de fibra óptica ao rigor técnico da engenharia elétrica.
         </p>
 
         <div className="mt-12 grid items-center gap-10 md:grid-cols-2">
           <div className="space-y-4 text-base text-muted-foreground leading-relaxed">
             <p>
-              A <strong>Eleva Matriz</strong> foi fundada após identificarmos uma dor recorrente em donos e gestores de empresas: a dificuldade em encontrar um parceiro de engenharia que explicasse laudos, projetos e normas elétricas sem complicações.
+              A <strong>Eleva Matriz</strong> atua como parceira estratégica de empresas, indústrias, cooperativas, hospitais e instituições educacionais que dependem de infraestrutura crítica de dados e energia para operar sem paradas.
             </p>
             <p>
-              Muitas vezes, uma notificação de fiscalização da NR-10 ou a exigência de laudo do Corpo de Bombeiros (SPDA) chegavam como uma surpresa cheia de termos técnicos incompreensíveis. Decidimos transformar essa relação.
+              Comunicação instável, cabos sem certificação e instalações elétricas sobrecarregadas geram prejuízos diários e riscos graves. Por isso, aliamos precisão de instrumentos calibrados, homologação técnica e atendimento humanizado.
             </p>
             <p>
-              Com uma equipe ágil e dedicada formada por <strong>Beatriz, Dani, David e Thiago</strong>, atendemos empresas em todo o estado do <strong>{REGION}</strong>, combinando responsabilidade de quem assina ART com o acolhimento de quem cuida do patrimônio do cliente.
+              Nossa equipe multidisciplinar reúne <strong>Beatriz Costa</strong> (Marketing & Comunicação), <strong>Danielli Marin</strong> (Administração & RH), <strong>David Costa</strong> (Head Comercial) e o <strong>Eng. Thiago Marin Barbosa</strong> (Engenharia & Projetos com CREA-PR), garantindo suporte completo do planejamento à entrega final.
             </p>
           </div>
 
@@ -83,42 +72,59 @@ function Sobre() {
         </div>
       </section>
 
-      {/* MISSÃO, VISÃO E VALORES */}
+      {/* MISSÃO, VISÃO E VALORES OFICIAIS */}
       <section className="border-y border-border bg-card py-20">
         <div className="container-site">
-          <div className="grid gap-10 md:grid-cols-2 lg:gap-16">
-            <div className="space-y-8">
-              <div>
-                <span className="eyebrow">Propósito</span>
-                <h2 className="mt-2 text-3xl font-extrabold text-foreground">Nossa Missão</h2>
-                <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-                  Garantir a segurança elétrica e a eficiência operacional de empresas no Paraná, entregando projetos e laudos com clareza absoluta, proximidade e tranquilidade para os gestores.
+          <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
+            {/* MISSÃO E VISÃO */}
+            <div className="lg:col-span-5 space-y-10">
+              <div className="rounded-3xl border border-border bg-background p-8 shadow-sm">
+                <span className="eyebrow">Nosso Propósito</span>
+                <h2 className="mt-2 text-2xl font-extrabold text-foreground">Missão</h2>
+                <p className="mt-4 text-base text-muted-foreground leading-relaxed">
+                  {MISSION}
                 </p>
               </div>
 
-              <div>
-                <h3 className="text-xl font-bold text-foreground">Nossa Visão</h3>
-                <p className="mt-2 text-muted-foreground leading-relaxed">
-                  Ser a principal referência em engenharia elétrica B2B no Paraná para empresas que valorizam atendimento humanizado, compromisso de prazo e responsabilidade técnica sem rodeios.
+              <div className="rounded-3xl border border-highlight/30 bg-accent/20 p-8 shadow-sm">
+                <span className="eyebrow text-highlight">Onde Queremos Chegar</span>
+                <h3 className="mt-2 text-2xl font-extrabold text-foreground">Visão de Futuro</h3>
+                <p className="mt-4 text-base text-muted-foreground leading-relaxed">
+                  {VISION}
                 </p>
+              </div>
+
+              <div className="rounded-3xl border border-border bg-background p-6">
+                <div className="flex items-center gap-3">
+                  <ShieldCheck className="h-6 w-6 text-highlight shrink-0" />
+                  <div>
+                    <h4 className="text-sm font-bold text-foreground">Responsabilidade Técnica CREA-PR</h4>
+                    <p className="text-xs text-muted-foreground mt-0.5">Engenheiro habilitado e acervo técnico com ART em 100% dos projetos executados.</p>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div>
-              <span className="eyebrow">Pilares</span>
-              <h2 className="mt-2 text-3xl font-extrabold text-foreground mb-6">Nossos Valores</h2>
-              <div className="space-y-4">
-                {VALUES.map(({ icon: Icon, title, desc }) => (
-                  <div key={title} className="flex gap-4 rounded-xl border border-border bg-background p-5">
-                    <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-highlight/15 text-highlight">
-                      <Icon className="h-5 w-5" aria-hidden />
+            {/* 9 VALORES OFICIAIS */}
+            <div className="lg:col-span-7">
+              <span className="eyebrow">Pilares Fundamentais</span>
+              <h2 className="mt-2 text-3xl font-extrabold text-foreground mb-6">Valores da Eleva</h2>
+              
+              <div className="grid gap-4 sm:grid-cols-2">
+                {CORE_VALUES.map((val, idx) => {
+                  const Icon = VALUE_ICONS[idx % VALUE_ICONS.length];
+                  return (
+                    <div key={val.title} className="flex flex-col rounded-2xl border border-border bg-background p-5 hover:border-highlight/40 transition-colors shadow-sm">
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-highlight/15 text-highlight">
+                          <Icon className="h-4.5 w-4.5" aria-hidden />
+                        </div>
+                        <h4 className="font-bold text-foreground text-sm">{val.title}</h4>
+                      </div>
+                      <p className="text-xs text-muted-foreground leading-relaxed mt-1">{val.desc}</p>
                     </div>
-                    <div>
-                      <h4 className="font-bold text-foreground">{title}</h4>
-                      <p className="mt-1 text-sm text-muted-foreground">{desc}</p>
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -128,10 +134,10 @@ function Sobre() {
       {/* QUEM FAZ ACONTECER (EQUIPE) */}
       <section className="container-site py-20">
         <div className="text-center max-w-2xl mx-auto">
-          <p className="eyebrow">Gente Que Cuida da Sua Empresa</p>
+          <p className="eyebrow">Equipe Multidisciplinar</p>
           <h2 className="mt-3 text-3xl font-extrabold md:text-4xl text-foreground">Quem faz acontecer</h2>
           <p className="mt-4 text-muted-foreground text-lg">
-            Nossa equipe técnica é formada por profissionais apaixonados por engenharia bem feita e focados em resolver problemas reais.
+            Profissionais dedicados a entregar soluções personalizadas com excelência, clareza e compromisso com o resultado.
           </p>
         </div>
 
@@ -148,7 +154,7 @@ function Sobre() {
                   />
                 </div>
                 <span className="text-xs font-bold uppercase tracking-wider text-highlight">{member.role}</span>
-                <h3 className="mt-1.5 text-xl font-bold text-foreground">{member.name}</h3>
+                <h3 className="mt-1.5 text-lg font-bold text-foreground">{member.name}</h3>
                 <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{member.bio}</p>
               </div>
 
@@ -159,7 +165,7 @@ function Sobre() {
                   rel="noopener"
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:text-highlight transition-colors"
                 >
-                  Falar com {member.name} <ArrowRight className="h-3.5 w-3.5" />
+                  Falar com {member.name.split(' ')[0]} <ArrowRight className="h-3.5 w-3.5" />
                 </a>
               </div>
             </article>
@@ -167,6 +173,7 @@ function Sobre() {
         </div>
       </section>
 
+      {/* CHAMADA FINAL */}
       <FinalCTA />
     </>
   );
