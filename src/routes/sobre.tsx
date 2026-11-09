@@ -64,9 +64,9 @@ function Sobre() {
 
           <div className="relative overflow-hidden rounded-3xl border border-border bg-card shadow-xl group">
             <img
-              src="/team/beatriz.jpg"
-              alt="Equipe da Eleva Matriz Engenharia Elétrica no Paraná"
-              className="aspect-[4/3] w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+              src="/team/equipe_eleva_matriz.jpg"
+              alt="Equipe da Eleva Matriz Engenharia Elétrica no Paraná: David, Beatriz, Dani e Thiago"
+              className="aspect-[4/3] w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
             />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary/95 via-primary/50 to-transparent p-6 text-primary-foreground">
               <span className="inline-block rounded-full bg-highlight/30 px-3 py-0.5 text-xs font-bold text-white backdrop-blur mb-1">
@@ -135,11 +135,11 @@ function Sobre() {
           {TEAM.map((member) => (
             <article key={member.name} className="reveal group rounded-3xl border border-border bg-card p-5 shadow-sm hover:border-highlight/40 hover:shadow-lg transition-all flex flex-col justify-between">
               <div>
-                <div className="overflow-hidden rounded-2xl border border-border mb-4 aspect-[4/5] bg-muted">
+                <div className="overflow-hidden rounded-2xl border border-border/70 mb-4 aspect-[4/5] bg-gradient-to-b from-slate-50 via-slate-100 to-slate-200/80 dark:from-slate-800 dark:via-slate-850 dark:to-slate-900 flex items-end justify-center pt-2">
                   <img
                     src={member.photo}
                     alt={`${member.name} - ${member.role} na Eleva Matriz`}
-                    className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    className="h-full w-full object-contain object-bottom transition-transform duration-500 group-hover:scale-105 select-none"
                     loading="lazy"
                   />
                 </div>

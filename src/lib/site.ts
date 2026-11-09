@@ -208,25 +208,25 @@ export const TEAM = [
   {
     name: "Beatriz",
     role: "Direção & Gestão Estratégica",
-    photo: "/team/beatriz.jpg",
+    photo: "/team/beatriz_nobg.png",
     bio: "Lidera a gestão e relacionamento com clientes da Eleva Matriz, garantindo comunicação transparente, acolhimento e soluções elétricas que resolvem os desafios reais das empresas.",
   },
   {
     name: "Dani",
     role: "Operações & Atendimento B2B",
-    photo: "/team/dani.jpg",
+    photo: "/team/dani_nobg.png",
     bio: "Responsável pelo acompanhamento ágil de vistorias, cronogramas de entrega e suporte próximo a cada cliente, com linguagem simples e sem burocracia.",
   },
   {
     name: "David",
     role: "Engenharia Técnica & Laudos",
-    photo: "/team/david.jpg",
+    photo: "/team/david_nobg.png",
     bio: "Especialista em conformidade técnica, laudos de NR-10 e inspeções de SPDA, com foco em segurança patrimonial e responsabilidade técnica com ART.",
   },
   {
     name: "Thiago",
     role: "Projetos Elétricos & Eficiência",
-    photo: "/team/thiago.jpg",
+    photo: "/team/thiago_nobg.png",
     bio: "Atua no dimensionamento elétrico, diagramas de carga e projetos de eficiência energética e energia solar fotovoltaica para indústrias e comércios.",
   },
 ];

@@ -99,7 +99,7 @@ function Index() {
                 {TEAM.map((m) => (
                   <img
                     key={m.name}
-                    className="inline-block h-9 w-9 rounded-full ring-2 ring-background object-cover object-top"
+                    className="inline-block h-9 w-9 rounded-full ring-2 ring-background bg-slate-100 dark:bg-slate-800 object-cover object-top"
                     src={m.photo}
                     alt={m.name}
                   />
