@@ -25,6 +25,7 @@ import { PROJECTS, SERVICES, FAQS, PERSONAS, COMPARISON, TEAM, pageHead, waLink,
 import { FinalCTA } from "@/components/site/Layout";
 import { LeadForm } from "@/components/site/Forms";
 import { DiagnosticWidget } from "@/components/site/DiagnosticWidget";
+import { ImageGallery } from "@/components/site/ImageGallery";
 import {
   RoiInfrastructureSimulator,
   TopologyExplorer,
@@ -251,22 +252,33 @@ function Index() {
             {SERVICES.map((s) => (
               <article
                 key={s.slug}
-                className="reveal group flex flex-col justify-between rounded-3xl border border-border bg-card p-7 transition-all hover:border-highlight/50 hover:shadow-xl hover:shadow-primary/5"
+                className="reveal group flex flex-col justify-between overflow-hidden rounded-3xl border border-border bg-card shadow-sm transition-all hover:border-highlight/50 hover:shadow-xl hover:shadow-primary/5"
               >
                 <div>
-                  <div className="flex items-center justify-between gap-2 mb-3">
-                    <span className="inline-block rounded-md bg-accent px-2.5 py-0.5 text-xs font-bold text-accent-foreground">
+                  <div className="relative aspect-[16/10] overflow-hidden bg-muted">
+                    <img
+                      src={s.photo || "/galeria/cabeamento_estruturado.jpg"}
+                      alt={s.title}
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                    <span className="absolute bottom-3 left-3 rounded-md bg-black/60 backdrop-blur-md px-2.5 py-1 text-[11px] font-bold text-white border border-white/10">
                       {s.badge}
                     </span>
-                    <span className="text-[11px] font-bold text-highlight">ART CREA-PR</span>
+                    <span className="absolute top-3 right-3 rounded-md bg-highlight/90 backdrop-blur-md px-2 py-0.5 text-[10px] font-extrabold text-white shadow-sm">
+                      ART CREA-PR
+                    </span>
                   </div>
-                  <h3 className="mt-2 text-xl font-bold text-foreground group-hover:text-primary transition-colors leading-snug">
-                    {s.title}
-                  </h3>
-                  <p className="mt-3 text-xs text-muted-foreground leading-relaxed">{s.short}</p>
+                  <div className="p-6">
+                    <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors leading-snug">
+                      {s.title}
+                    </h3>
+                    <p className="mt-2.5 text-xs text-muted-foreground leading-relaxed line-clamp-3">{s.short}</p>
+                  </div>
                 </div>
 
-                <div className="mt-6 border-t border-border pt-4 flex items-center justify-between">
+                <div className="px-6 pb-6 pt-2 border-t border-border/60 flex items-center justify-between">
                   <Link
                     to="/servicos"
                     hash={s.slug}
@@ -297,6 +309,13 @@ function Index() {
       {/* NOVO: PRESENÇA TÉCNICA E CASOS REAIS NO PARANÁ */}
       <section className="container-site py-10" aria-labelledby="mapa-titulo">
         <ParanaCoverageMap />
+      </section>
+
+      {/* GALERIA FOTOGRÁFICA INTERATIVA DE OBRAS & ESTRUTURAS */}
+      <section className="py-16 bg-card/40 border-y border-border" aria-labelledby="galeria-titulo">
+        <div className="container-site">
+          <ImageGallery />
+        </div>
       </section>
 
       {/* POR QUE ESCOLHER A ELEVA MATRIZ */}
@@ -398,16 +417,28 @@ function Index() {
 
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {PROJECTS.slice(0, 3).map((p) => (
-              <article key={p.client} className="reveal flex flex-col justify-between overflow-hidden rounded-3xl border border-border bg-card shadow-sm hover:border-highlight/40 hover:shadow-lg transition-all">
-                <div className="p-5 border-b border-border bg-gradient-to-br from-primary/5 via-accent/20 to-background flex items-center justify-between gap-2">
-                  <span className="eyebrow text-xs">{p.sector}</span>
-                  <span className="inline-block rounded-md bg-highlight/15 text-highlight font-bold px-2.5 py-0.5 text-xs line-clamp-1">
-                    {p.tag.split('&')[0].trim()}
-                  </span>
+              <article key={p.client} className="reveal group flex flex-col justify-between overflow-hidden rounded-3xl border border-border bg-card shadow-sm hover:border-highlight/40 hover:shadow-lg transition-all">
+                <div className="relative aspect-[16/10] overflow-hidden bg-muted">
+                  <img
+                    src={p.photo || "/galeria/cabeamento_estruturado.jpg"}
+                    alt={p.client}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
+                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between gap-2">
+                    <span className="rounded-md bg-highlight/90 backdrop-blur-md text-white font-bold text-xs px-2.5 py-0.5 shadow-sm">
+                      {p.sector}
+                    </span>
+                    <span className="rounded-md bg-black/60 backdrop-blur-md text-white/95 text-[11px] font-semibold px-2 py-0.5 border border-white/10 line-clamp-1">
+                      {p.tag.split('&')[0].trim()}
+                    </span>
+                  </div>
                 </div>
+
                 <div className="p-6 flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="text-lg font-bold text-foreground leading-snug">{p.client}</h3>
+                    <h3 className="text-lg font-bold text-foreground leading-snug group-hover:text-primary transition-colors">{p.client}</h3>
                     <p className="mt-3 text-xs text-muted-foreground leading-relaxed line-clamp-3"><strong>Solução:</strong> {p.solution}</p>
                     <p className="mt-2 text-xs font-semibold text-primary leading-relaxed"><strong>Resultado:</strong> {p.result}</p>
                   </div>

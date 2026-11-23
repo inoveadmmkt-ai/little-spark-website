@@ -103,22 +103,48 @@ function Servicos() {
               </div>
             </div>
 
-            <dl className="mt-8 grid gap-8 md:grid-cols-3">
-              <div className="rounded-2xl border border-border bg-background p-6">
-                <dt className="text-xs font-bold uppercase tracking-wider text-highlight">01. O que é</dt>
-                <dd className="mt-3 text-sm text-foreground leading-relaxed">{s.what}</dd>
+            <div className="mt-8 grid gap-8 lg:grid-cols-12 items-stretch">
+              <div className="lg:col-span-4 relative overflow-hidden rounded-2xl border border-border min-h-[240px] bg-muted shadow-sm group">
+                <img
+                  src={s.photo || "/galeria/cabeamento_estruturado.jpg"}
+                  alt={s.title}
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
+                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                  <span className="rounded-md bg-black/60 backdrop-blur-md px-2.5 py-1 text-xs font-semibold text-white border border-white/10">
+                    {s.badge}
+                  </span>
+                  <span className="text-[11px] font-bold text-white bg-highlight/90 backdrop-blur-md px-2 py-0.5 rounded">
+                    Padrão Executivo
+                  </span>
+                </div>
               </div>
 
-              <div className="rounded-2xl border border-border bg-background p-6">
-                <dt className="text-xs font-bold uppercase tracking-wider text-highlight">02. Para quem é</dt>
-                <dd className="mt-3 text-sm text-foreground leading-relaxed">{s.who}</dd>
-              </div>
+              <dl className="lg:col-span-8 grid gap-4 sm:grid-cols-3">
+                <div className="flex flex-col justify-between rounded-2xl border border-border bg-background p-6">
+                  <div>
+                    <dt className="text-xs font-bold uppercase tracking-wider text-highlight">01. O que é</dt>
+                    <dd className="mt-3 text-sm text-foreground leading-relaxed">{s.what}</dd>
+                  </div>
+                </div>
 
-              <div className="rounded-2xl border border-border bg-background p-6">
-                <dt className="text-xs font-bold uppercase tracking-wider text-highlight">03. O que você ganha</dt>
-                <dd className="mt-3 text-sm font-medium text-primary leading-relaxed">{s.gain}</dd>
-              </div>
-            </dl>
+                <div className="flex flex-col justify-between rounded-2xl border border-border bg-background p-6">
+                  <div>
+                    <dt className="text-xs font-bold uppercase tracking-wider text-highlight">02. Para quem é</dt>
+                    <dd className="mt-3 text-sm text-foreground leading-relaxed">{s.who}</dd>
+                  </div>
+                </div>
+
+                <div className="flex flex-col justify-between rounded-2xl border border-border bg-background p-6">
+                  <div>
+                    <dt className="text-xs font-bold uppercase tracking-wider text-highlight">03. O que você ganha</dt>
+                    <dd className="mt-3 text-sm font-medium text-primary leading-relaxed">{s.gain}</dd>
+                  </div>
+                </div>
+              </dl>
+            </div>
 
             <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-6">
               <div className="flex items-center gap-2 text-xs text-muted-foreground">

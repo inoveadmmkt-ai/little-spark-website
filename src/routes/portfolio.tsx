@@ -109,34 +109,47 @@ function Portfolio() {
           {filtered.map((p) => (
             <article
               key={p.client}
-              className="reveal flex flex-col justify-between overflow-hidden rounded-3xl border border-border bg-card shadow-sm transition-all hover:border-highlight/40 hover:shadow-lg"
+              className="reveal group flex flex-col justify-between overflow-hidden rounded-3xl border border-border bg-card shadow-sm transition-all hover:border-highlight/40 hover:shadow-lg"
             >
-              <div className="p-6 md:p-8">
-                <div className="flex items-center justify-between gap-2 mb-3">
-                  <span className="inline-block rounded-md bg-accent px-2.5 py-0.5 text-xs font-bold text-accent-foreground">
+              <div className="relative aspect-[16/10] overflow-hidden bg-muted">
+                <img
+                  src={p.photo || "/galeria/cabeamento_estruturado.jpg"}
+                  alt={p.client}
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
+                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between gap-2">
+                  <span className="rounded-md bg-highlight/90 backdrop-blur-md text-white font-bold text-xs px-2.5 py-0.5 shadow-sm">
                     {p.sector}
                   </span>
-                  <span className="text-xs font-semibold text-highlight line-clamp-1">{p.tag}</span>
+                  <span className="rounded-md bg-black/60 backdrop-blur-md text-white/95 text-[11px] font-semibold px-2 py-0.5 border border-white/10 line-clamp-1">
+                    {p.tag.split('&')[0].trim()}
+                  </span>
                 </div>
+              </div>
 
-                <h2 className="text-xl font-bold text-foreground leading-snug">{p.client}</h2>
+              <div className="p-6 md:p-8 flex-1 flex flex-col justify-between">
+                <div>
+                  <h2 className="text-xl font-bold text-foreground leading-snug group-hover:text-primary transition-colors">{p.client}</h2>
 
-                <dl className="mt-5 space-y-3.5 text-sm leading-relaxed">
-                  <div className="rounded-xl bg-background border border-border p-3.5">
-                    <dt className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground">O Desafio</dt>
-                    <dd className="mt-1 text-xs text-foreground leading-relaxed">{p.challenge}</dd>
-                  </div>
+                  <dl className="mt-5 space-y-3.5 text-sm leading-relaxed">
+                    <div className="rounded-xl bg-background border border-border p-3.5">
+                      <dt className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground">O Desafio</dt>
+                      <dd className="mt-1 text-xs text-foreground leading-relaxed">{p.challenge}</dd>
+                    </div>
 
-                  <div className="rounded-xl bg-background border border-border p-3.5">
-                    <dt className="text-[11px] font-bold uppercase tracking-wider text-highlight">A Solução Executada</dt>
-                    <dd className="mt-1 text-xs text-foreground leading-relaxed">{p.solution}</dd>
-                  </div>
+                    <div className="rounded-xl bg-background border border-border p-3.5">
+                      <dt className="text-[11px] font-bold uppercase tracking-wider text-highlight">A Solução Executada</dt>
+                      <dd className="mt-1 text-xs text-foreground leading-relaxed">{p.solution}</dd>
+                    </div>
 
-                  <div className="rounded-xl bg-accent/40 border border-primary/10 p-3.5">
-                    <dt className="text-[11px] font-bold uppercase tracking-wider text-primary">Resultado Alcançado</dt>
-                    <dd className="mt-1 text-xs font-semibold text-foreground leading-relaxed">{p.result}</dd>
-                  </div>
-                </dl>
+                    <div className="rounded-xl bg-accent/40 border border-primary/10 p-3.5">
+                      <dt className="text-[11px] font-bold uppercase tracking-wider text-primary">Resultado Alcançado</dt>
+                      <dd className="mt-1 text-xs font-semibold text-foreground leading-relaxed">{p.result}</dd>
+                    </div>
+                  </dl>
+                </div>
               </div>
 
               <div className="border-t border-border bg-card/60 p-5">
