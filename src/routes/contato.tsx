@@ -187,16 +187,6 @@ function Contato() {
               </div>
             </div>
           </div>
-                  href={SOCIAL.facebook}
-                  target="_blank"
-                  rel="noopener"
-                  className="btn btn-outline text-primary text-xs py-2 px-3.5"
-                >
-                  <Facebook className="h-4 w-4" aria-hidden /> Facebook
-                </a>
-              </div>
-            </div>
-          </div>
 
           {/* GOOGLE MEU NEGÓCIO & MAPA PLACEHOLDER */}
           <div className="rounded-3xl border border-border bg-card p-6">
