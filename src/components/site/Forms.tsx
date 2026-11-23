@@ -75,16 +75,37 @@ export function LeadForm() {
 export function ContactForm() {
   const { state, onSubmit } = useSubmit("contact", (data) => submitContact({ data }));
   if (state === "ok")
-    return <p role="status" className="rounded-xl border bg-card p-6 font-semibold">Mensagem recebida! Vamos responder o quanto antes.</p>;
+    return <p role="status" className="rounded-xl border bg-card p-6 font-semibold">Mensagem recebida com sucesso! Nossa equipe entrará em contato em breve.</p>;
   return (
     <form onSubmit={onSubmit} className="grid gap-4">
       <div className="grid gap-4 sm:grid-cols-2">
-        <div><Label htmlFor="c-name">Nome</Label><input id="c-name" name="name" required maxLength={100} className="field" autoComplete="name" /></div>
-        <div><Label htmlFor="c-company">Empresa</Label><input id="c-company" name="company" maxLength={120} className="field" autoComplete="organization" /></div>
-        <div><Label htmlFor="c-email">E-mail</Label><input id="c-email" name="email" type="email" required maxLength={255} className="field" autoComplete="email" /></div>
-        <div><Label htmlFor="c-wa">WhatsApp</Label><input id="c-wa" name="whatsapp" type="tel" maxLength={30} className="field" autoComplete="tel" /></div>
+        <div><Label htmlFor="c-name">Nome Completo</Label><input id="c-name" name="name" required maxLength={100} className="field" autoComplete="name" placeholder="Seu nome" /></div>
+        <div><Label htmlFor="c-company">Empresa, Condomínio ou Residência</Label><input id="c-company" name="company" maxLength={120} className="field" autoComplete="organization" placeholder="Nome da empresa ou residência" /></div>
+        <div><Label htmlFor="c-email">E-mail</Label><input id="c-email" name="email" type="email" required maxLength={255} className="field" autoComplete="email" placeholder="seu@email.com" /></div>
+        <div><Label htmlFor="c-wa">WhatsApp / Telefone</Label><input id="c-wa" name="whatsapp" type="tel" maxLength={30} className="field" autoComplete="tel" placeholder="(43) 90000-0000" /></div>
       </div>
-      <div><Label htmlFor="c-msg">Como podemos ajudar?</Label><textarea id="c-msg" name="message" required minLength={5} maxLength={2000} rows={5} className="field" /></div>
+      <div className="grid gap-4 sm:grid-cols-2">
+        <div>
+          <Label htmlFor="c-sector">Tipo de Imóvel / Setor</Label>
+          <select id="c-sector" name="sector" className="field" defaultValue="Empresarial">
+            <option value="Empresarial">Empresas & Escritórios</option>
+            <option value="Residencial Alto Padrão">Residencial de Alto Padrão</option>
+            <option value="Condomínio">Condomínio Vertical ou Horizontal</option>
+            <option value="Indústria">Indústria & Galpão</option>
+            <option value="Cooperativa / Agro">Cooperativa ou Agroindústria</option>
+            <option value="Saúde">Hospital, Clínica ou Laboratório</option>
+            <option value="Outro">Outro segmento</option>
+          </select>
+        </div>
+        <div>
+          <Label htmlFor="c-channel">Canal Preferencial</Label>
+          <select id="c-channel" name="preferred_channel" className="field" defaultValue="Comercial">
+            <option value="Comercial">Comercial (Orçamentos & Novos Projetos)</option>
+            <option value="Operacional">Operacional / Técnico (Engenharia & Obras)</option>
+          </select>
+        </div>
+      </div>
+      <div><Label htmlFor="c-msg">Como podemos te ajudar?</Label><textarea id="c-msg" name="message" required minLength={5} maxLength={2000} rows={4} className="field" placeholder="Descreva brevemente o projeto elétrico, rede, Wi-Fi, CFTV ou necessidade técnica..." /></div>
       <Consent />
       <button disabled={state === "sending"} className="btn btn-primary justify-self-start">{state === "sending" ? "Enviando..." : "Enviar mensagem"}</button>
       {state === "error" && <p role="alert" className="text-sm text-destructive">Não foi possível enviar. Verifique os dados ou chame no WhatsApp.</p>}

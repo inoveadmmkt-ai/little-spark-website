@@ -41,7 +41,7 @@ function Sobre() {
         <div className="mt-12 grid items-center gap-10 md:grid-cols-2">
           <div className="space-y-4 text-base text-muted-foreground leading-relaxed">
             <p>
-              A <strong>Eleva Matriz</strong> atua como parceira estratégica de empresas, indústrias, cooperativas, hospitais e instituições educacionais que dependem de infraestrutura crítica de dados e energia para operar sem paradas.
+              A <strong>Eleva Matriz</strong> atua como parceira estratégica de empresas, indústrias, cooperativas, hospitais, condomínios e residências de alto padrão que dependem de infraestrutura crítica de dados e energia com máxima estabilidade e segurança.
             </p>
             <p>
               Comunicação instável, cabos sem certificação e instalações elétricas sobrecarregadas geram prejuízos diários e riscos graves. Por isso, aliamos precisão de instrumentos calibrados, homologação técnica e atendimento humanizado.
@@ -158,15 +158,18 @@ function Sobre() {
                 <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{member.bio}</p>
               </div>
 
-              <div className="mt-5 border-t border-border pt-4">
+              <div className="mt-5 border-t border-border pt-4 flex items-center justify-between gap-2">
                 <a
-                  href={waLink(`Olá! Gostaria de conversar com ${member.name} da equipe da Eleva Matriz.`)}
+                  href={waLink(`Olá! Gostaria de conversar com ${member.name} da equipe da Eleva Matriz.`, member.channel)}
                   target="_blank"
                   rel="noopener"
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:text-highlight transition-colors"
                 >
                   Falar com {member.name.split(' ')[0]} <ArrowRight className="h-3.5 w-3.5" />
                 </a>
+                <span className="text-[10px] font-semibold text-muted-foreground bg-muted px-2 py-0.5 rounded-md">
+                  {member.phoneDisplay}
+                </span>
               </div>
             </article>
           ))}

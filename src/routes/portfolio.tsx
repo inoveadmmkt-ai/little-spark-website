@@ -22,6 +22,7 @@ const SECTORS = [
   "Saúde",
   "Agronegócio",
   "Educação",
+  "Residencial",
   "Condomínios",
   "Comércio",
   "Corporativo",

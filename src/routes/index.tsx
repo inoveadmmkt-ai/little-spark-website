@@ -16,6 +16,7 @@ import {
   Store,
   Warehouse,
   Building2,
+  Home,
   XCircle,
   Sparkles,
 } from "lucide-react";
@@ -79,15 +80,15 @@ function Index() {
         <div className="reveal">
           <div className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-accent/40 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-accent-foreground">
             <span className="h-2 w-2 rounded-full bg-highlight animate-pulse" />
-            Engenharia & Redes B2B · {REGION}
+            Engenharia, Redes & Instalações · {REGION}
           </div>
 
           <h1 className="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-foreground md:text-5xl lg:text-6xl">
-            Infraestrutura de redes e engenharia elétrica para <span className="text-highlight">elevar</span> sua empresa.
+            Infraestrutura de redes e engenharia elétrica para <span className="text-highlight">elevar</span> seu projeto.
           </h1>
 
           <p className="mt-6 max-w-xl text-lg text-muted-foreground leading-relaxed">
-            Cabeamento estruturado Cat6/6A, anéis ópticos de 10 e 50 Gb/s, Wi-Fi corporativo de alta densidade e projetos elétricos certificados com ART no CREA-PR.
+            Cabeamento estruturado Cat6/6A, anéis ópticos de até 50 Gb/s, Wi-Fi corporativo e residencial de alta cobertura e projetos elétricos com ART no CREA-PR para empresas e residências de alto padrão.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
@@ -173,13 +174,22 @@ function Index() {
               Soluções integradas sob medida para o seu setor
             </h2>
             <p className="mt-4 text-muted-foreground text-lg">
-              Desde plantas industriais e cooperativas até hospitais e centros corporativos de alta demanda.
+              Soluções completas para indústrias, cooperativas, hospitais, empresas e residências de alto padrão.
             </p>
           </div>
 
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {PERSONAS.map((p, idx) => {
-              const Icon = idx === 0 ? Factory : idx === 1 ? Store : idx === 2 ? Warehouse : Building2;
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+            {PERSONAS.map((p) => {
+              const Icon =
+                p.id === "industria"
+                  ? Factory
+                  : p.id === "cooperativas"
+                  ? Store
+                  : p.id === "saude"
+                  ? Warehouse
+                  : p.id === "residencial"
+                  ? Home
+                  : Building2;
               return (
                 <div
                   key={p.id}
@@ -237,8 +247,8 @@ function Index() {
             </Link>
           </div>
 
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {SERVICES.slice(0, 6).map((s) => (
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {SERVICES.map((s) => (
               <article
                 key={s.slug}
                 className="reveal group flex flex-col justify-between rounded-3xl border border-border bg-card p-7 transition-all hover:border-highlight/50 hover:shadow-xl hover:shadow-primary/5"

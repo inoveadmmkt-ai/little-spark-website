@@ -1,6 +1,46 @@
 export const SITE_URL = "https://elevamatriz.com.br";
-export const WHATSAPP_NUMBER = "5543998198004";
-export const WHATSAPP_DISPLAY = "(43) 99819-8004";
+
+// Canais Oficiais de Atendimento Eleva Matriz
+export const PHONE_COMERCIAL_RAW = "43991962873";
+export const PHONE_COMERCIAL_INT = "5543991962873";
+export const PHONE_COMERCIAL_DISPLAY = "(43) 99196-2873";
+
+export const PHONE_TECNICO_RAW = "43988174121";
+export const PHONE_TECNICO_INT = "5543988174121";
+export const PHONE_TECNICO_DISPLAY = "(43) 98817-4121";
+
+// Compatibilidade retroativa
+export const WHATSAPP_NUMBER = PHONE_COMERCIAL_INT;
+export const WHATSAPP_DISPLAY = PHONE_COMERCIAL_DISPLAY;
+export const WHATSAPP_TECNICO_DISPLAY = PHONE_TECNICO_DISPLAY;
+
+export const CONTACT_CHANNELS = {
+  comercial: {
+    id: "comercial",
+    title: "Atendimento Comercial & Novos Projetos",
+    display: PHONE_COMERCIAL_DISPLAY,
+    raw: PHONE_COMERCIAL_RAW,
+    int: PHONE_COMERCIAL_INT,
+    telHref: `tel:+55${PHONE_COMERCIAL_RAW}`,
+    waHref: (msg = "Olá! Gostaria de solicitar um orçamento com a equipe comercial da Eleva Matriz.") =>
+      `https://wa.me/${PHONE_COMERCIAL_INT}?text=${encodeURIComponent(msg)}`,
+    desc: "Orçamentos, visitas comerciais, cotações de infraestrutura corporativa e residencial de alto padrão.",
+    badge: "Comercial / Empresarial",
+  },
+  operacional: {
+    id: "operacional",
+    title: "Atendimento Técnico & Operacional",
+    display: PHONE_TECNICO_DISPLAY,
+    raw: PHONE_TECNICO_RAW,
+    int: PHONE_TECNICO_INT,
+    telHref: `tel:+55${PHONE_TECNICO_RAW}`,
+    waHref: (msg = "Olá! Gostaria de falar com o suporte operacional/técnico da Eleva Matriz.") =>
+      `https://wa.me/${PHONE_TECNICO_INT}?text=${encodeURIComponent(msg)}`,
+    desc: "Acompanhamento de obras, vistorias técnicas presenciais, laudos e alinhamento com a engenharia.",
+    badge: "Técnico / Operacional",
+  },
+} as const;
+
 export const EMAIL = "contato@elevamatriz.com.br";
 export const REGION = "Paraná e Sul do Brasil";
 export const CITY_BASE = "Londrina e região metropolitana";
@@ -11,11 +51,15 @@ export const SOCIAL = {
   linkedin: "https://linkedin.com/company/eleva-matriz",
 };
 
-export function waLink(msg = "Olá! Vim pelo site da Eleva Matriz e gostaria de saber mais.") {
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+export function waLink(
+  msg = "Olá! Vim pelo site da Eleva Matriz e gostaria de saber mais.",
+  channel: "comercial" | "operacional" = "comercial"
+) {
+  const targetNumber = channel === "operacional" ? PHONE_TECNICO_INT : PHONE_COMERCIAL_INT;
+  return `https://wa.me/${targetNumber}?text=${encodeURIComponent(msg)}`;
 }
 
-export const MISSION = "Elevar o nível de performance em infraestrutura de redes e instalações elétricas empresariais.";
+export const MISSION = "Elevar o nível de performance e segurança em infraestrutura de redes e instalações elétricas empresariais e residenciais de alto padrão.";
 
 export const VISION = "Ser referência no Sul do Brasil em soluções completas de cabeamento estruturado para empresas, reconhecida pela qualidade e compromisso com o resultado.";
 
@@ -122,6 +166,15 @@ export const SERVICES = [
     who: "Empresas que contrataram instalações de rede ou que precisam de laudo pericial para auditorias, seguradoras e garantia do fabricante.",
     gain: "Certeza documental de que 100% dos pontos de rede operam na velocidade máxima nominal, sem perda de pacotes ou ruídos.",
   },
+  {
+    slug: "engenharia-e-redes-residenciais",
+    title: "Engenharia Elétrica & Redes Residenciais de Alto Padrão",
+    badge: "Residencial & Condomínios",
+    short: "Infraestrutura elétrica com ART, quadros dimensionados com DPS, Wi-Fi 6 sem pontos cegos, automação e espera para Wallbox.",
+    what: "Projetos elétricos executivos completos com ART no CREA-PR, cálculo de demanda, distribuição de circuitos dedicados (ar-condicionado, piscina, cozinha gourmet e Wallbox para carro elétrico), cabeamento Cat6 para automação residencial e implantação de rede Wi-Fi 6 de alta densidade sem pontos cegos.",
+    who: "Proprietários de residências em condomínios fechados, sobrados de alto padrão, arquitetos, designers de interiores e síndicos de condomínios que prezam por acabamento impecável.",
+    gain: "Estética refinada sem cabos aparentes, internet veloz em todos os cômodos e na área de lazer/piscina, proteção total contra queima de eletrodomésticos sensíveis e conformidade técnica.",
+  },
 ];
 
 export const PROJECTS = [
@@ -221,12 +274,28 @@ export const PROJECTS = [
     solution: "Instalações elétricas completas, 110 pontos de rede Cat6, 16 câmeras CFTV e Sistema de Proteção contra Descargas Atmosféricas (SPDA).",
     result: "Sede entregue pronta para operação contínua, sem riscos de sobrecarga e com proteção total dos servidores de contabilidade.",
   },
+  {
+    client: "Residência de Alto Padrão em Condomínio Fechado (Londrina-PR)",
+    sector: "Residencial",
+    tag: "Elétrica, Wi-Fi 6, Wallbox & CFTV IP",
+    challenge: "Imóvel de 580m² com necessidade de Wi-Fi sem oscilações em 3 pavimentos e área gourmet, espera de alta potência para veículo elétrico e integração com automação.",
+    solution: "Projeto elétrico executivo com ART, quadro balanceado com DPS e circuitos dedicados, ponto de recarga veicular Wallbox de 32A, cabeamento Cat6 para automação, 6 Access Points Wi-Fi 6 e 12 câmeras de segurança IP discretas.",
+    result: "Zero pontos cegos de internet em toda a casa e jardim, recarga veicular segura sem risco de desarme e proteção total dos equipamentos eletrônicos.",
+  },
 ];
 
 export const FAQS = [
   {
+    q: "Quais são os telefones de contato da Eleva Matriz?",
+    a: "Disponibilizamos dois canais diretos: Atendimento Comercial e Novos Projetos pelo (43) 99196-2873, e Atendimento Técnico e Operacional pelo (43) 98817-4121. Você fala diretamente com nossa equipe sem filas ou intermediários.",
+  },
+  {
+    q: "A Eleva Matriz também realiza projetos e instalações para residências?",
+    a: "Sim! Atendemos residências de médio e alto padrão, condomínios horizontais e verticais. Executamos projetos elétricos com ART, quadros dimensionados com proteção DPS, circuitos para ar-condicionado e carregador veicular Wallbox, cabeamento estruturado para automação residencial e sistemas de Wi-Fi 6 de alta cobertura que eliminam pontos cegos em sobrados, áreas gourmet e piscinas.",
+  },
+  {
     q: "A Eleva Matriz atende em qualquer cidade do Paraná?",
-    a: "Sim! Nossa equipe atende empresas, indústrias e cooperativas em todo o Paraná e no Sul do Brasil, com base em Londrina e atuação em Maringá, Curitiba, Ponta Grossa, Cascavel e região.",
+    a: "Sim! Nossa equipe atende empresas, indústrias, cooperativas e residências em todo o Paraná e no Sul do Brasil, com base em Londrina e atuação em Maringá, Curitiba, Ponta Grossa, Cascavel e região.",
   },
   {
     q: "Quem é o responsável técnico pelos projetos e laudos?",
@@ -238,7 +307,7 @@ export const FAQS = [
   },
   {
     q: "Como funciona para pedir um orçamento de rede ou elétrica?",
-    a: "É muito simples: você nos chama no WhatsApp ou preenche o formulário informando a necessidade da sua empresa. Agendamos uma conversa técnica ágil e transparente, sem complicação ou burocracia.",
+    a: "É muito simples: você nos chama no WhatsApp Comercial pelo (43) 99196-2873 ou preenche o formulário informando a necessidade do seu imóvel. Agendamos uma conversa técnica ágil e transparente, sem complicação ou burocracia.",
   },
   {
     q: "Os instrumentos de medição têm laudo de calibração?",
@@ -246,7 +315,7 @@ export const FAQS = [
   },
   {
     q: "Vocês atendem desde pequenos escritórios até grandes indústrias e hospitais?",
-    a: "Sim! Nosso portfólio abrange desde adequações de 48 pontos até grandes complexos industriais com mais de 1.400 pontos de rede, anéis ópticos de 7.500 metros e redes bancárias de 40 agências.",
+    a: "Sim! Nosso portfólio abrange desde residências de alto padrão e adequações de 48 pontos até grandes complexos industriais com mais de 1.400 pontos de rede, anéis ópticos de 7.500 metros e redes bancárias de 40 agências.",
   },
 ];
 
@@ -283,6 +352,14 @@ export const PERSONAS = [
     solution: "Wi-Fi profissional Ubiquiti/Aruba, sistemas de CFTV IP de alta definição e energia solar fotovoltaica.",
     benefit: "Colaboradores produtivos sem queda de conexão, proteção patrimonial 24h e economia de até 90% na fatura de luz.",
   },
+  {
+    id: "residencial",
+    title: "Residências de Alto Padrão & Condomínios",
+    target: "Proprietários, Arquitetos, Designers e Construtores",
+    pain: "Wi-Fi que não pega na suíte ou piscina, cabos aparentes estragando a arquitetura, desarmes de disjuntor e falta de infraestrutura para carro elétrico.",
+    solution: "Projeto elétrico residencial executivo com ART, Wi-Fi 6 de alta cobertura, cabeamento discreto para automação e infraestrutura para carregador Wallbox.",
+    benefit: "Casa inteligente 100% conectada sem pontos cegos, segurança contra surtos elétricos, estética refinada preservada e valorização do imóvel.",
+  },
 ];
 
 export const COMPARISON = [
@@ -318,24 +395,32 @@ export const TEAM = [
     name: "Beatriz Costa",
     role: "Marketing & Comunicação",
     photo: "/team/beatriz_studio.jpg",
+    channel: "comercial" as const,
+    phoneDisplay: PHONE_COMERCIAL_DISPLAY,
     bio: "Responsável pela organização das ações de marketing, comunicação e conteúdo da Eleva, contribuindo para fortalecer a presença e a imagem da empresa.",
   },
   {
     name: "Danielli Marin",
     role: "Administração & RH",
     photo: "/team/dani_studio.jpg",
+    channel: "comercial" as const,
+    phoneDisplay: PHONE_COMERCIAL_DISPLAY,
     bio: "Responsável pela gestão administrativa, financeira, de Recursos Humanos e faturamento, garantindo a organização dos processos internos e a eficiência operacional da empresa.",
   },
   {
     name: "David Costa",
     role: "Head Comercial",
     photo: "/team/david_studio.jpg",
+    channel: "comercial" as const,
+    phoneDisplay: PHONE_COMERCIAL_DISPLAY,
     bio: "Responsável pela visão estratégica de negócios da Eleva Matriz Engenharia, atuando na identificação de oportunidades, desenvolvimento de parcerias e expansão comercial.",
   },
   {
     name: "Thiago Marin",
     role: "Engenharia & Projetos (CREA-PR)",
     photo: "/team/thiago_studio.jpg",
+    channel: "operacional" as const,
+    phoneDisplay: PHONE_TECNICO_DISPLAY,
     bio: "Responsável pelo desenvolvimento de projetos, execução e coordenação de equipes técnicas, atuando no planejamento e na condução de soluções personalizadas com habilitação profissional junto ao CREA-PR.",
   },
 ];
