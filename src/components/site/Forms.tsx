@@ -66,7 +66,7 @@ export function LeadForm() {
       <div><Label htmlFor="l-email">E-mail</Label><input id="l-email" name="email" type="email" required maxLength={255} className="field" autoComplete="email" /></div>
       <div><Label htmlFor="l-wa">WhatsApp</Label><input id="l-wa" name="whatsapp" type="tel" required maxLength={30} className="field" placeholder="(43) 90000-0000" autoComplete="tel" /></div>
       <Consent />
-      <button disabled={state === "sending"} className="btn btn-highlight">{state === "sending" ? "Enviando..." : "Quero o material gratuito"}</button>
+      <button disabled={state === "sending"} className="btn btn-highlight w-full sm:w-auto text-center">{state === "sending" ? "Enviando..." : "Quero o material gratuito"}</button>
       {state === "error" && <p role="alert" className="text-sm text-destructive">Não foi possível enviar. Verifique os dados ou chame no WhatsApp.</p>}
     </form>
   );
@@ -107,7 +107,7 @@ export function ContactForm() {
       </div>
       <div><Label htmlFor="c-msg">Como podemos te ajudar?</Label><textarea id="c-msg" name="message" required minLength={5} maxLength={2000} rows={4} className="field" placeholder="Descreva brevemente o projeto elétrico, rede, Wi-Fi, CFTV ou necessidade técnica..." /></div>
       <Consent />
-      <button disabled={state === "sending"} className="btn btn-primary justify-self-start">{state === "sending" ? "Enviando..." : "Enviar mensagem"}</button>
+      <button disabled={state === "sending"} className="btn btn-primary w-full sm:w-auto text-center sm:justify-self-start">{state === "sending" ? "Enviando..." : "Enviar mensagem"}</button>
       {state === "error" && <p role="alert" className="text-sm text-destructive">Não foi possível enviar. Verifique os dados ou chame no WhatsApp.</p>}
     </form>
   );

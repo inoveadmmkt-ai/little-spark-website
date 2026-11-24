@@ -59,22 +59,22 @@ function Portfolio() {
         </div>
 
         {/* MÉTRICAS EXPRESSIVAS DO ACERVO */}
-        <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
-          <div className="rounded-2xl border border-border bg-card p-5 text-center">
-            <span className="text-3xl font-extrabold text-highlight md:text-4xl">+7.500</span>
-            <p className="mt-1 text-xs font-semibold text-muted-foreground">Pontos de rede certificados</p>
+        <div className="mt-8 sm:mt-10 grid grid-cols-2 gap-2.5 sm:gap-4 sm:grid-cols-4">
+          <div className="rounded-2xl border border-border bg-card p-3 sm:p-5 text-center">
+            <span className="text-2xl sm:text-3xl font-extrabold text-highlight md:text-4xl">+7.500</span>
+            <p className="mt-1 text-[11px] sm:text-xs font-semibold text-muted-foreground">Pontos de rede certificados</p>
           </div>
-          <div className="rounded-2xl border border-border bg-card p-5 text-center">
-            <span className="text-3xl font-extrabold text-highlight md:text-4xl">+15.000m</span>
-            <p className="mt-1 text-xs font-semibold text-muted-foreground">Cabos ópticos lançados</p>
+          <div className="rounded-2xl border border-border bg-card p-3 sm:p-5 text-center">
+            <span className="text-2xl sm:text-3xl font-extrabold text-highlight md:text-4xl">+15.000m</span>
+            <p className="mt-1 text-[11px] sm:text-xs font-semibold text-muted-foreground">Cabos ópticos lançados</p>
           </div>
-          <div className="rounded-2xl border border-border bg-card p-5 text-center">
-            <span className="text-3xl font-extrabold text-highlight md:text-4xl">40+</span>
-            <p className="mt-1 text-xs font-semibold text-muted-foreground">Agências bancárias atendidas</p>
+          <div className="rounded-2xl border border-border bg-card p-3 sm:p-5 text-center">
+            <span className="text-2xl sm:text-3xl font-extrabold text-highlight md:text-4xl">40+</span>
+            <p className="mt-1 text-[11px] sm:text-xs font-semibold text-muted-foreground">Agências atendidas</p>
           </div>
-          <div className="rounded-2xl border border-border bg-card p-5 text-center">
-            <span className="text-3xl font-extrabold text-highlight md:text-4xl">100%</span>
-            <p className="mt-1 text-xs font-semibold text-muted-foreground">Com conformidade e ART</p>
+          <div className="rounded-2xl border border-border bg-card p-3 sm:p-5 text-center">
+            <span className="text-2xl sm:text-3xl font-extrabold text-highlight md:text-4xl">100%</span>
+            <p className="mt-1 text-[11px] sm:text-xs font-semibold text-muted-foreground">Conformidade e ART</p>
           </div>
         </div>
       </section>
@@ -86,15 +86,15 @@ function Portfolio() {
 
       {/* FILTROS E GRADE DE PROJETOS */}
       <section className="container-site pb-16">
-        <div className="flex flex-wrap items-center gap-2 mb-8">
-          <span className="flex items-center gap-1.5 text-xs font-bold text-muted-foreground mr-2">
-            <Filter className="h-4 w-4" /> Filtrar por segmento:
+        <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-6 sm:mb-8">
+          <span className="flex items-center gap-1.5 text-xs font-bold text-muted-foreground mr-1 sm:mr-2">
+            <Filter className="h-3.5 w-3.5 sm:h-4 sm:w-4" /> Filtrar:
           </span>
           {SECTORS.map((s) => (
             <button
               key={s}
               onClick={() => setFilter(s)}
-              className={`rounded-full px-4 py-2 text-xs font-bold transition-all ${
+              className={`rounded-full px-3 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs font-bold transition-all ${
                 filter === s
                   ? "bg-primary text-primary-foreground shadow-sm"
                   : "border border-border bg-card text-foreground hover:border-highlight"
@@ -105,11 +105,11 @@ function Portfolio() {
           ))}
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
           {filtered.map((p) => (
             <article
               key={p.client}
-              className="reveal group flex flex-col justify-between overflow-hidden rounded-3xl border border-border bg-card shadow-sm transition-all hover:border-highlight/40 hover:shadow-lg"
+              className="reveal group flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl border border-border bg-card shadow-sm transition-all hover:border-highlight/40 hover:shadow-lg"
             >
               <div className="relative aspect-[16/10] overflow-hidden bg-muted">
                 <img
@@ -129,22 +129,22 @@ function Portfolio() {
                 </div>
               </div>
 
-              <div className="p-6 md:p-8 flex-1 flex flex-col justify-between">
+              <div className="p-4 sm:p-6 md:p-8 flex-1 flex flex-col justify-between">
                 <div>
-                  <h2 className="text-xl font-bold text-foreground leading-snug group-hover:text-primary transition-colors">{p.client}</h2>
+                  <h2 className="text-lg sm:text-xl font-bold text-foreground leading-snug group-hover:text-primary transition-colors">{p.client}</h2>
 
-                  <dl className="mt-5 space-y-3.5 text-sm leading-relaxed">
-                    <div className="rounded-xl bg-background border border-border p-3.5">
+                  <dl className="mt-4 sm:mt-5 space-y-3 text-sm leading-relaxed">
+                    <div className="rounded-xl bg-background border border-border p-3 sm:p-3.5">
                       <dt className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground">O Desafio</dt>
                       <dd className="mt-1 text-xs text-foreground leading-relaxed">{p.challenge}</dd>
                     </div>
 
-                    <div className="rounded-xl bg-background border border-border p-3.5">
+                    <div className="rounded-xl bg-background border border-border p-3 sm:p-3.5">
                       <dt className="text-[11px] font-bold uppercase tracking-wider text-highlight">A Solução Executada</dt>
                       <dd className="mt-1 text-xs text-foreground leading-relaxed">{p.solution}</dd>
                     </div>
 
-                    <div className="rounded-xl bg-accent/40 border border-primary/10 p-3.5">
+                    <div className="rounded-xl bg-accent/40 border border-primary/10 p-3 sm:p-3.5">
                       <dt className="text-[11px] font-bold uppercase tracking-wider text-primary">Resultado Alcançado</dt>
                       <dd className="mt-1 text-xs font-semibold text-foreground leading-relaxed">{p.result}</dd>
                     </div>
@@ -152,14 +152,14 @@ function Portfolio() {
                 </div>
               </div>
 
-              <div className="border-t border-border bg-card/60 p-5">
+              <div className="border-t border-border bg-card/60 p-4 sm:p-5">
                 <a
                   href={waLink(`Olá! Vi o projeto da Eleva Matriz em "${p.client}" e gostaria de solicitar uma proposta técnica similar para minha empresa.`)}
                   target="_blank"
                   rel="noopener"
                   className="btn btn-outline w-full text-xs font-bold justify-center"
                 >
-                  <MessageCircle className="h-4 w-4" /> Solicitar Proposta Similar
+                  <MessageCircle className="h-4 w-4 shrink-0" /> Solicitar Proposta Similar
                 </a>
               </div>
             </article>

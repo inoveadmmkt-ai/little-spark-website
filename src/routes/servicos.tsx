@@ -82,29 +82,29 @@ function Servicos() {
             key={s.slug}
             id={s.slug}
             aria-labelledby={`${s.slug}-t`}
-            className="reveal scroll-mt-28 rounded-3xl border border-border bg-card p-8 md:p-12 shadow-sm transition-all hover:shadow-md"
+            className="reveal scroll-mt-28 rounded-2xl sm:rounded-3xl border border-border bg-card p-4 sm:p-8 md:p-12 shadow-sm transition-all hover:shadow-md overflow-hidden"
           >
-            <div className="flex flex-wrap items-center justify-between gap-4 border-b border-border pb-6">
-              <div className="flex items-center gap-4">
-                <span className="text-3xl font-extrabold text-highlight md:text-4xl">0{i + 1}</span>
+            <div className="flex flex-wrap items-center justify-between gap-3 sm:gap-4 border-b border-border pb-5 sm:pb-6">
+              <div className="flex items-center gap-3 sm:gap-4">
+                <span className="text-2xl sm:text-3xl font-extrabold text-highlight md:text-4xl">0{i + 1}</span>
                 <div>
-                  <span className="inline-block rounded-md bg-accent px-2.5 py-0.5 text-xs font-bold text-accent-foreground mb-1">
+                  <span className="inline-block rounded-md bg-accent px-2.5 py-0.5 text-[11px] sm:text-xs font-bold text-accent-foreground mb-1">
                     {s.badge}
                   </span>
-                  <h2 id={`${s.slug}-t`} className="text-2xl font-extrabold text-foreground md:text-3xl">
+                  <h2 id={`${s.slug}-t`} className="text-xl sm:text-2xl font-extrabold text-foreground md:text-3xl">
                     {s.title}
                   </h2>
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 text-xs font-semibold text-muted-foreground bg-background px-3 py-1.5 rounded-full border border-border">
-                <ShieldCheck className="h-4 w-4 text-highlight" />
+              <div className="flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-semibold text-muted-foreground bg-background px-3 py-1.5 rounded-full border border-border">
+                <ShieldCheck className="h-4 w-4 text-highlight shrink-0" />
                 <span>Emissão de ART inclusa</span>
               </div>
             </div>
 
-            <div className="mt-8 grid gap-8 lg:grid-cols-12 items-stretch">
-              <div className="lg:col-span-4 relative overflow-hidden rounded-2xl border border-border min-h-[240px] bg-muted shadow-sm group">
+            <div className="mt-6 sm:mt-8 grid gap-6 sm:gap-8 lg:grid-cols-12 items-stretch">
+              <div className="lg:col-span-4 relative overflow-hidden rounded-2xl border border-border min-h-[200px] sm:min-h-[240px] bg-muted shadow-sm group">
                 <img
                   src={s.photo || "/galeria/cabeamento_estruturado.jpg"}
                   alt={s.title}
@@ -113,42 +113,42 @@ function Servicos() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
                 <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
-                  <span className="rounded-md bg-black/60 backdrop-blur-md px-2.5 py-1 text-xs font-semibold text-white border border-white/10">
+                  <span className="rounded-md bg-black/60 backdrop-blur-md px-2.5 py-1 text-[11px] sm:text-xs font-semibold text-white border border-white/10">
                     {s.badge}
                   </span>
-                  <span className="text-[11px] font-bold text-white bg-highlight/90 backdrop-blur-md px-2 py-0.5 rounded">
+                  <span className="text-[10px] sm:text-[11px] font-bold text-white bg-highlight/90 backdrop-blur-md px-2 py-0.5 rounded">
                     Padrão Executivo
                   </span>
                 </div>
               </div>
 
-              <dl className="lg:col-span-8 grid gap-4 sm:grid-cols-3">
-                <div className="flex flex-col justify-between rounded-2xl border border-border bg-background p-6">
+              <dl className="lg:col-span-8 grid gap-3 sm:gap-4 sm:grid-cols-3">
+                <div className="flex flex-col justify-between rounded-2xl border border-border bg-background p-4 sm:p-6">
                   <div>
                     <dt className="text-xs font-bold uppercase tracking-wider text-highlight">01. O que é</dt>
-                    <dd className="mt-3 text-sm text-foreground leading-relaxed">{s.what}</dd>
+                    <dd className="mt-2 sm:mt-3 text-xs sm:text-sm text-foreground leading-relaxed">{s.what}</dd>
                   </div>
                 </div>
 
-                <div className="flex flex-col justify-between rounded-2xl border border-border bg-background p-6">
+                <div className="flex flex-col justify-between rounded-2xl border border-border bg-background p-4 sm:p-6">
                   <div>
                     <dt className="text-xs font-bold uppercase tracking-wider text-highlight">02. Para quem é</dt>
-                    <dd className="mt-3 text-sm text-foreground leading-relaxed">{s.who}</dd>
+                    <dd className="mt-2 sm:mt-3 text-xs sm:text-sm text-foreground leading-relaxed">{s.who}</dd>
                   </div>
                 </div>
 
-                <div className="flex flex-col justify-between rounded-2xl border border-border bg-background p-6">
+                <div className="flex flex-col justify-between rounded-2xl border border-border bg-background p-4 sm:p-6">
                   <div>
                     <dt className="text-xs font-bold uppercase tracking-wider text-highlight">03. O que você ganha</dt>
-                    <dd className="mt-3 text-sm font-medium text-primary leading-relaxed">{s.gain}</dd>
+                    <dd className="mt-2 sm:mt-3 text-xs sm:text-sm font-medium text-primary leading-relaxed">{s.gain}</dd>
                   </div>
                 </div>
               </dl>
             </div>
 
-            <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-6">
+            <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-border pt-5 sm:pt-6">
               <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                <CheckCircle2 className="h-4 w-4 text-highlight" />
+                <CheckCircle2 className="h-4 w-4 text-highlight shrink-0" />
                 <span>Atendimento presencial em todo o Paraná</span>
               </div>
 
@@ -156,9 +156,9 @@ function Servicos() {
                 href={waLink(`Olá! Vim pelo site da Eleva Matriz e gostaria de conversar sobre ${s.title} para a minha empresa.`)}
                 target="_blank"
                 rel="noopener"
-                className="btn btn-highlight text-sm"
+                className="btn btn-highlight text-xs sm:text-sm w-full sm:w-auto text-center"
               >
-                <MessageCircle className="h-4 w-4" aria-hidden /> Falar sobre {s.title.toLowerCase()} no WhatsApp
+                <MessageCircle className="h-4 w-4 shrink-0" aria-hidden /> Falar no WhatsApp sobre este serviço
               </a>
             </div>
           </section>

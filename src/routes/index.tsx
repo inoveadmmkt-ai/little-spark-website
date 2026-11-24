@@ -77,60 +77,60 @@ function Index() {
   return (
     <>
       {/* HERO SECTION */}
-      <section className="container-site grid items-center gap-12 py-16 md:grid-cols-2 md:py-24">
+      <section className="container-site grid items-center gap-8 sm:gap-12 py-12 md:grid-cols-2 md:py-24">
         <div className="reveal">
           <div className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-accent/40 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-accent-foreground">
-            <span className="h-2 w-2 rounded-full bg-highlight animate-pulse" />
-            Engenharia, Redes & Instalações · {REGION}
+            <span className="h-2 w-2 rounded-full bg-highlight animate-pulse shrink-0" />
+            <span className="line-clamp-1">Engenharia, Redes & Instalações · {REGION}</span>
           </div>
 
-          <h1 className="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-foreground md:text-5xl lg:text-6xl">
+          <h1 className="mt-4 sm:mt-5 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-foreground">
             Infraestrutura de redes e engenharia elétrica para <span className="text-highlight">elevar</span> seu projeto.
           </h1>
 
-          <p className="mt-6 max-w-xl text-lg text-muted-foreground leading-relaxed">
+          <p className="mt-4 sm:mt-6 max-w-xl text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed">
             Cabeamento estruturado Cat6/6A, anéis ópticos de até 50 Gb/s, Wi-Fi corporativo e residencial de alta cobertura e projetos elétricos com ART no CREA-PR para empresas e residências de alto padrão.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-4">
-            <a href={waLink()} target="_blank" rel="noopener" className="btn btn-highlight text-base shadow-lg shadow-highlight/20">
-              <MessageCircle className="h-5 w-5" aria-hidden /> Falar no WhatsApp
+          <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <a href={waLink()} target="_blank" rel="noopener" className="btn btn-highlight text-sm sm:text-base shadow-lg shadow-highlight/20 w-full sm:w-auto">
+              <MessageCircle className="h-5 w-5 shrink-0" aria-hidden /> Falar no WhatsApp
             </a>
-            <Link to="/servicos" className="btn btn-outline text-primary hover:bg-primary/5">
-              Conhecer Serviços <ArrowRight className="h-4 w-4" aria-hidden />
+            <Link to="/servicos" className="btn btn-outline text-primary hover:bg-primary/5 text-sm sm:text-base w-full sm:w-auto">
+              Conhecer Serviços <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
             </Link>
           </div>
 
-          <div className="mt-8 flex flex-wrap items-center gap-4">
-            <Link to="/sobre" className="group flex items-center gap-3 rounded-full border border-border bg-card/60 p-1.5 pr-4 shadow-sm hover:border-highlight transition-all">
-              <div className="flex -space-x-2.5 overflow-hidden">
+          <div className="mt-6 sm:mt-8 flex flex-wrap items-center gap-4">
+            <Link to="/sobre" className="group flex items-center gap-3 rounded-full border border-border bg-card/60 p-1.5 pr-4 shadow-sm hover:border-highlight transition-all max-w-full">
+              <div className="flex -space-x-2.5 overflow-hidden shrink-0">
                 {TEAM.map((m) => (
                   <img
                     key={m.name}
-                    className="inline-block h-9 w-9 rounded-full ring-2 ring-background bg-slate-100 dark:bg-slate-800 object-cover object-top"
+                    className="inline-block h-8 w-8 sm:h-9 sm:w-9 rounded-full ring-2 ring-background bg-slate-100 dark:bg-slate-800 object-cover object-top"
                     src={m.photo}
                     alt={m.name}
                   />
                 ))}
               </div>
-              <div className="text-left text-xs">
-                <span className="font-bold text-foreground block group-hover:text-primary transition-colors">
+              <div className="text-left text-xs min-w-0">
+                <span className="font-bold text-foreground block group-hover:text-primary transition-colors truncate">
                   Equipe Técnica Própria
                 </span>
-                <span className="text-muted-foreground text-[11px]">
+                <span className="text-muted-foreground text-[10px] sm:text-[11px] truncate block">
                   Beatriz, Danielli, David e Eng. Thiago
                 </span>
               </div>
             </Link>
           </div>
 
-          <div className="mt-8 grid grid-cols-2 gap-4 border-t border-border pt-6 sm:grid-cols-2">
-            <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
-              <CheckCircle2 className="h-5 w-5 text-highlight shrink-0" />
+          <div className="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 border-t border-border pt-6">
+            <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-foreground">
+              <CheckCircle2 className="h-4.5 w-4.5 sm:h-5 sm:w-5 text-highlight shrink-0" />
               <span>Projetos Válidos com ART</span>
             </div>
-            <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
-              <CheckCircle2 className="h-5 w-5 text-highlight shrink-0" />
+            <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-foreground">
+              <CheckCircle2 className="h-4.5 w-4.5 sm:h-5 sm:w-5 text-highlight shrink-0" />
               <span>Certificação com Analisador</span>
             </div>
           </div>
@@ -312,11 +312,9 @@ function Index() {
       </section>
 
       {/* GALERIA FOTOGRÁFICA INTERATIVA DE OBRAS & ESTRUTURAS */}
-      <section className="py-16 bg-card/40 border-y border-border" aria-labelledby="galeria-titulo">
-        <div className="container-site">
-          <ImageGallery />
-        </div>
-      </section>
+      <div className="bg-card/40 border-y border-border">
+        <ImageGallery />
+      </div>
 
       {/* POR QUE ESCOLHER A ELEVA MATRIZ */}
       <section className="bg-card py-20 border-y border-border" aria-labelledby="porque-titulo">
@@ -455,8 +453,8 @@ function Index() {
       </section>
 
       {/* BLOCO DE CAPTURA DE LEAD COM MATERIAL GRATUITO */}
-      <section className="container-site py-20" aria-labelledby="material-titulo">
-        <div className="grid items-center gap-10 rounded-3xl bg-primary p-8 text-primary-foreground md:grid-cols-2 md:p-14 shadow-2xl">
+      <section className="container-site py-12 md:py-20" aria-labelledby="material-titulo">
+        <div className="grid items-center gap-8 sm:gap-10 rounded-2xl sm:rounded-3xl bg-primary p-5 sm:p-8 text-primary-foreground md:grid-cols-2 md:p-14 shadow-2xl">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full bg-primary-foreground/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-highlight-foreground">
               <FileDown className="h-4 w-4" aria-hidden /> Material Gratuito para Empresas

@@ -168,16 +168,16 @@ export function ImageGallery({ title = "Galeria Visual de Obras & Infraestrutura
         </div>
 
         {/* PILLS DE FILTRO */}
-        <div className="mt-8 flex flex-wrap gap-2 pb-2">
+        <div className="mt-8 flex flex-wrap gap-1.5 sm:gap-2 pb-2">
           {CATEGORIES.map((cat) => {
             const active = activeCategory === cat;
             return (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`rounded-full px-4 py-2 text-xs font-bold transition-all ${
+                className={`rounded-full px-3 py-1.5 sm:px-4 sm:py-2 text-xs font-bold transition-all ${
                   active
-                    ? "bg-primary text-primary-foreground shadow-md shadow-primary/20 scale-105"
+                    ? "bg-primary text-primary-foreground shadow-md shadow-primary/20 scale-102"
                     : "border border-border bg-card text-muted-foreground hover:border-highlight hover:text-foreground"
                 }`}
               >
@@ -239,24 +239,24 @@ export function ImageGallery({ title = "Galeria Visual de Obras & Infraestrutura
         </div>
 
         {/* CALLOUT PARA ENVIAR FOTOS DE INFRAESTRUTURA */}
-        <div className="mt-12 rounded-3xl border border-border bg-gradient-to-br from-card via-background to-accent/20 p-8 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="space-y-2 max-w-2xl">
-            <h3 className="text-xl font-bold text-foreground flex items-center gap-2">
-              <Sparkles className="h-5 w-5 text-highlight" />
+        <div className="mt-12 rounded-2xl sm:rounded-3xl border border-border bg-gradient-to-br from-card via-background to-accent/20 p-5 sm:p-8 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="space-y-2 max-w-2xl text-center md:text-left">
+            <h3 className="text-lg sm:text-xl font-bold text-foreground flex items-center justify-center md:justify-start gap-2">
+              <Sparkles className="h-5 w-5 text-highlight shrink-0" />
               Sua empresa ou residência precisa de uma transformação técnica assim?
             </h3>
-            <p className="text-sm text-muted-foreground leading-relaxed">
+            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
               Você pode nos enviar fotos da sua sala de servidores, quadro elétrico ou planta arquitetônica pelo WhatsApp. Nossos engenheiros analisam previamente e retornam com uma recomendação sem custo.
             </p>
           </div>
-          <div className="flex flex-wrap items-center gap-3 shrink-0">
+          <div className="w-full md:w-auto flex justify-center shrink-0">
             <a
               href={CONTACT_CHANNELS.comercial.waHref("Olá! Gostaria de enviar fotos da minha infraestrutura atual para uma análise técnica com a Eleva Matriz.")}
               target="_blank"
               rel="noopener"
-              className="btn btn-highlight text-sm font-bold shadow-md shadow-highlight/20"
+              className="btn btn-highlight text-xs sm:text-sm font-bold shadow-md shadow-highlight/20 w-full sm:w-auto"
             >
-              <MessageCircle className="h-4 w-4" /> Enviar Fotos no WhatsApp ({CONTACT_CHANNELS.comercial.display})
+              <MessageCircle className="h-4 w-4 shrink-0" /> Enviar Fotos no WhatsApp
             </a>
           </div>
         </div>
@@ -265,22 +265,22 @@ export function ImageGallery({ title = "Galeria Visual de Obras & Infraestrutura
       {/* LIGHTBOX MODAL */}
       {selectedPhoto && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4 backdrop-blur-md animate-in fade-in"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-3 sm:p-4 backdrop-blur-md animate-in fade-in"
           onClick={() => setSelectedPhoto(null)}
           role="dialog"
           aria-modal="true"
         >
           <div
-            className="relative max-w-4xl w-full rounded-3xl overflow-hidden border border-white/20 bg-card shadow-2xl animate-in zoom-in-95"
+            className="relative max-h-[92vh] overflow-y-auto max-w-4xl w-full rounded-2xl sm:rounded-3xl overflow-hidden border border-white/20 bg-card shadow-2xl animate-in zoom-in-95"
             onClick={(e) => e.stopPropagation()}
           >
             {/* BOTÃO FECHAR */}
             <button
               onClick={() => setSelectedPhoto(null)}
               aria-label="Fechar foto ampliada"
-              className="absolute top-4 right-4 z-20 grid h-10 w-10 place-items-center rounded-full bg-black/60 text-white hover:bg-black/80 transition-colors"
+              className="absolute top-3 right-3 sm:top-4 sm:right-4 z-20 grid h-9 w-9 sm:h-10 sm:w-10 place-items-center rounded-full bg-black/60 text-white hover:bg-black/80 transition-colors"
             >
-              <X className="h-5 w-5" />
+              <X className="h-4 w-4 sm:h-5 sm:w-5" />
             </button>
 
             {/* IMAGEM AMPLIADA */}
@@ -290,42 +290,42 @@ export function ImageGallery({ title = "Galeria Visual de Obras & Infraestrutura
                 alt={selectedPhoto.alt}
                 className="h-full w-full object-cover"
               />
-              <div className="absolute top-4 left-4 flex gap-2">
-                <span className="rounded-full bg-black/60 px-3 py-1 text-xs font-bold text-white backdrop-blur">
+              <div className="absolute top-3 left-3 sm:top-4 sm:left-4 flex gap-1.5 sm:gap-2">
+                <span className="rounded-full bg-black/60 px-2.5 py-0.5 sm:px-3 sm:py-1 text-[11px] sm:text-xs font-bold text-white backdrop-blur">
                   {selectedPhoto.category}
                 </span>
-                <span className="rounded-full bg-highlight px-3 py-1 text-xs font-bold text-highlight-foreground shadow-md">
+                <span className="rounded-full bg-highlight px-2.5 py-0.5 sm:px-3 sm:py-1 text-[11px] sm:text-xs font-bold text-highlight-foreground shadow-md">
                   {selectedPhoto.tag}
                 </span>
               </div>
             </div>
 
             {/* DESCRIÇÃO E DETALHES TÉCNICOS */}
-            <div className="p-6 md:p-8 space-y-4">
+            <div className="p-4 sm:p-6 md:p-8 space-y-4">
               <div>
-                <h3 className="text-2xl font-extrabold text-foreground">{selectedPhoto.title}</h3>
+                <h3 className="text-xl sm:text-2xl font-extrabold text-foreground">{selectedPhoto.title}</h3>
                 {selectedPhoto.location && (
                   <p className="mt-1 text-xs font-medium text-highlight">
                     Local / Aplicação: {selectedPhoto.location}
                   </p>
                 )}
               </div>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                 {selectedPhoto.desc}
               </p>
 
-              <div className="border-t border-border pt-4 flex flex-wrap items-center justify-between gap-4">
-                <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                  <ShieldCheck className="h-4 w-4 text-highlight" />
+              <div className="border-t border-border pt-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="flex items-center gap-2 text-xs text-muted-foreground w-full sm:w-auto">
+                  <ShieldCheck className="h-4 w-4 text-highlight shrink-0" />
                   <span>Projeto com ART no CREA-PR e certificação de conformidade</span>
                 </div>
                 <a
                   href={CONTACT_CHANNELS.comercial.waHref(`Olá! Vi a foto "${selectedPhoto.title}" no site da Eleva Matriz e gostaria de um projeto similar para o meu imóvel.`)}
                   target="_blank"
                   rel="noopener"
-                  className="btn btn-highlight text-sm font-bold shadow-md shadow-highlight/20"
+                  className="btn btn-highlight text-xs sm:text-sm font-bold shadow-md shadow-highlight/20 w-full sm:w-auto text-center"
                 >
-                  <MessageCircle className="h-4 w-4" /> Solicitar Projeto Similar no WhatsApp
+                  <MessageCircle className="h-4 w-4 shrink-0" /> Solicitar Projeto Similar
                 </a>
               </div>
             </div>

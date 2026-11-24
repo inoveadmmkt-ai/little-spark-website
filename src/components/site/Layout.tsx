@@ -119,9 +119,9 @@ export function WhatsAppFloat() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end">
+    <div className="fixed bottom-4 right-4 sm:bottom-5 sm:right-5 z-50 flex flex-col items-end">
       {open && (
-        <div className="mb-3 w-72 rounded-2xl border border-border bg-card p-4 shadow-2xl backdrop-blur animate-in fade-in slide-in-from-bottom-2">
+        <div className="mb-3 w-[calc(100vw-2rem)] max-w-xs sm:w-72 rounded-2xl border border-border bg-card p-4 shadow-2xl backdrop-blur animate-in fade-in slide-in-from-bottom-2">
           <div className="flex items-center justify-between pb-3 border-b border-border">
             <span className="text-xs font-bold uppercase tracking-wider text-highlight">Fale no WhatsApp</span>
             <button
@@ -170,9 +170,9 @@ export function WhatsAppFloat() {
         onClick={() => setOpen(!open)}
         aria-label="Abrir canais de WhatsApp"
         aria-expanded={open}
-        className="grid h-16 w-16 place-items-center rounded-full bg-whatsapp text-primary-foreground shadow-2xl transition-transform hover:scale-105 active:scale-95"
+        className="grid h-14 w-14 sm:h-16 sm:w-16 place-items-center rounded-full bg-whatsapp text-primary-foreground shadow-2xl transition-transform hover:scale-105 active:scale-95"
       >
-        <MessageCircle className="h-8 w-8" />
+        <MessageCircle className="h-7 w-7 sm:h-8 sm:w-8" />
       </button>
     </div>
   );
@@ -183,12 +183,12 @@ export function CookieBanner() {
   useEffect(() => { setShow(!localStorage.getItem("cookie-ok")); }, []);
   if (!show) return null;
   return (
-    <div role="dialog" aria-label="Aviso de cookies" className="fixed inset-x-4 bottom-24 z-50 mx-auto max-w-xl rounded-2xl border bg-card p-5 shadow-2xl md:bottom-6">
-      <p className="text-sm text-muted-foreground">
+    <div role="dialog" aria-label="Aviso de cookies" className="fixed inset-x-3 sm:inset-x-4 bottom-20 z-50 mx-auto max-w-xl rounded-2xl border bg-card p-4 sm:p-5 shadow-2xl md:bottom-6">
+      <p className="text-xs sm:text-sm text-muted-foreground">
         Usamos cookies essenciais para o site funcionar bem. Saiba mais na nossa{" "}
         <Link to="/privacidade" className="font-semibold text-primary underline">política de privacidade</Link>.
       </p>
-      <button className="btn btn-primary mt-3 min-h-10 py-2" onClick={() => { localStorage.setItem("cookie-ok", "1"); setShow(false); }}>
+      <button className="btn btn-primary mt-3 min-h-9 py-1.5 px-4 text-xs sm:text-sm" onClick={() => { localStorage.setItem("cookie-ok", "1"); setShow(false); }}>
         Entendi
       </button>
     </div>
@@ -197,28 +197,30 @@ export function CookieBanner() {
 
 export function FinalCTA() {
   return (
-    <section className="container-site py-20">
-      <div className="reveal rounded-3xl bg-primary px-6 py-14 text-center text-primary-foreground md:px-16">
-        <h2 className="text-3xl font-extrabold md:text-4xl">Vamos conversar sobre o seu projeto?</h2>
-        <p className="mx-auto mt-4 max-w-xl text-primary-foreground/75 leading-relaxed">
+    <section className="container-site py-12 md:py-20">
+      <div className="reveal rounded-3xl bg-primary px-4 py-10 sm:px-8 sm:py-14 text-center text-primary-foreground md:px-16">
+        <h2 className="text-2xl sm:text-3xl font-extrabold md:text-4xl">Vamos conversar sobre o seu projeto?</h2>
+        <p className="mx-auto mt-4 max-w-xl text-xs sm:text-sm md:text-base text-primary-foreground/75 leading-relaxed">
           Conte o que você precisa para sua empresa ou residência de alto padrão. Explicamos tudo sem complicação e retornamos com agilidade técnica.
         </p>
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 max-w-xl mx-auto">
           <a
             href={CONTACT_CHANNELS.comercial.waHref()}
             target="_blank"
             rel="noopener"
-            className="btn btn-highlight text-base shadow-lg shadow-highlight/20"
+            className="btn btn-highlight text-xs sm:text-sm md:text-base shadow-lg shadow-highlight/20 w-full sm:w-auto"
           >
-            <MessageCircle className="h-5 w-5" aria-hidden /> WhatsApp Comercial ({PHONE_COMERCIAL_DISPLAY})
+            <MessageCircle className="h-4 w-4 sm:h-5 sm:w-5 shrink-0" aria-hidden />
+            <span>WhatsApp Comercial <strong className="font-mono text-[11px] sm:text-xs block sm:inline">({PHONE_COMERCIAL_DISPLAY})</strong></span>
           </a>
           <a
             href={CONTACT_CHANNELS.operacional.waHref()}
             target="_blank"
             rel="noopener"
-            className="btn btn-outline bg-primary-foreground/10 hover:bg-primary-foreground/20 text-primary-foreground border-primary-foreground/30 text-base"
+            className="btn btn-outline bg-primary-foreground/10 hover:bg-primary-foreground/20 text-primary-foreground border-primary-foreground/30 text-xs sm:text-sm md:text-base w-full sm:w-auto"
           >
-            <Wrench className="h-5 w-5" aria-hidden /> Canal Técnico ({PHONE_TECNICO_DISPLAY})
+            <Wrench className="h-4 w-4 sm:h-5 sm:w-5 shrink-0" aria-hidden />
+            <span>Canal Técnico <strong className="font-mono text-[11px] sm:text-xs block sm:inline">({PHONE_TECNICO_DISPLAY})</strong></span>
           </a>
         </div>
       </div>

@@ -37,9 +37,9 @@ function Contato() {
       </div>
 
       {/* CARDS DESTACADOS DOS DOIS TELEFONES */}
-      <div className="mt-10 grid gap-6 md:grid-cols-2">
+      <div className="mt-8 sm:mt-10 grid gap-4 sm:gap-6 md:grid-cols-2">
         {/* COMERCIAL */}
-        <div className="rounded-3xl border border-highlight/30 bg-gradient-to-br from-highlight/10 via-background to-card p-7 shadow-sm flex flex-col justify-between">
+        <div className="rounded-2xl sm:rounded-3xl border border-highlight/30 bg-gradient-to-br from-highlight/10 via-background to-card p-5 sm:p-7 shadow-sm flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between gap-3 mb-3">
               <span className="inline-flex items-center gap-1.5 rounded-full bg-highlight/15 px-3 py-1 text-xs font-bold text-highlight">
@@ -47,31 +47,31 @@ function Contato() {
               </span>
               <span className="text-xs font-semibold text-muted-foreground">Orçamentos</span>
             </div>
-            <h2 className="text-2xl font-extrabold text-foreground">{PHONE_COMERCIAL_DISPLAY}</h2>
-            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+            <h2 className="text-xl sm:text-2xl font-extrabold text-foreground">{PHONE_COMERCIAL_DISPLAY}</h2>
+            <p className="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed">
               Ideal para cotações, solicitações de propostas para empresas, indústrias, condomínios ou residências de alto padrão, além de agendamento de reuniões comerciais.
             </p>
           </div>
-          <div className="mt-6 flex flex-wrap gap-3">
+          <div className="mt-5 sm:mt-6 flex flex-col sm:flex-row gap-2.5 sm:gap-3">
             <a
               href={CONTACT_CHANNELS.comercial.waHref()}
               target="_blank"
               rel="noopener"
-              className="btn btn-highlight flex-1 text-sm font-bold shadow-md shadow-highlight/20"
+              className="btn btn-highlight text-xs sm:text-sm font-bold shadow-md shadow-highlight/20 w-full sm:flex-1 text-center justify-center"
             >
-              <MessageCircle className="h-4 w-4" aria-hidden /> WhatsApp Comercial
+              <MessageCircle className="h-4 w-4 shrink-0" aria-hidden /> WhatsApp Comercial
             </a>
             <a
               href={CONTACT_CHANNELS.comercial.telHref}
-              className="btn btn-outline text-primary text-sm font-semibold"
+              className="btn btn-outline text-primary text-xs sm:text-sm font-semibold w-full sm:w-auto text-center justify-center"
             >
-              <Phone className="h-4 w-4" aria-hidden /> Ligar
+              <Phone className="h-4 w-4 shrink-0" aria-hidden /> Ligar
             </a>
           </div>
         </div>
 
         {/* TÉCNICO / OPERACIONAL */}
-        <div className="rounded-3xl border border-border bg-card p-7 shadow-sm flex flex-col justify-between">
+        <div className="rounded-2xl sm:rounded-3xl border border-border bg-card p-5 sm:p-7 shadow-sm flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between gap-3 mb-3">
               <span className="inline-flex items-center gap-1.5 rounded-full bg-accent px-3 py-1 text-xs font-bold text-accent-foreground">
@@ -79,25 +79,25 @@ function Contato() {
               </span>
               <span className="text-xs font-semibold text-muted-foreground">Engenharia & Obras</span>
             </div>
-            <h2 className="text-2xl font-extrabold text-foreground">{PHONE_TECNICO_DISPLAY}</h2>
-            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+            <h2 className="text-xl sm:text-2xl font-extrabold text-foreground">{PHONE_TECNICO_DISPLAY}</h2>
+            <p className="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed">
               Canal direto com nossa engenharia para acompanhamento de cronograma de obras, vistorias técnicas presenciais, laudos periciais e alinhamentos de campo com ART.
             </p>
           </div>
-          <div className="mt-6 flex flex-wrap gap-3">
+          <div className="mt-5 sm:mt-6 flex flex-col sm:flex-row gap-2.5 sm:gap-3">
             <a
               href={CONTACT_CHANNELS.operacional.waHref()}
               target="_blank"
               rel="noopener"
-              className="btn btn-primary flex-1 text-sm font-bold shadow-md"
+              className="btn btn-primary text-xs sm:text-sm font-bold shadow-md w-full sm:flex-1 text-center justify-center"
             >
-              <MessageCircle className="h-4 w-4" aria-hidden /> WhatsApp Técnico
+              <MessageCircle className="h-4 w-4 shrink-0" aria-hidden /> WhatsApp Técnico
             </a>
             <a
               href={CONTACT_CHANNELS.operacional.telHref}
-              className="btn btn-outline text-primary text-sm font-semibold"
+              className="btn btn-outline text-primary text-xs sm:text-sm font-semibold w-full sm:w-auto text-center justify-center"
             >
-              <Phone className="h-4 w-4" aria-hidden /> Ligar
+              <Phone className="h-4 w-4 shrink-0" aria-hidden /> Ligar
             </a>
           </div>
         </div>

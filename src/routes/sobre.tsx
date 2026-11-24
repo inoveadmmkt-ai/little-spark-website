@@ -51,9 +51,9 @@ function Sobre() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-3.5 p-3.5 rounded-3xl border border-border bg-card/60 backdrop-blur shadow-xl">
+          <div className="grid grid-cols-2 gap-2.5 sm:gap-3.5 p-2.5 sm:p-3.5 rounded-2xl sm:rounded-3xl border border-border bg-card/60 backdrop-blur shadow-xl">
             {TEAM.map((m) => (
-              <div key={m.name} className="group relative overflow-hidden rounded-2xl border border-border/70 bg-background flex flex-col shadow-sm">
+              <div key={m.name} className="group relative overflow-hidden rounded-xl sm:rounded-2xl border border-border/70 bg-background flex flex-col shadow-sm">
                 <div className="aspect-[4/5] w-full overflow-hidden bg-muted">
                   <img
                     src={m.photo}
@@ -62,9 +62,9 @@ function Sobre() {
                     loading="lazy"
                   />
                 </div>
-                <div className="p-2.5 text-center border-t border-border/60 bg-card">
-                  <p className="text-sm font-bold text-foreground">{m.name}</p>
-                  <p className="text-[11px] font-medium text-highlight mt-0.5 line-clamp-1">{m.role.split('&')[0].trim()}</p>
+                <div className="p-2 sm:p-2.5 text-center border-t border-border/60 bg-card">
+                  <p className="text-xs sm:text-sm font-bold text-foreground truncate">{m.name}</p>
+                  <p className="text-[10px] sm:text-[11px] font-medium text-highlight mt-0.5 truncate">{m.role.split('&')[0].trim()}</p>
                 </div>
               </div>
             ))}
@@ -73,33 +73,33 @@ function Sobre() {
       </section>
 
       {/* MISSÃO, VISÃO E VALORES OFICIAIS */}
-      <section className="border-y border-border bg-card py-20">
+      <section className="border-y border-border bg-card py-12 md:py-20">
         <div className="container-site">
-          <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
+          <div className="grid gap-8 sm:gap-10 lg:grid-cols-12 lg:gap-16">
             {/* MISSÃO E VISÃO */}
-            <div className="lg:col-span-5 space-y-10">
-              <div className="rounded-3xl border border-border bg-background p-8 shadow-sm">
+            <div className="lg:col-span-5 space-y-6 sm:space-y-10">
+              <div className="rounded-2xl sm:rounded-3xl border border-border bg-background p-5 sm:p-8 shadow-sm">
                 <span className="eyebrow">Nosso Propósito</span>
-                <h2 className="mt-2 text-2xl font-extrabold text-foreground">Missão</h2>
-                <p className="mt-4 text-base text-muted-foreground leading-relaxed">
+                <h2 className="mt-2 text-xl sm:text-2xl font-extrabold text-foreground">Missão</h2>
+                <p className="mt-3 sm:mt-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
                   {MISSION}
                 </p>
               </div>
 
-              <div className="rounded-3xl border border-highlight/30 bg-accent/20 p-8 shadow-sm">
+              <div className="rounded-2xl sm:rounded-3xl border border-highlight/30 bg-accent/20 p-5 sm:p-8 shadow-sm">
                 <span className="eyebrow text-highlight">Onde Queremos Chegar</span>
-                <h3 className="mt-2 text-2xl font-extrabold text-foreground">Visão de Futuro</h3>
-                <p className="mt-4 text-base text-muted-foreground leading-relaxed">
+                <h3 className="mt-2 text-xl sm:text-2xl font-extrabold text-foreground">Visão de Futuro</h3>
+                <p className="mt-3 sm:mt-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
                   {VISION}
                 </p>
               </div>
 
-              <div className="rounded-3xl border border-border bg-background p-6">
+              <div className="rounded-2xl sm:rounded-3xl border border-border bg-background p-4 sm:p-6">
                 <div className="flex items-center gap-3">
-                  <ShieldCheck className="h-6 w-6 text-highlight shrink-0" />
+                  <ShieldCheck className="h-5 w-5 sm:h-6 sm:w-6 text-highlight shrink-0" />
                   <div>
-                    <h4 className="text-sm font-bold text-foreground">Responsabilidade Técnica CREA-PR</h4>
-                    <p className="text-xs text-muted-foreground mt-0.5">Engenheiro habilitado e acervo técnico com ART em 100% dos projetos executados.</p>
+                    <h4 className="text-xs sm:text-sm font-bold text-foreground">Responsabilidade Técnica CREA-PR</h4>
+                    <p className="text-[11px] sm:text-xs text-muted-foreground mt-0.5">Engenheiro habilitado e acervo técnico com ART em 100% dos projetos executados.</p>
                   </div>
                 </div>
               </div>
@@ -108,20 +108,20 @@ function Sobre() {
             {/* 9 VALORES OFICIAIS */}
             <div className="lg:col-span-7">
               <span className="eyebrow">Pilares Fundamentais</span>
-              <h2 className="mt-2 text-3xl font-extrabold text-foreground mb-6">Valores da Eleva</h2>
+              <h2 className="mt-2 text-2xl sm:text-3xl font-extrabold text-foreground mb-4 sm:mb-6">Valores da Eleva</h2>
               
-              <div className="grid gap-4 sm:grid-cols-2">
+              <div className="grid gap-3 sm:gap-4 sm:grid-cols-2">
                 {CORE_VALUES.map((val, idx) => {
                   const Icon = VALUE_ICONS[idx % VALUE_ICONS.length];
                   return (
-                    <div key={val.title} className="flex flex-col rounded-2xl border border-border bg-background p-5 hover:border-highlight/40 transition-colors shadow-sm">
-                      <div className="flex items-center gap-3 mb-2">
-                        <div className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-highlight/15 text-highlight">
-                          <Icon className="h-4.5 w-4.5" aria-hidden />
+                    <div key={val.title} className="flex flex-col rounded-2xl border border-border bg-background p-4 sm:p-5 hover:border-highlight/40 transition-colors shadow-sm">
+                      <div className="flex items-center gap-2.5 sm:gap-3 mb-1.5 sm:mb-2">
+                        <div className="grid h-8 w-8 sm:h-9 sm:w-9 shrink-0 place-items-center rounded-lg bg-highlight/15 text-highlight">
+                          <Icon className="h-4 w-4 sm:h-4.5 sm:w-4.5" aria-hidden />
                         </div>
-                        <h4 className="font-bold text-foreground text-sm">{val.title}</h4>
+                        <h4 className="font-bold text-foreground text-xs sm:text-sm">{val.title}</h4>
                       </div>
-                      <p className="text-xs text-muted-foreground leading-relaxed mt-1">{val.desc}</p>
+                      <p className="text-[11px] sm:text-xs text-muted-foreground leading-relaxed mt-1">{val.desc}</p>
                     </div>
                   );
                 })}
@@ -132,18 +132,18 @@ function Sobre() {
       </section>
 
       {/* QUEM FAZ ACONTECER (EQUIPE) */}
-      <section className="container-site py-20">
+      <section className="container-site py-12 md:py-20">
         <div className="text-center max-w-2xl mx-auto">
           <p className="eyebrow">Equipe Multidisciplinar</p>
-          <h2 className="mt-3 text-3xl font-extrabold md:text-4xl text-foreground">Quem faz acontecer</h2>
-          <p className="mt-4 text-muted-foreground text-lg">
+          <h2 className="mt-2 text-2xl sm:text-3xl font-extrabold md:text-4xl text-foreground">Quem faz acontecer</h2>
+          <p className="mt-3 text-sm sm:text-base md:text-lg text-muted-foreground">
             Profissionais dedicados a entregar soluções personalizadas com excelência, clareza e compromisso com o resultado.
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 sm:mt-12 grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {TEAM.map((member) => (
-            <article key={member.name} className="reveal group rounded-3xl border border-border bg-card p-5 shadow-sm hover:border-highlight/40 hover:shadow-lg transition-all flex flex-col justify-between">
+            <article key={member.name} className="reveal group rounded-2xl sm:rounded-3xl border border-border bg-card p-4 sm:p-5 shadow-sm hover:border-highlight/40 hover:shadow-lg transition-all flex flex-col justify-between">
               <div>
                 <div className="overflow-hidden rounded-2xl border border-border/70 mb-4 aspect-[4/5] bg-muted shadow-sm">
                   <img
@@ -158,7 +158,7 @@ function Sobre() {
                 <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{member.bio}</p>
               </div>
 
-              <div className="mt-5 border-t border-border pt-4 flex items-center justify-between gap-2">
+              <div className="mt-5 border-t border-border pt-4 flex flex-wrap items-center justify-between gap-2">
                 <a
                   href={waLink(`Olá! Gostaria de conversar com ${member.name} da equipe da Eleva Matriz.`, member.channel)}
                   target="_blank"

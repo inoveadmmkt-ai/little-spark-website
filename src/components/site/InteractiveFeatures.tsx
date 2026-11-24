@@ -97,27 +97,27 @@ export function RoiInfrastructureSimulator() {
   };
 
   return (
-    <div className="rounded-3xl border border-border bg-card p-6 md:p-10 shadow-xl">
+    <div className="rounded-2xl sm:rounded-3xl border border-border bg-card p-4 sm:p-6 md:p-10 shadow-xl overflow-hidden">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-border pb-6">
         <div>
           <div className="inline-flex items-center gap-2 rounded-full bg-highlight/15 text-highlight text-xs font-bold px-3 py-1 mb-2">
             <Sliders className="h-3.5 w-3.5" /> Simulador Interativo
           </div>
-          <h3 className="text-2xl md:text-3xl font-extrabold text-foreground">
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-foreground">
             Simulador de Eficiência, Redes e Retorno (ROI)
           </h3>
-          <p className="mt-1 text-sm text-muted-foreground">
+          <p className="mt-1 text-xs sm:text-sm text-muted-foreground">
             Ajuste os controles abaixo para calcular o impacto de uma infraestrutura moderna de cabeamento, fibra e energia solar.
           </p>
         </div>
 
-        <div className="flex items-center gap-2 bg-muted/60 p-1.5 rounded-xl text-xs font-bold">
-          <span className="text-muted-foreground px-2">Setor:</span>
+        <div className="flex flex-wrap items-center gap-1.5 bg-muted/60 p-1.5 rounded-xl text-xs font-bold max-w-full">
+          <span className="text-muted-foreground px-1.5 text-[11px] sm:text-xs">Setor:</span>
           {(Object.keys(sectorLabels) as Array<keyof typeof sectorLabels>).map((key) => (
             <button
               key={key}
               onClick={() => setSectorType(key)}
-              className={`rounded-lg px-2.5 py-1 transition-all ${
+              className={`rounded-lg px-2 py-1 text-[11px] sm:text-xs transition-all ${
                 sectorType === key
                   ? "bg-primary text-primary-foreground shadow-sm"
                   : "text-muted-foreground hover:text-foreground"
@@ -130,13 +130,13 @@ export function RoiInfrastructureSimulator() {
       </div>
 
       {/* CONTROLES INTERATIVOS (SLIDERS) */}
-      <div className="mt-8 grid gap-8 md:grid-cols-2">
-        <div className="rounded-2xl border border-border bg-background p-5 space-y-3">
-          <div className="flex justify-between items-center">
+      <div className="mt-8 grid gap-4 sm:gap-8 md:grid-cols-2">
+        <div className="rounded-2xl border border-border bg-background p-4 sm:p-5 space-y-3">
+          <div className="flex justify-between items-center gap-2">
             <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
-              <Network className="h-4 w-4 text-highlight" /> Pontos de Rede Estimados
+              <Network className="h-4 w-4 text-highlight shrink-0" /> Pontos de Rede
             </label>
-            <span className="text-lg font-black text-foreground bg-muted px-3 py-0.5 rounded-lg">
+            <span className="text-base sm:text-lg font-black text-foreground bg-muted px-2.5 py-0.5 rounded-lg shrink-0">
               {networkPoints} pontos
             </span>
           </div>
@@ -149,19 +149,19 @@ export function RoiInfrastructureSimulator() {
             onChange={(e) => setNetworkPoints(Number(e.target.value))}
             className="w-full accent-highlight cursor-pointer"
           />
-          <div className="flex justify-between text-[11px] text-muted-foreground font-medium">
-            <span>20 pts (escritório)</span>
-            <span>250 pts (médio porte)</span>
-            <span>800+ pts (grande indústria)</span>
+          <div className="flex justify-between text-[10px] sm:text-[11px] text-muted-foreground font-medium">
+            <span>20 pts</span>
+            <span>250 pts</span>
+            <span>800+ pts</span>
           </div>
         </div>
 
-        <div className="rounded-2xl border border-border bg-background p-5 space-y-3">
-          <div className="flex justify-between items-center">
+        <div className="rounded-2xl border border-border bg-background p-4 sm:p-5 space-y-3">
+          <div className="flex justify-between items-center gap-2">
             <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
-              <DollarSign className="h-4 w-4 text-green-600" /> Conta de Energia Mensal Atual
+              <DollarSign className="h-4 w-4 text-green-600 shrink-0" /> Conta de Energia
             </label>
-            <span className="text-lg font-black text-foreground bg-muted px-3 py-0.5 rounded-lg">
+            <span className="text-base sm:text-lg font-black text-foreground bg-muted px-2.5 py-0.5 rounded-lg shrink-0">
               R$ {monthlyEnergyBill.toLocaleString("pt-BR")}
             </span>
           </div>
@@ -174,62 +174,62 @@ export function RoiInfrastructureSimulator() {
             onChange={(e) => setMonthlyEnergyBill(Number(e.target.value))}
             className="w-full accent-highlight cursor-pointer"
           />
-          <div className="flex justify-between text-[11px] text-muted-foreground font-medium">
-            <span>R$ 1.500/mês</span>
-            <span>R$ 15.000/mês</span>
-            <span>R$ 35.000+/mês</span>
+          <div className="flex justify-between text-[10px] sm:text-[11px] text-muted-foreground font-medium">
+            <span>R$ 1.500</span>
+            <span>R$ 15.000</span>
+            <span>R$ 35k+</span>
           </div>
         </div>
       </div>
 
       {/* RESULTADOS VISUAIS PRINCIPAIS */}
-      <div className="mt-8 grid grid-cols-2 gap-4 lg:grid-cols-4">
-        <div className="rounded-2xl border border-border bg-background p-4 text-center">
-          <span className="text-xs font-bold uppercase text-muted-foreground block">Economia Solar / Mês</span>
-          <p className="mt-1.5 text-2xl md:text-3xl font-black text-green-600">
+      <div className="mt-8 grid grid-cols-2 gap-2.5 sm:gap-4 lg:grid-cols-4">
+        <div className="rounded-2xl border border-border bg-background p-3 sm:p-4 text-center">
+          <span className="text-[11px] sm:text-xs font-bold uppercase text-muted-foreground block line-clamp-1">Economia Solar / Mês</span>
+          <p className="mt-1 text-lg sm:text-2xl md:text-3xl font-black text-green-600">
             R$ {Math.round(calculations.monthlySolarSavings).toLocaleString("pt-BR")}
           </p>
-          <span className="text-[11px] text-muted-foreground mt-0.5 block">Redução média de 85%</span>
+          <span className="text-[10px] sm:text-[11px] text-muted-foreground mt-0.5 block">Redução média 85%</span>
         </div>
 
-        <div className="rounded-2xl border border-border bg-background p-4 text-center">
-          <span className="text-xs font-bold uppercase text-muted-foreground block">Economia em 1 Ano</span>
-          <p className="mt-1.5 text-2xl md:text-3xl font-black text-foreground">
+        <div className="rounded-2xl border border-border bg-background p-3 sm:p-4 text-center">
+          <span className="text-[11px] sm:text-xs font-bold uppercase text-muted-foreground block line-clamp-1">Economia em 1 Ano</span>
+          <p className="mt-1 text-lg sm:text-2xl md:text-3xl font-black text-foreground">
             R$ {Math.round(calculations.annualSolarSavings).toLocaleString("pt-BR")}
           </p>
-          <span className="text-[11px] text-muted-foreground mt-0.5 block">Recursos livres no caixa</span>
+          <span className="text-[10px] sm:text-[11px] text-muted-foreground mt-0.5 block">Recursos livres</span>
         </div>
 
-        <div className="rounded-2xl border border-border bg-background p-4 text-center">
-          <span className="text-xs font-bold uppercase text-muted-foreground block">Payback Estimado</span>
-          <p className="mt-1.5 text-2xl md:text-3xl font-black text-highlight">
+        <div className="rounded-2xl border border-border bg-background p-3 sm:p-4 text-center">
+          <span className="text-[11px] sm:text-xs font-bold uppercase text-muted-foreground block line-clamp-1">Payback Estimado</span>
+          <p className="mt-1 text-lg sm:text-2xl md:text-3xl font-black text-highlight">
             {calculations.paybackMonths} meses
           </p>
-          <span className="text-[11px] text-muted-foreground mt-0.5 block">Retorno do investimento</span>
+          <span className="text-[10px] sm:text-[11px] text-muted-foreground mt-0.5 block">Retorno invest.</span>
         </div>
 
-        <div className="rounded-2xl border border-border bg-background p-4 text-center">
-          <span className="text-xs font-bold uppercase text-muted-foreground block">Disponibilidade de Rede</span>
-          <p className="mt-1.5 text-2xl md:text-3xl font-black text-primary">
+        <div className="rounded-2xl border border-border bg-background p-3 sm:p-4 text-center">
+          <span className="text-[11px] sm:text-xs font-bold uppercase text-muted-foreground block line-clamp-1">Disponibilidade</span>
+          <p className="mt-1 text-lg sm:text-2xl md:text-3xl font-black text-primary">
             99.9%
           </p>
-          <span className="text-[11px] text-muted-foreground mt-0.5 block">Fibra e Cat6A certificada</span>
+          <span className="text-[10px] sm:text-[11px] text-muted-foreground mt-0.5 block">Cat6A & Fibra</span>
         </div>
       </div>
 
       {/* GRÁFICOS VISUAIS EM TEMPO REAL */}
-      <div className="mt-10 grid gap-8 lg:grid-cols-12 items-center">
+      <div className="mt-8 sm:mt-10 grid gap-6 sm:gap-8 lg:grid-cols-12 items-center">
         {/* GRÁFICO 1: PROJEÇÃO DE ECONOMIA ACUMULADA */}
-        <div className="lg:col-span-7 rounded-2xl border border-border bg-background p-5 shadow-sm">
-          <div className="flex items-center justify-between mb-4">
+        <div className="lg:col-span-7 rounded-2xl border border-border bg-background p-4 sm:p-5 shadow-sm min-w-0 w-full overflow-hidden">
+          <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
             <div>
-              <h4 className="text-sm font-bold text-foreground flex items-center gap-2">
-                <BarChart3 className="h-4 w-4 text-highlight" /> Projeção de Economia Financeira Acumulada
+              <h4 className="text-xs sm:text-sm font-bold text-foreground flex items-center gap-2">
+                <BarChart3 className="h-4 w-4 text-highlight shrink-0" /> Projeção de Economia Acumulada
               </h4>
-              <p className="text-xs text-muted-foreground">Em reais (R$) ao longo de 5 anos com energia solar e infraestrutura Eleva</p>
+              <p className="text-[11px] sm:text-xs text-muted-foreground">Em reais (R$) ao longo de 5 anos com solar e infraestrutura Eleva</p>
             </div>
-            <span className="text-xs font-extrabold text-green-600 bg-green-500/10 px-2 py-0.5 rounded">
-              Retorno Líquido Positivo
+            <span className="text-[10px] sm:text-xs font-extrabold text-green-600 bg-green-500/10 px-2 py-0.5 rounded">
+              Retorno Positivo
             </span>
           </div>
 
@@ -272,41 +272,41 @@ export function RoiInfrastructureSimulator() {
         </div>
 
         {/* GRÁFICO 2: PERFORMANCE & DISPONIBILIDADE */}
-        <div className="lg:col-span-5 rounded-2xl border border-border bg-background p-5 shadow-sm space-y-4">
-          <h4 className="text-sm font-bold text-foreground flex items-center gap-2">
-            <Activity className="h-4 w-4 text-highlight" /> Antes vs Depois: Estabilidade Operacional
+        <div className="lg:col-span-5 rounded-2xl border border-border bg-background p-4 sm:p-5 shadow-sm space-y-4">
+          <h4 className="text-xs sm:text-sm font-bold text-foreground flex items-center gap-2">
+            <Activity className="h-4 w-4 text-highlight shrink-0" /> Antes vs Depois: Estabilidade
           </h4>
-          <p className="text-xs text-muted-foreground">
+          <p className="text-[11px] sm:text-xs text-muted-foreground leading-relaxed">
             Comparativo entre cabeamento antigo/sem certificação vs Infraestrutura Certificada Eleva Matriz.
           </p>
 
           <div className="space-y-4 pt-2">
             <div>
-              <div className="flex justify-between text-xs font-semibold mb-1">
-                <span className="text-foreground">Estabilidade e Imunidade a Ruídos</span>
-                <span className="text-highlight font-bold">99.9% (Eleva) vs 65% (Tradicional)</span>
+              <div className="flex flex-col sm:flex-row sm:justify-between text-xs font-semibold mb-1 gap-0.5">
+                <span className="text-foreground">Estabilidade e Imunidade</span>
+                <span className="text-highlight font-bold text-[11px] sm:text-xs">99.9% (Eleva) vs 65%</span>
               </div>
-              <div className="h-3 w-full bg-muted rounded-full overflow-hidden flex">
+              <div className="h-2.5 sm:h-3 w-full bg-muted rounded-full overflow-hidden flex">
                 <div className="h-full bg-highlight rounded-full" style={{ width: "99.9%" }} />
               </div>
             </div>
 
             <div>
-              <div className="flex justify-between text-xs font-semibold mb-1">
+              <div className="flex flex-col sm:flex-row sm:justify-between text-xs font-semibold mb-1 gap-0.5">
                 <span className="text-foreground">Velocidade em Links Ópticos</span>
-                <span className="text-highlight font-bold">Até 50 Gb/s (Eleva) vs 1 Gb/s (Padrão)</span>
+                <span className="text-highlight font-bold text-[11px] sm:text-xs">Até 50 Gb/s vs 1 Gb/s</span>
               </div>
-              <div className="h-3 w-full bg-muted rounded-full overflow-hidden flex">
+              <div className="h-2.5 sm:h-3 w-full bg-muted rounded-full overflow-hidden flex">
                 <div className="h-full bg-primary rounded-full" style={{ width: "95%" }} />
               </div>
             </div>
 
             <div>
-              <div className="flex justify-between text-xs font-semibold mb-1">
-                <span className="text-foreground">Pontos Certificados com Analisador</span>
-                <span className="text-highlight font-bold">100% dos pontos com Laudo Gráfico</span>
+              <div className="flex flex-col sm:flex-row sm:justify-between text-xs font-semibold mb-1 gap-0.5">
+                <span className="text-foreground">Pontos Certificados</span>
+                <span className="text-highlight font-bold text-[11px] sm:text-xs">100% com Laudo Gráfico</span>
               </div>
-              <div className="h-3 w-full bg-muted rounded-full overflow-hidden flex">
+              <div className="h-2.5 sm:h-3 w-full bg-muted rounded-full overflow-hidden flex">
                 <div className="h-full bg-green-500 rounded-full" style={{ width: "100%" }} />
               </div>
             </div>
@@ -321,7 +321,7 @@ export function RoiInfrastructureSimulator() {
               rel="noopener"
               className="btn btn-highlight w-full text-xs font-bold justify-center"
             >
-              <MessageCircle className="h-4 w-4" /> Solicitar Proposta Técnica com estes Dados
+              <MessageCircle className="h-4 w-4 shrink-0" /> Solicitar Proposta Técnica
             </a>
           </div>
         </div>
@@ -398,21 +398,21 @@ export function TopologyExplorer() {
   const CurrentIcon = current.icon;
 
   return (
-    <div className="rounded-3xl border border-border bg-card p-6 md:p-10 shadow-xl">
+    <div className="rounded-2xl sm:rounded-3xl border border-border bg-card p-4 sm:p-6 md:p-10 shadow-xl overflow-hidden">
       <div className="text-center max-w-2xl mx-auto">
         <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 text-primary text-xs font-bold px-3 py-1 mb-2">
           <Layers className="h-3.5 w-3.5 text-highlight" /> Raio-X da Infraestrutura
         </div>
-        <h3 className="text-2xl md:text-3xl font-extrabold text-foreground">
+        <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-foreground">
           Topologia Completa: Como Conectamos Sua Empresa
         </h3>
-        <p className="mt-2 text-sm text-muted-foreground">
+        <p className="mt-2 text-xs sm:text-sm text-muted-foreground">
           Clique nas camadas abaixo para explorar visualmente cada etapa da engenharia integrada da Eleva Matriz.
         </p>
       </div>
 
       {/* SELETOR EM ABAS INTERATIVAS */}
-      <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5">
+      <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2">
         {TOPOLOGY_LAYERS.map((layer) => {
           const Icon = layer.icon;
           const isSelected = selectedLayer === layer.id;
@@ -420,51 +420,51 @@ export function TopologyExplorer() {
             <button
               key={layer.id}
               onClick={() => setSelectedLayer(layer.id)}
-              className={`flex flex-col items-center text-center p-3.5 rounded-2xl border transition-all ${
+              className={`flex flex-col items-center text-center p-2.5 sm:p-3.5 rounded-2xl border transition-all ${
                 isSelected
                   ? "border-highlight bg-highlight/10 text-primary shadow-md scale-102"
                   : "border-border bg-background text-muted-foreground hover:border-highlight/50 hover:text-foreground"
               }`}
             >
-              <div className={`grid h-10 w-10 place-items-center rounded-xl mb-2 ${
+              <div className={`grid h-9 w-9 sm:h-10 sm:w-10 place-items-center rounded-xl mb-1.5 sm:mb-2 shrink-0 ${
                 isSelected ? "bg-highlight text-white" : "bg-muted text-muted-foreground"
               }`}>
-                <Icon className="h-5 w-5" />
+                <Icon className="h-4.5 w-4.5 sm:h-5 sm:w-5" />
               </div>
-              <span className="text-xs font-bold line-clamp-2">{layer.name.replace(/^\d+\.\s*/, '')}</span>
+              <span className="text-[11px] sm:text-xs font-bold line-clamp-2 leading-tight">{layer.name.replace(/^\d+\.\s*/, '')}</span>
             </button>
           );
         })}
       </div>
 
       {/* RAIO-X VISUAL DA CAMADA SELECIONADA */}
-      <div className="mt-8 rounded-2xl border border-border bg-background p-6 md:p-8 flex flex-col md:flex-row items-center gap-8 shadow-sm">
-        <div className="grid h-24 w-24 shrink-0 place-items-center rounded-3xl bg-primary text-white shadow-xl shadow-primary/20">
-          <CurrentIcon className="h-12 w-12 text-highlight" />
+      <div className="mt-8 rounded-2xl border border-border bg-background p-4 sm:p-6 md:p-8 flex flex-col md:flex-row items-center gap-6 md:gap-8 shadow-sm">
+        <div className="grid h-20 w-20 sm:h-24 sm:w-24 shrink-0 place-items-center rounded-3xl bg-primary text-white shadow-xl shadow-primary/20">
+          <CurrentIcon className="h-10 w-10 sm:h-12 sm:w-12 text-highlight" />
         </div>
 
         <div className="flex-1 space-y-2 text-center md:text-left">
-          <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
-            <span className="inline-block rounded-md bg-accent px-2.5 py-0.5 text-xs font-bold text-accent-foreground">
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-1.5 sm:gap-2">
+            <span className="inline-block rounded-md bg-accent px-2.5 py-0.5 text-[11px] sm:text-xs font-bold text-accent-foreground">
               {current.badge}
             </span>
-            <span className="text-xs font-extrabold text-highlight bg-highlight/15 px-2.5 py-0.5 rounded-md">
+            <span className="text-[11px] sm:text-xs font-extrabold text-highlight bg-highlight/15 px-2.5 py-0.5 rounded-md">
               {current.metric}
             </span>
           </div>
-          <h4 className="text-xl font-bold text-foreground">{current.name}</h4>
-          <p className="text-sm text-muted-foreground leading-relaxed">{current.desc}</p>
+          <h4 className="text-lg sm:text-xl font-bold text-foreground">{current.name}</h4>
+          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{current.desc}</p>
           <p className="text-xs font-semibold text-primary pt-1 flex items-center justify-center md:justify-start gap-1.5">
-            <CheckCircle2 className="h-4 w-4 text-highlight" /> {current.highlight}
+            <CheckCircle2 className="h-4 w-4 text-highlight shrink-0" /> {current.highlight}
           </p>
         </div>
 
-        <div className="shrink-0">
+        <div className="w-full md:w-auto shrink-0 flex justify-center">
           <a
             href={waLink(`Olá! Gostaria de entender mais sobre a solução de ${current.name} para a minha empresa.`)}
             target="_blank"
             rel="noopener"
-            className="btn btn-outline text-xs font-bold"
+            className="btn btn-outline text-xs font-bold w-full sm:w-auto text-center"
           >
             Falar com Engenheiro <ArrowRight className="h-3.5 w-3.5" />
           </a>
@@ -533,21 +533,21 @@ export function ParanaCoverageMap() {
   const current = PARANA_HUBS[selectedHubIndex];
 
   return (
-    <div className="rounded-3xl border border-border bg-card p-6 md:p-10 shadow-xl">
+    <div className="rounded-2xl sm:rounded-3xl border border-border bg-card p-4 sm:p-6 md:p-10 shadow-xl overflow-hidden">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-border pb-6">
         <div>
           <div className="inline-flex items-center gap-2 rounded-full bg-highlight/15 text-highlight text-xs font-bold px-3 py-1 mb-2">
             <MapPin className="h-3.5 w-3.5" /> Presença Regional
           </div>
-          <h3 className="text-2xl md:text-3xl font-extrabold text-foreground">
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-foreground">
             Presença Técnica Comprovada no Paraná
           </h3>
-          <p className="mt-1 text-sm text-muted-foreground">
+          <p className="mt-1 text-xs sm:text-sm text-muted-foreground">
             Selecione uma região abaixo para conferir os projetos e complexos atendidos pela Eleva Matriz.
           </p>
         </div>
 
-        <span className="text-xs font-bold text-primary bg-primary/10 px-3 py-1.5 rounded-full border border-primary/20">
+        <span className="text-[11px] sm:text-xs font-bold text-primary bg-primary/10 px-3 py-1.5 rounded-full border border-primary/20 w-fit">
           Base em Londrina · Atendimento em Todo o PR
         </span>
       </div>
@@ -561,17 +561,17 @@ export function ParanaCoverageMap() {
               <button
                 key={hub.city}
                 onClick={() => setSelectedHubIndex(idx)}
-                className={`w-full text-left p-4 rounded-2xl border transition-all flex items-center justify-between ${
+                className={`w-full text-left p-3.5 sm:p-4 rounded-2xl border transition-all flex items-center justify-between ${
                   isSelected
                     ? "border-highlight bg-highlight/10 shadow-sm"
                     : "border-border bg-background hover:border-highlight/40"
                 }`}
               >
                 <div>
-                  <h4 className={`text-sm font-bold ${isSelected ? "text-primary font-black" : "text-foreground"}`}>
+                  <h4 className={`text-xs sm:text-sm font-bold ${isSelected ? "text-primary font-black" : "text-foreground"}`}>
                     {hub.city}
                   </h4>
-                  <p className="text-xs text-muted-foreground mt-0.5">{hub.role}</p>
+                  <p className="text-[11px] sm:text-xs text-muted-foreground mt-0.5">{hub.role}</p>
                 </div>
                 <div className={`grid h-8 w-8 place-items-center rounded-xl shrink-0 ${
                   isSelected ? "bg-highlight text-white" : "bg-muted text-muted-foreground"
@@ -584,21 +584,21 @@ export function ParanaCoverageMap() {
         </div>
 
         {/* DETALHES DO POLO SELECIONADO */}
-        <div className="lg:col-span-7 rounded-2xl border border-border bg-background p-6 md:p-8 flex flex-col justify-between shadow-sm">
+        <div className="lg:col-span-7 rounded-2xl border border-border bg-background p-4 sm:p-6 md:p-8 flex flex-col justify-between shadow-sm">
           <div>
-            <div className="flex items-center gap-2 mb-2">
-              <span className="inline-block rounded-md bg-highlight text-white text-xs font-bold px-2.5 py-0.5">
+            <div className="flex flex-wrap items-center gap-2 mb-2">
+              <span className="inline-block rounded-md bg-highlight text-white text-[11px] sm:text-xs font-bold px-2.5 py-0.5">
                 Projetos Entregues
               </span>
-              <span className="text-xs font-semibold text-muted-foreground">{current.role}</span>
+              <span className="text-[11px] sm:text-xs font-semibold text-muted-foreground">{current.role}</span>
             </div>
 
-            <h4 className="text-xl font-black text-foreground">{current.city}</h4>
+            <h4 className="text-lg sm:text-xl font-black text-foreground">{current.city}</h4>
             <p className="text-xs font-semibold text-highlight mt-1">{current.highlight}</p>
 
-            <ul className="mt-6 space-y-2.5">
+            <ul className="mt-5 space-y-2">
               {current.projects.map((proj) => (
-                <li key={proj} className="flex items-start gap-2.5 text-xs text-foreground leading-relaxed bg-muted/40 p-3 rounded-xl border border-border/60">
+                <li key={proj} className="flex items-start gap-2.5 text-xs text-foreground leading-relaxed bg-muted/40 p-2.5 sm:p-3 rounded-xl border border-border/60">
                   <CheckCircle2 className="h-4 w-4 text-highlight shrink-0 mt-0.5" />
                   <span>{proj}</span>
                 </li>
@@ -606,13 +606,13 @@ export function ParanaCoverageMap() {
             </ul>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-border flex items-center justify-between">
+          <div className="mt-6 pt-4 border-t border-border flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <span className="text-xs text-muted-foreground">Sua empresa nessa região?</span>
             <a
               href={waLink(`Olá! Minha empresa fica na região de ${current.city} e gostaria de agendar uma visita técnica.`)}
               target="_blank"
               rel="noopener"
-              className="btn btn-highlight text-xs py-2 px-4 font-bold"
+              className="btn btn-highlight text-xs py-2 px-4 font-bold w-full sm:w-auto text-center"
             >
               Agendar Visita Técnica
             </a>
@@ -658,39 +658,39 @@ export function ProcessFlow() {
   const [activeStep, setActiveStep] = useState<number>(0);
 
   return (
-    <div className="rounded-3xl border border-border bg-card p-6 md:p-10 shadow-xl">
+    <div className="rounded-2xl sm:rounded-3xl border border-border bg-card p-4 sm:p-6 md:p-10 shadow-xl overflow-hidden">
       <div className="text-center max-w-2xl mx-auto">
         <p className="eyebrow">Método & Rigor</p>
-        <h3 className="mt-2 text-2xl md:text-3xl font-extrabold text-foreground">
+        <h3 className="mt-2 text-xl sm:text-2xl md:text-3xl font-extrabold text-foreground">
           O Método Eleva Matriz: Do Diagnóstico à Certificação
         </h3>
-        <p className="mt-2 text-sm text-muted-foreground">
+        <p className="mt-2 text-xs sm:text-sm text-muted-foreground">
           Sem improviso ou gambiarras. Nosso fluxo segue padrão de engenharia com instrumentos calibrados e ART.
         </p>
       </div>
 
-      <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-8 sm:mt-10 grid gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {PROCESS_STEPS.map((s, idx) => {
           const isSelected = activeStep === idx;
           return (
             <div
               key={s.step}
               onClick={() => setActiveStep(idx)}
-              className={`cursor-pointer rounded-2xl border p-5 transition-all flex flex-col justify-between ${
+              className={`cursor-pointer rounded-2xl border p-4 sm:p-5 transition-all flex flex-col justify-between ${
                 isSelected
                   ? "border-highlight bg-highlight/10 shadow-lg scale-102"
                   : "border-border bg-background hover:border-highlight/50"
               }`}
             >
               <div>
-                <span className={`text-3xl font-black ${isSelected ? "text-highlight" : "text-muted-foreground/50"}`}>
+                <span className={`text-2xl sm:text-3xl font-black ${isSelected ? "text-highlight" : "text-muted-foreground/50"}`}>
                   {s.step}
                 </span>
-                <h4 className="mt-2 text-base font-bold text-foreground leading-snug">{s.title}</h4>
-                <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{s.desc}</p>
+                <h4 className="mt-1.5 sm:mt-2 text-sm sm:text-base font-bold text-foreground leading-snug">{s.title}</h4>
+                <p className="mt-1.5 sm:mt-2 text-xs text-muted-foreground leading-relaxed">{s.desc}</p>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-border/60">
+              <div className="mt-3 sm:mt-4 pt-2.5 sm:pt-3 border-t border-border/60">
                 <span className="text-[11px] font-bold text-primary block leading-tight">
                   ✓ {s.gain}
                 </span>
