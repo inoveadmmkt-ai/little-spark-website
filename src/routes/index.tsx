@@ -25,7 +25,6 @@ import { PROJECTS, SERVICES, FAQS, PERSONAS, COMPARISON, TEAM, pageHead, waLink,
 import { FinalCTA } from "@/components/site/Layout";
 import { LeadForm } from "@/components/site/Forms";
 import { DiagnosticWidget } from "@/components/site/DiagnosticWidget";
-import { ImageGallery } from "@/components/site/ImageGallery";
 import {
   RoiInfrastructureSimulator,
   TopologyExplorer,
@@ -310,11 +309,6 @@ function Index() {
       <section className="container-site py-10" aria-labelledby="mapa-titulo">
         <ParanaCoverageMap />
       </section>
-
-      {/* GALERIA FOTOGRÁFICA INTERATIVA DE OBRAS & ESTRUTURAS */}
-      <div className="bg-card/40 border-y border-border">
-        <ImageGallery />
-      </div>
 
       {/* POR QUE ESCOLHER A ELEVA MATRIZ */}
       <section className="bg-card py-20 border-y border-border" aria-labelledby="porque-titulo">
