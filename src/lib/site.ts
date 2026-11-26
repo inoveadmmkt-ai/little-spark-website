@@ -114,6 +114,16 @@ export const SERVICES = [
     gain: "Fim definitivo das quedas de conexão, velocidade nominal em 100% dos pontos e rede preparada para a expansão da empresa.",
   },
   {
+    slug: "certificacao-redes",
+    title: "Certificação de Cabeamento e Pontos de Rede com Analisador",
+    badge: "Diferencial Exclusivo & Laudo com ART",
+    photo: "/galeria/certificacao_fluke.jpg",
+    short: "Testes e certificação ponto a ponto de redes Cat6/6A e fibra óptica com equipamento analisador calibrado, gerando laudos técnicos e ART no CREA.",
+    what: "Auditoria técnica detalhada de cada terminação com analisador de redes de precisão, gerando relatório individual com curvas de perda, NEXT, atenuação, comprimento e conformidade com normas internacionais ANSI/TIA e ISO/IEC.",
+    who: "Empresas que instalaram ou expandiram redes de dados, hospitais, agências bancárias, indústrias e corporações que exigem comprovação pericial de velocidade máxima sem interferências.",
+    gain: "Certeza documental de que 100% dos pontos de rede operam na velocidade máxima nominal, sem perda de pacotes ou ruídos, com respaldo técnico assinado.",
+  },
+  {
     slug: "wifi-corporativo",
     title: "Soluções de Comunicação Sem Fio (Wi-Fi)",
     badge: "Alta Densidade & Cobertura",
@@ -164,16 +174,6 @@ export const SERVICES = [
     gain: "Economia imediata de até 90% na conta de luz, retorno garantido do investimento e valorização patrimonial imediata.",
   },
   {
-    slug: "certificacao-redes",
-    title: "Certificação de Cabeamento com Analisador",
-    badge: "Laudo & Homologação",
-    photo: "/galeria/certificacao_fluke.jpg",
-    short: "Testes e certificação ponto a ponto de redes Cat6/6A e fibra óptica com equipamento analisador calibrado.",
-    what: "Auditoria técnica detalhada de cada terminação com analisador de redes, gerando relatório individual com curvas de perda, NEXT, comprimento e conformidade com normas internacionais ANSI/TIA.",
-    who: "Empresas que contrataram instalações de rede ou que precisam de laudo pericial para auditorias, seguradoras e garantia do fabricante.",
-    gain: "Certeza documental de que 100% dos pontos de rede operam na velocidade máxima nominal, sem perda de pacotes ou ruídos.",
-  },
-  {
     slug: "engenharia-e-redes-residenciais",
     title: "Engenharia Elétrica & Redes Residenciais de Alto Padrão",
     badge: "Residencial & Condomínios",
@@ -205,13 +205,22 @@ export const PROJECTS = [
     result: "Rede certificada e homologada dentro dos rígidos padrões de segurança bancária, com relatórios técnicos individuais por ponto.",
   },
   {
-    client: "Universidade Tecnológica Federal do Paraná (UTFPR)",
+    client: "Universidade Tecnológica do Paraná",
     sector: "Educação",
     tag: "540 Pontos Cat6 & Telefonia 300 Pares",
     photo: "/galeria/wifi_corporativo.jpg",
     challenge: "Infraestrutura de alta demanda para salas de aula, laboratórios técnicos e setores acadêmicos integrados.",
     solution: "Projeto e execução de 540 pontos de rede Categoria 6, cabeamento vertical telefônico par metálico CTPAPL com 300 pares e instalação de 32 switches ativos (4 core e 28 de acesso).",
     result: "Ambiente universitário conectado com alta velocidade, estabilidade e capacidade de tráfego para milhares de estudantes e professores.",
+  },
+  {
+    client: "Instituição de Educação Profissional de Londrina",
+    sector: "Educação",
+    tag: "Wi-Fi Alta Densidade, 32 Câmeras & 11 APs",
+    photo: "/galeria/wifi_corporativo.jpg",
+    challenge: "Necessidade de conexão de WIFI sem oscilações para salas de aula, laboratórios, biblioteca e setores administrativos, câmeras de segurança em alta resolução para segurança de todos os ambientes.",
+    solution: "Execução de projeto de infraestrutura para cabeamento Cat.6, instalação de 32 pontos para câmeras de segurança e instalação de 11 pontos para rede WIFI. Cabeamento certificado garantindo alta performance na comunicação de dados.",
+    result: "Alcance e produtividade com conexão WIFI em todos os ambientes, monitoramento em alta definição para segurança do estabelecimento.",
   },
   {
     client: "Cooperativa Agropecuária e Industrial (Mandaguari-PR)",
@@ -234,10 +243,10 @@ export const PROJECTS = [
   {
     client: "Hospital Geral de Alta Complexidade (Londrina-PR)",
     sector: "Saúde",
-    tag: "7 Pavimentos & 600 Pontos Certificados",
+    tag: "600 Pontos de Rede Cat6 Certificados",
     photo: "/galeria/cabeamento_estruturado.jpg",
-    challenge: "Modernização da infraestrutura em ambiente hospitalar em funcionamento contínuo de 7 andares.",
-    solution: "Instalação de infraestrutura completa para cabeamento em 7 pavimentos, cabos ópticos para interligação de racks com 48 fusões e conectorização/certificação de 600 pontos de rede Cat6.",
+    challenge: "Modernização da infraestrutura em ambiente hospitalar em funcionamento contínuo de alta complexidade.",
+    solution: "Instalação de infraestrutura completa para cabeamento, cabos ópticos para interligação de racks com 48 fusões e conectorização/certificação de 600 pontos de rede Cat6 com analisador de precisão.",
     result: "Sistemas de UTI, farmácia e prontuário operando com zero latência e total confiabilidade no tráfego de exames pesados.",
   },
   {
@@ -250,7 +259,7 @@ export const PROJECTS = [
     result: "Integração plena entre faturamento, expedição de insumos e comunicação com clientes de todo o país.",
   },
   {
-    client: "3DJ Indústria e Comércio de Peças de Metais",
+    client: "3DJ Indústria e Comércio de Peças de Metais (Ibiporã-PR)",
     sector: "Indústria",
     tag: "Rede, CFTV & Usina Solar 133 Painéis",
     photo: "/galeria/energia_solar.jpg",
@@ -268,7 +277,7 @@ export const PROJECTS = [
     result: "Monitoramento em alta definição para segurança de centenas de moradores e facilidade de gestão para a administração predial.",
   },
   {
-    client: "Empresa de Tecnologia da Saúde Pública",
+    client: "Empresa de Tecnologia da Saúde Pública (Londrina-PR)",
     sector: "Saúde",
     tag: "Elétrica & Padrão de Entrada 400A",
     photo: "/galeria/eletrica_industrial.jpg",
@@ -277,7 +286,7 @@ export const PROJECTS = [
     result: "Energia elétrica estável, dimensionada para cargas contínuas e em total conformidade com normas técnicas e segurança com ART.",
   },
   {
-    client: "Demarco Peças e Equipamentos Ltda",
+    client: "Demarco Peças e Equipamentos Ltda (Ibiporã-PR)",
     sector: "Comércio",
     tag: "Rede Cat6, Wi-Fi & CFTV IP",
     photo: "/galeria/wifi_corporativo.jpg",
@@ -288,10 +297,10 @@ export const PROJECTS = [
   {
     client: "Escritório de Contabilidade (Rolândia-PR)",
     sector: "Corporativo",
-    tag: "Elétrica Completa, 110 Pontos & SPDA",
+    tag: "Elétrica Total, 110 Pontos de Cabeamento Estruturado & SPDA",
     photo: "/galeria/eletrica_industrial.jpg",
     challenge: "Instalação de nova sede com alta densidade de computadores, proteção contra raios e segurança eletrônica.",
-    solution: "Instalações elétricas completas, 110 pontos de rede Cat6, 16 câmeras CFTV e Sistema de Proteção contra Descargas Atmosféricas (SPDA).",
+    solution: "Instalações elétricas completas, 110 pontos de cabeamento estruturado Cat6, 16 câmeras CFTV e Sistema de Proteção contra Descargas Atmosféricas (SPDA).",
     result: "Sede entregue pronta para operação contínua, sem riscos de sobrecarga e com proteção total dos servidores de contabilidade.",
   },
   {

@@ -82,15 +82,26 @@ function Servicos() {
             key={s.slug}
             id={s.slug}
             aria-labelledby={`${s.slug}-t`}
-            className="reveal scroll-mt-28 rounded-2xl sm:rounded-3xl border border-border bg-card p-4 sm:p-8 md:p-12 shadow-sm transition-all hover:shadow-md overflow-hidden"
+            className={`reveal scroll-mt-28 rounded-2xl sm:rounded-3xl border ${
+              s.slug === "certificacao-redes"
+                ? "border-highlight/50 bg-gradient-to-br from-card via-card to-highlight/5 shadow-md ring-1 ring-highlight/20"
+                : "border-border bg-card shadow-sm"
+            } p-4 sm:p-8 md:p-12 transition-all hover:shadow-md overflow-hidden`}
           >
             <div className="flex flex-wrap items-center justify-between gap-3 sm:gap-4 border-b border-border pb-5 sm:pb-6">
               <div className="flex items-center gap-3 sm:gap-4">
                 <span className="text-2xl sm:text-3xl font-extrabold text-highlight md:text-4xl">0{i + 1}</span>
                 <div>
-                  <span className="inline-block rounded-md bg-accent px-2.5 py-0.5 text-[11px] sm:text-xs font-bold text-accent-foreground mb-1">
-                    {s.badge}
-                  </span>
+                  <div className="flex flex-wrap items-center gap-2 mb-1">
+                    <span className="inline-block rounded-md bg-accent px-2.5 py-0.5 text-[11px] sm:text-xs font-bold text-accent-foreground">
+                      {s.badge}
+                    </span>
+                    {s.slug === "certificacao-redes" && (
+                      <span className="inline-block rounded-md bg-highlight text-white px-2 py-0.5 text-[10px] sm:text-[11px] font-bold">
+                        Diferencial Estratégico
+                      </span>
+                    )}
+                  </div>
                   <h2 id={`${s.slug}-t`} className="text-xl sm:text-2xl font-extrabold text-foreground md:text-3xl">
                     {s.title}
                   </h2>

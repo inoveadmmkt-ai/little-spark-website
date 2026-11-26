@@ -53,8 +53,8 @@ function Portfolio() {
             <ShieldCheck className="h-6 w-6" />
           </div>
           <div className="text-sm leading-relaxed text-muted-foreground">
-            <strong className="text-foreground font-semibold">Responsabilidade Técnica Comprovada no CREA-PR:</strong>{" "}
-            A maioria dos projetos listados abaixo foram executados pelo Engenheiro Responsável Técnico <strong>Thiago Marin Barbosa</strong>, com responsabilidades técnicas e ARTs devidamente registradas no CREA-PR, consolidando o acervo de excelência da <strong>Eleva Matriz Engenharia</strong>.
+            <strong className="text-foreground font-semibold">Responsabilidade Técnica Comprovada no CREA:</strong>{" "}
+            Todos os projetos listados abaixo foram executados sob a responsabilidade técnica do Engenheiro <strong>Thiago Marin Barbosa</strong>, sócio da <strong>Eleva Matriz Engenharia</strong>, com as respectivas ARTs devidamente registradas no CREA. Sua trajetória profissional e experiência técnica representam um importante diferencial, agregando conhecimento, credibilidade e expertise à <strong>Eleva Matriz Engenharia</strong>.
           </div>
         </div>
 

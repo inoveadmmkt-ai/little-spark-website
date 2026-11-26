@@ -480,51 +480,48 @@ export function TopologyExplorer() {
 
 const PARANA_HUBS = [
   {
-    city: "Londrina & Região Metropolitana",
-    role: "Sede Operacional & Centro Técnico",
+    city: "Região Metropolitana de Londrina",
+    role: "Sede Operacional & Centro Técnico (Londrina, Ibiporã, Rolândia e Cambé)",
     projects: [
-      "Hospital Geral de Londrina (7 pavimentos, 600 pontos Cat6)",
+      "Hospital Geral de Londrina (600 pontos Cat6)",
       "Cooperativa de Trabalho Médico (1.463 pontos de rede)",
+      "Indústria de Carrocerias Metálicas em Ibiporã (630 pontos, anel óptico 2.000m 50Gb, 68 APs, 90 câmeras)",
+      "Escritório de Contabilidade em Rolândia (Elétrica total, 110 pontos de cabeamento estruturado, SPDA)",
       "Comércio de Produtos Agrícolas (1.100m fibra e 757 pontos)",
+      "Residencial de Alto Padrão em Cambé e Londrina (42 painéis solares, Wi-Fi e CFTV)",
       "Condomínio Residencial Vertical (106 câmeras CFTV IP)",
     ],
-    highlight: "Mais de 3.500 pontos de rede executados na região metropolitana.",
+    highlight: "Mais de 3.500 pontos de rede executados na região metropolitana de Londrina.",
   },
   {
-    city: "Ibiporã",
-    role: "Polo Industrial Metalmecânico",
+    city: "Região Norte Central & Vale do Ivaí",
+    role: "Polo Agroindustrial & Cooperativas (Mandaguari, Maringá e Região)",
     projects: [
-      "Indústria de Carrocerias Metálicas (630 pontos, anel óptico 2.000m 50Gb, 68 APs, 90 câmeras)",
-      "Indústria e Comércio de Correias (160 pontos Cat6 e telefonia)",
+      "Cooperativa Agropecuária e Industrial (Anel óptico 7.500m aéreo/subterrâneo, 160 fusões e 325 pontos Cat6)",
+      "Interligação de unidades fabris, armazéns e silos de grãos com redundância óptica",
+      "Infraestrutura de dados de alta disponibilidade para plantas industriais",
     ],
-    highlight: "Infraestrutura óptica de 50 Gb/s interligando plantas fabris.",
+    highlight: "Anel óptico aéreo e subterrâneo de 7,5 km com fusão eletrovoltaica de alta precisão.",
   },
   {
-    city: "Mandaguari & Região Norte Central",
-    role: "Polo Agroindustrial & Cooperativas",
+    city: "Demais Regiões do Paraná",
+    role: "Atendimento Presencial em Todo o Estado (Curitiba, Campos Gerais e Oeste)",
     projects: [
-      "Cooperativa Agropecuária e Industrial (Anel óptico 7.500m aéreo/subterrâneo, 160 fusões)",
-      "Interligação de unidades fabris, armazéns e silos de grãos",
+      "Mobilidade técnica e atendimento presencial ágil com equipe própria e equipamentos calibrados",
+      "Projetos corporativos e industriais em Curitiba, Ponta Grossa e Cascavel",
+      "Laudos técnicos, vistorias e execução com emissão de ART registrada no CREA-PR",
     ],
-    highlight: "Anel óptico aéreo e subterrâneo com fusão eletrovoltaica.",
+    highlight: "Atendimento e mobilidade técnica ágil em empresas de todo o estado do Paraná.",
   },
   {
-    city: "Rolândia & Cambé",
-    role: "Polo Corporativo & Residencial de Alto Padrão",
-    projects: [
-      "Escritório de Contabilidade em Rolândia (Elétrica total, 110 pontos e SPDA)",
-      "Residencial de Alto Padrão em Cambé (42 painéis solares, Wi-Fi e CFTV)",
-    ],
-    highlight: "Energia solar fotovoltaica e conformidade elétrica rigorosa.",
-  },
-  {
-    city: "Maringá, Curitiba, Ponta Grossa & Cascavel",
-    role: "Atendimento Presencial em Todo o Paraná",
+    city: "Paraná, São Paulo & Santa Catarina (PR, SP e SC)",
+    role: "Atendimento Corporativo Multiestadual",
     projects: [
       "Cooperativa de Crédito com 40 agências no PR, SP e SC (2.800 pontos certificados)",
-      "Atendimento presencial ágil com equipe própria e equipamentos calibrados",
+      "Padronização de infraestrutura de dados e segurança patrimonial bancária",
+      "Auditoria e laudos técnicos de certificação ponto a ponto com equipamento analisador",
     ],
-    highlight: "Mobilidade e atendimento em empresas de todo o estado.",
+    highlight: "Atuação interestadual com certificação de mais de 2.800 pontos de rede em 40 agências.",
   },
 ];
 
@@ -548,7 +545,7 @@ export function ParanaCoverageMap() {
         </div>
 
         <span className="text-[11px] sm:text-xs font-bold text-primary bg-primary/10 px-3 py-1.5 rounded-full border border-primary/20 w-fit">
-          Base em Londrina · Atendimento em Todo o PR
+          Base em Londrina · Atendimento em PR, SP e SC
         </span>
       </div>
 
