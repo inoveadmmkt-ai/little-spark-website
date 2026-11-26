@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { MessageCircle, CheckCircle2, ShieldCheck, ArrowRight } from "lucide-react";
-import { SERVICES, pageHead, waLink, REGION } from "@/lib/site";
+import { MessageCircle, CheckCircle2, ShieldCheck, ArrowRight, Factory, Store, Warehouse, Building2, Home } from "lucide-react";
+import { SERVICES, PERSONAS, pageHead, waLink, REGION } from "@/lib/site";
 import { FinalCTA } from "@/components/site/Layout";
-import { TopologyExplorer } from "@/components/site/InteractiveFeatures";
+import { TopologyExplorer, RoiInfrastructureSimulator } from "@/components/site/InteractiveFeatures";
 
 export const Route = createFileRoute("/servicos")({
   head: () =>
@@ -175,6 +175,70 @@ function Servicos() {
           </section>
         ))}
       </div>
+
+      {/* SOLUÇÕES POR SEGMENTO (PERSONAS) */}
+      <section className="border-t border-border bg-card/40 py-16 md:py-24" aria-labelledby="personas-titulo">
+        <div className="container-site">
+          <div className="text-center max-w-2xl mx-auto">
+            <p className="eyebrow">Atendimento Especializado</p>
+            <h2 id="personas-titulo" className="mt-3 text-3xl font-extrabold md:text-4xl text-foreground">
+              Soluções sob medida para a realidade do seu setor
+            </h2>
+            <p className="mt-4 text-muted-foreground text-sm sm:text-base">
+              Desenvolvemos pacotes de infraestrutura específicos para os gargalos e exigências de cada segmento de mercado.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+            {PERSONAS.map((p) => {
+              const Icon =
+                p.id === "industria"
+                  ? Factory
+                  : p.id === "cooperativas"
+                  ? Store
+                  : p.id === "saude"
+                  ? Warehouse
+                  : p.id === "residencial"
+                  ? Home
+                  : Building2;
+              return (
+                <div
+                  key={p.id}
+                  className="reveal flex flex-col justify-between rounded-3xl border border-border bg-card p-5 sm:p-6 shadow-sm transition-all hover:border-highlight/40 hover:shadow-md"
+                >
+                  <div>
+                    <div className="grid h-11 w-11 place-items-center rounded-2xl bg-highlight/10 text-highlight mb-4">
+                      <Icon className="h-5 w-5" aria-hidden />
+                    </div>
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-highlight">{p.target}</span>
+                    <h3 className="mt-1.5 text-lg font-bold text-foreground">{p.title}</h3>
+
+                    <div className="mt-4 space-y-2.5 text-xs leading-relaxed">
+                      <div className="rounded-xl bg-background border border-border p-3">
+                        <span className="font-bold text-muted-foreground block mb-0.5 text-[11px]">Maior desafio:</span>
+                        <span className="text-foreground">{p.pain}</span>
+                      </div>
+                      <div className="rounded-xl bg-accent/30 border border-primary/10 p-3">
+                        <span className="font-bold text-primary block mb-0.5 text-[11px]">Como resolvemos:</span>
+                        <span className="text-foreground">{p.solution}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-5 border-t border-border pt-3">
+                    <p className="text-xs font-semibold text-primary">✓ {p.benefit}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* SIMULADOR INTERATIVO DE ROI & INFRAESTRUTURA */}
+      <section className="container-site py-16 md:py-24" aria-labelledby="simulador-titulo">
+        <RoiInfrastructureSimulator />
+      </section>
 
       <FinalCTA />
     </>

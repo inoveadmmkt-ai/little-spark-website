@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Instagram, Facebook, Linkedin, Mail, MapPin, MessageCircle, Clock, Phone, ShieldCheck, Wrench, Briefcase } from "lucide-react";
+import { Instagram, Facebook, Linkedin, Mail, MapPin, MessageCircle, Clock, Phone, ShieldCheck, Wrench, Briefcase, HelpCircle } from "lucide-react";
 import {
   EMAIL,
   REGION,
@@ -8,6 +8,7 @@ import {
   PHONE_COMERCIAL_DISPLAY,
   PHONE_TECNICO_DISPLAY,
   CONTACT_CHANNELS,
+  FAQS,
   pageHead,
   waLink,
 } from "@/lib/site";
@@ -210,6 +211,31 @@ function Contato() {
               </span>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* FAQ COMPLETO NA PÁGINA DE CONTATO */}
+      <div className="mt-16 sm:mt-20 border-t border-border pt-12 sm:pt-16">
+        <div className="max-w-3xl">
+          <p className="eyebrow">Tire Suas Dúvidas</p>
+          <h2 className="mt-3 text-2xl sm:text-3xl font-extrabold text-foreground">
+            Perguntas Frequentes
+          </h2>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Respostas diretas sobre nossos processos de vistoria, atendimento em todo o Paraná e emissão de ART com CREA-PR.
+          </p>
+        </div>
+
+        <div className="mt-8 divide-y divide-border rounded-2xl sm:rounded-3xl border border-border bg-card shadow-sm">
+          {FAQS.map((faq, i) => (
+            <div key={i} className="p-5 sm:p-6">
+              <h3 className="flex items-start gap-2.5 text-sm sm:text-base font-bold text-foreground">
+                <HelpCircle className="h-5 w-5 text-highlight shrink-0 mt-0.5" />
+                {faq.q}
+              </h3>
+              <p className="mt-2 pl-7 text-xs sm:text-sm text-muted-foreground leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

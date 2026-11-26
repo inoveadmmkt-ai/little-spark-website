@@ -12,25 +12,14 @@ import {
   ChevronRight,
   HelpCircle,
   Instagram,
-  Factory,
-  Store,
-  Warehouse,
-  Building2,
-  Home,
-  XCircle,
   Sparkles,
 } from "lucide-react";
 import hero from "@/assets/hero.jpg";
-import { PROJECTS, SERVICES, FAQS, PERSONAS, COMPARISON, TEAM, pageHead, waLink, REGION } from "@/lib/site";
+import { PROJECTS, SERVICES, FAQS, TEAM, pageHead, waLink, REGION } from "@/lib/site";
 import { FinalCTA } from "@/components/site/Layout";
 import { LeadForm } from "@/components/site/Forms";
 import { DiagnosticWidget } from "@/components/site/DiagnosticWidget";
-import {
-  RoiInfrastructureSimulator,
-  TopologyExplorer,
-  ParanaCoverageMap,
-  ProcessFlow,
-} from "@/components/site/InteractiveFeatures";
+import { ParanaCoverageMap } from "@/components/site/InteractiveFeatures";
 
 export const Route = createFileRoute("/")({
   head: () =>
@@ -160,75 +149,6 @@ function Index() {
         </div>
       </section>
 
-      {/* NOVO: SIMULADOR INTERATIVO DE ROI & INFRAESTRUTURA */}
-      <section className="container-site py-16" aria-labelledby="simulador-titulo">
-        <RoiInfrastructureSimulator />
-      </section>
-
-      {/* SOLUÇÕES POR SEGMENTO (PERSONAS) */}
-      <section className="py-20 bg-background" aria-labelledby="personas-titulo">
-        <div className="container-site">
-          <div className="text-center max-w-2xl mx-auto">
-            <p className="eyebrow">Para Quem é a Eleva Matriz</p>
-            <h2 id="personas-titulo" className="mt-3 text-3xl font-extrabold md:text-4xl text-foreground">
-              Soluções integradas sob medida para o seu setor
-            </h2>
-            <p className="mt-4 text-muted-foreground text-lg">
-              Soluções completas para indústrias, cooperativas, hospitais, empresas e residências de alto padrão.
-            </p>
-          </div>
-
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-            {PERSONAS.map((p) => {
-              const Icon =
-                p.id === "industria"
-                  ? Factory
-                  : p.id === "cooperativas"
-                  ? Store
-                  : p.id === "saude"
-                  ? Warehouse
-                  : p.id === "residencial"
-                  ? Home
-                  : Building2;
-              return (
-                <div
-                  key={p.id}
-                  className="reveal flex flex-col justify-between rounded-3xl border border-border bg-card p-6 shadow-sm transition-all hover:border-highlight/40 hover:shadow-md"
-                >
-                  <div>
-                    <div className="grid h-12 w-12 place-items-center rounded-2xl bg-highlight/10 text-highlight mb-5">
-                      <Icon className="h-6 w-6" aria-hidden />
-                    </div>
-                    <span className="text-xs font-bold uppercase tracking-wider text-highlight">{p.target}</span>
-                    <h3 className="mt-2 text-xl font-bold text-foreground">{p.title}</h3>
-
-                    <div className="mt-4 space-y-3 text-xs leading-relaxed">
-                      <div className="rounded-xl bg-background border border-border p-3">
-                        <span className="font-bold text-muted-foreground block mb-0.5">Maior desafio:</span>
-                        <span className="text-foreground">{p.pain}</span>
-                      </div>
-                      <div className="rounded-xl bg-accent/30 border border-primary/10 p-3">
-                        <span className="font-bold text-primary block mb-0.5">Como resolvemos:</span>
-                        <span className="text-foreground">{p.solution}</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="mt-6 border-t border-border pt-4">
-                    <p className="text-xs font-semibold text-primary">✓ {p.benefit}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* NOVO: TOPOLOGIA VISUAL & RAIO-X INTERATIVO */}
-      <section className="container-site py-10" aria-labelledby="topologia-titulo">
-        <TopologyExplorer />
-      </section>
-
       {/* SERVIÇOS EM DESTAQUE COM VISUAL COMPACTO */}
       <section className="py-20" aria-labelledby="servicos-titulo">
         <div className="container-site">
@@ -300,16 +220,6 @@ function Index() {
         </div>
       </section>
 
-      {/* NOVO: O MÉTODO ELEVA MATRIZ (INFOGRÁFICO INTERATIVO) */}
-      <section className="container-site py-10" aria-labelledby="metodo-titulo">
-        <ProcessFlow />
-      </section>
-
-      {/* NOVO: PRESENÇA TÉCNICA E CASOS REAIS NO PARANÁ */}
-      <section className="container-site py-10" aria-labelledby="mapa-titulo">
-        <ParanaCoverageMap />
-      </section>
-
       {/* POR QUE ESCOLHER A ELEVA MATRIZ */}
       <section className="bg-card py-20 border-y border-border" aria-labelledby="porque-titulo">
         <div className="container-site">
@@ -337,52 +247,9 @@ function Index() {
         </div>
       </section>
 
-      {/* COMPARATIVO: ENGENHARIA TRADICIONAL VS ELEVA MATRIZ */}
-      <section className="py-20 bg-background" aria-labelledby="comparativo-titulo">
-        <div className="container-site">
-          <div className="text-center max-w-2xl mx-auto">
-            <p className="eyebrow">Transparência & Método</p>
-            <h2 id="comparativo-titulo" className="mt-3 text-3xl font-extrabold md:text-4xl text-foreground">
-              Como a Eleva Matriz se diferencia do mercado tradicional
-            </h2>
-            <p className="mt-4 text-muted-foreground text-lg">
-              Eliminamos a burocracia e a complicação para você tomar decisões elétricas com total segurança.
-            </p>
-          </div>
-
-          <div className="mt-12 overflow-hidden rounded-3xl border border-border bg-card shadow-sm">
-            <div className="grid grid-cols-1 md:grid-cols-3 border-b border-border bg-muted/40 p-4 font-bold text-sm text-foreground">
-              <div>Critério de Avaliação</div>
-              <div className="hidden md:flex items-center gap-1.5 text-muted-foreground">
-                <XCircle className="h-4 w-4 text-destructive/70" /> Mercado Tradicional
-              </div>
-              <div className="hidden md:flex items-center gap-1.5 text-primary">
-                <CheckCircle2 className="h-4 w-4 text-highlight" /> Padrão Eleva Matriz
-              </div>
-            </div>
-
-            <div className="divide-y divide-border">
-              {COMPARISON.map((c) => (
-                <div key={c.criterion} className="grid grid-cols-1 md:grid-cols-3 p-5 md:p-6 gap-4 items-center">
-                  <div className="font-bold text-foreground text-sm md:text-base">
-                    {c.criterion}
-                  </div>
-                  <div className="rounded-xl bg-background border border-border p-3 text-xs md:text-sm text-muted-foreground md:border-0 md:bg-transparent md:p-0">
-                    <span className="md:hidden font-bold text-destructive block mb-1">Mercado Tradicional:</span>
-                    {c.traditional}
-                  </div>
-                  <div className="rounded-xl bg-accent/30 border border-primary/10 p-3 text-xs md:text-sm font-medium text-foreground md:border-0 md:bg-transparent md:p-0">
-                    <span className="md:hidden font-bold text-primary block mb-1">Eleva Matriz:</span>
-                    <span className="flex items-start gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-highlight shrink-0 mt-0.5" />
-                      <span>{c.eleva}</span>
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+      {/* PRESENÇA TÉCNICA E CASOS REAIS NO PARANÁ */}
+      <section className="container-site py-16" aria-labelledby="mapa-titulo">
+        <ParanaCoverageMap />
       </section>
 
       {/* AUTOAVALIAÇÃO INTERATIVA (DIAGNÓSTICO) */}
@@ -498,7 +365,7 @@ function Index() {
           </div>
 
           <div className="mt-10 divide-y divide-border rounded-2xl border border-border bg-background">
-            {FAQS.map((faq, i) => (
+            {FAQS.slice(0, 3).map((faq, i) => (
               <div key={i} className="p-6">
                 <h3 className="flex items-center gap-2.5 text-base font-bold text-foreground">
                   <HelpCircle className="h-5 w-5 text-highlight shrink-0" aria-hidden />
@@ -509,13 +376,18 @@ function Index() {
             ))}
           </div>
 
-          <div className="mt-8 text-center">
-            <p className="text-sm text-muted-foreground">
-              Ficou com alguma outra dúvida sobre a infraestrutura da sua empresa?{" "}
-              <a href={waLink("Olá! Tenho uma dúvida sobre os serviços da Eleva Matriz.")} target="_blank" rel="noopener" className="font-bold text-primary underline">
-                Converse com a nossa equipe no WhatsApp
-              </a>
-            </p>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4 text-center">
+            <Link to="/contato" className="btn btn-outline text-xs sm:text-sm">
+              Ver mais perguntas e canais de contato
+            </Link>
+            <a
+              href={waLink("Olá! Tenho uma dúvida sobre os serviços da Eleva Matriz.")}
+              target="_blank"
+              rel="noopener"
+              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-primary hover:text-highlight"
+            >
+              <MessageCircle className="h-4 w-4" /> Falar no WhatsApp
+            </a>
           </div>
         </div>
       </section>

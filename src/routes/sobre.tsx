@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ShieldCheck, HeartHandshake, CheckCircle2, Clock, Award, Lightbulb, Scale, Network, Handshake, Users2, ArrowRight } from "lucide-react";
-import { pageHead, REGION, waLink, TEAM, MISSION, VISION, CORE_VALUES } from "@/lib/site";
+import { ShieldCheck, HeartHandshake, CheckCircle2, Clock, Award, Lightbulb, Scale, Network, Handshake, Users2, ArrowRight, XCircle } from "lucide-react";
+import { pageHead, REGION, waLink, TEAM, MISSION, VISION, CORE_VALUES, COMPARISON } from "@/lib/site";
 import { FinalCTA } from "@/components/site/Layout";
+import { ProcessFlow } from "@/components/site/InteractiveFeatures";
 
 export const Route = createFileRoute("/sobre")({
   head: () =>
@@ -126,6 +127,59 @@ function Sobre() {
                   );
                 })}
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* O MÉTODO ELEVA MATRIZ (INFOGRÁFICO INTERATIVO) */}
+      <section className="container-site py-12 md:py-20" aria-labelledby="metodo-titulo">
+        <ProcessFlow />
+      </section>
+
+      {/* COMPARATIVO: ENGENHARIA TRADICIONAL VS ELEVA MATRIZ */}
+      <section className="py-12 md:py-20 bg-card/40 border-y border-border" aria-labelledby="comparativo-titulo">
+        <div className="container-site">
+          <div className="text-center max-w-2xl mx-auto">
+            <p className="eyebrow">Transparência & Rigor</p>
+            <h2 id="comparativo-titulo" className="mt-3 text-3xl font-extrabold md:text-4xl text-foreground">
+              Como a Eleva Matriz se diferencia do mercado tradicional
+            </h2>
+            <p className="mt-4 text-muted-foreground text-sm sm:text-base">
+              Eliminamos intermediários e burocracia para você tomar decisões de infraestrutura com clareza e respaldo técnico.
+            </p>
+          </div>
+
+          <div className="mt-10 overflow-hidden rounded-3xl border border-border bg-card shadow-sm">
+            <div className="grid grid-cols-1 md:grid-cols-3 border-b border-border bg-muted/40 p-4 font-bold text-sm text-foreground">
+              <div>Critério de Avaliação</div>
+              <div className="hidden md:flex items-center gap-1.5 text-muted-foreground">
+                <XCircle className="h-4 w-4 text-destructive/70" /> Mercado Tradicional
+              </div>
+              <div className="hidden md:flex items-center gap-1.5 text-primary">
+                <CheckCircle2 className="h-4 w-4 text-highlight" /> Padrão Eleva Matriz
+              </div>
+            </div>
+
+            <div className="divide-y divide-border">
+              {COMPARISON.map((c) => (
+                <div key={c.criterion} className="grid grid-cols-1 md:grid-cols-3 p-4 sm:p-5 md:p-6 gap-3 sm:gap-4 items-center">
+                  <div className="font-bold text-foreground text-sm md:text-base">
+                    {c.criterion}
+                  </div>
+                  <div className="rounded-xl bg-background border border-border p-3 text-xs md:text-sm text-muted-foreground md:border-0 md:bg-transparent md:p-0">
+                    <span className="md:hidden font-bold text-destructive block mb-1">Mercado Tradicional:</span>
+                    {c.traditional}
+                  </div>
+                  <div className="rounded-xl bg-accent/30 border border-primary/10 p-3 text-xs md:text-sm font-medium text-foreground md:border-0 md:bg-transparent md:p-0">
+                    <span className="md:hidden font-bold text-primary block mb-1">Eleva Matriz:</span>
+                    <span className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-highlight shrink-0 mt-0.5" />
+                      <span>{c.eleva}</span>
+                    </span>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
